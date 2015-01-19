@@ -29,3 +29,9 @@ if (ENV === 'development') a11y();
 You probably don't want to call it if you're in production, and better
 yet, alias the module to nothing with webpack in production.
 
+If you want it to throw errors instead of just warnings:
+
+```
+a11y({throw: true});
+```
+
