@@ -3,6 +3,7 @@ React A11y
 
 Warns about potential accessibility issues with your React elements.
 
+![screenshot](http://i.imgur.com/naQTETB.png)
 
 WIP
 ---
