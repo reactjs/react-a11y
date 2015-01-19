@@ -1,6 +1,6 @@
 {
   "name": "react-a11y",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Warns about potential accessibility issues with your React elements.",
   "main": "./dist/index.js",
   "repository": {
@@ -10,7 +10,7 @@
   "homepage": "https://github.com/rackt/react-a11y/blob/latest/README.md",
   "bugs": "https://github.com/rackt/react-a11y/issues",
   "scripts": {
-    "test": "jsxhint . && karma start",
+    "test": "jsxhint . && karma start --single-run",
     "prepublish": "6to5 -d dist lib"
   },
   "authors": [
