@@ -1,4 +1,4 @@
-Rackt A11y
+React A11y
 ==========
 
 Warns about potential accessibility issues with your React elements.
