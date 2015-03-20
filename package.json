@@ -34,7 +34,7 @@
     "webpack": "^1.4.13"
   },
   "peerDependencies": {
-    "react": "0.12.x"
+    "react": "0.12.x || 0.13.x"
   },
   "tags": [
     "accessibility",
