@@ -1,0 +1,26 @@
+{
+  "name": "react-a11y",
+  "version": "0.0.6",
+  "homepage": "https://github.com/rackt/react-a11y.git",
+  "authors": [
+    "Ryan Florence"
+  ],
+  "description": "Warns about potential accessibility issues with your React elements.",
+  "main": "./dist/index.js",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "accessibility",
+    "react",
+    "a11y"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
