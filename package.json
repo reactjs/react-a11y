@@ -11,10 +11,12 @@
   "bugs": "https://github.com/rackt/react-a11y/issues",
   "scripts": {
     "test": "jsxhint . && karma start --single-run",
-    "prepublish": "6to5 -d dist lib"
+    "prepublish": "babel -d dist lib"
   },
   "authors": [
-    "Ryan Florence"
+    "Ryan Florence",
+    "Todd Kloots",
+    "Angus Croll"
   ],
   "license": "MIT",
   "devDependencies": {
