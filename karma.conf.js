@@ -3,6 +3,8 @@ var webpack = require('webpack');
 module.exports = function (config) {
   config.set({
 
+    browserNoActivityTimeout: 30000,
+
     browsers: [ process.env.CONTINUOUS_INTEGRATION ? 'Firefox' : 'Chrome' ],
 
     singleRun: process.env.CONTINUOUS_INTEGRATION === 'true',
@@ -18,10 +20,10 @@ module.exports = function (config) {
     },
 
     webpack: {
-      devtool: 'eval',
+      devtool: 'inline-source-map',
       module: {
         loaders: [
-          { test: /\.js$/, loader: 'jsx-loader?harmony' }
+          { test: /\.js$/, loader: 'babel-loader' }
         ]
       },
       plugins: [
