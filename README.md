@@ -1,6 +1,8 @@
 React A11y
 ==========
 
+[![build status](https://img.shields.io/travis/rackt/react-a11y/master.svg?style=flat-square)](https://travis-ci.org/rackt/react-a11y)
+
 Warns about potential accessibility issues with your React elements.
 
 ![screenshot](http://i.imgur.com/naQTETB.png)
