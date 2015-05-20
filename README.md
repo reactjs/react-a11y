@@ -34,5 +34,32 @@ yet, alias the module to nothing with webpack in production.
 If you want it to throw errors instead of just warnings:
 
 ```
-a11y(React, {throw: true});
+a11y(React, { throw: true });
+```
+
+You can filter failures by passing a function to the `filterFn` option. The
+filter function will receive three arguments: the name of the Component
+instance or ReactElement, the id of the element, and the failure message.
+Note: If a ReactElement, the name will be the node type followed by the id
+(e.g. div#foo).
+
+```
+var commentListFailures = (name, id, msg) => {
+  return name === "CommentList";
+};
+
+a11y(React, { filterFn: commentListFailures });
+```
+
+If you want to log DOM element references for easy lookups in the DOM inspector,
+use the `includeSrcNode` option.
+
+```
+a11y(React, { throw: true, includeSrcNode: true });
+```
+
+All failures are also accessible via the `getFailures()` method.
+
+```
+a11y.getFailures();
 ```
