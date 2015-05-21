@@ -1,5 +1,12 @@
+v0.1.1 - Thu, 21 May 2015 17:25:45 GMT
+--------------------------------------
+
+- [7c16747](../../commit/7c16747) Add filtering for different device types.
+
+
 v0.1.0 - Thu, 21 May 2015 03:41:08 GMT
 --------------------------------------
+
 - [6475a4a](../../commit/6475a4a) Add a means of filtering failures on a per-component basis
 - [9c0f970](../../commit/9c0f970) Add Travis build status
 - [34533d7](../../commit/34533d7) Drop React from peerDependency and rely on passing it in
