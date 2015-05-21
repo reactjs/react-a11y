@@ -1,3 +1,9 @@
+v0.1.1 - Thu, 21 May 2015 17:25:45 GMT
+--------------------------------------
+
+- 
+
+
 v0.1.0 - Thu, 21 May 2015 03:41:08 GMT
 --------------------------------------
 - [6475a4a](../../commit/6475a4a) Add a means of filtering failures on a per-component basis
