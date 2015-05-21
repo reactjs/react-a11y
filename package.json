@@ -12,7 +12,8 @@
   "scripts": {
     "test": "jsxhint . && mocha  --compilers js:babel/register lib/__tests__",
     "watch-tests": "npm test -- --watch",
-    "prepublish": "babel -d dist lib"
+    "prepublish": "babel -d dist lib",
+    "release": "release"
   },
   "authors": [
     "Ryan Florence",
