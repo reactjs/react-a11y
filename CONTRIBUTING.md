@@ -35,8 +35,6 @@ always be in sync.
 ### Development
 
 - `npm test` will fire up a karma test runner and watch for changes
-- `npm run examples` fires up a webpack dev server that will watch
-  for changes and build the examples
 
 ### Build
 
