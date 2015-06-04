@@ -58,12 +58,6 @@ use the `includeSrcNode` option.
 a11y(React, { throw: true, includeSrcNode: true });
 ```
 
-All failures are also accessible via the `getFailures()` method.
-
-```
-a11y.getFailures();
-```
-
 Some test are only relevant for certain device types. For example,
 if you are building a mobile web app, you can filter out
 desktop-specific rules by specifying a specific device type:
