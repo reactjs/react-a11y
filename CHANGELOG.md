@@ -1,3 +1,9 @@
+v0.2.0 - Mon, 08 Jun 2015 19:27:33 GMT
+--------------------------------------
+
+- [c4d52fc](../../commit/c4d52fc) [fixed] Issue where label assertion returns a false negative when label is inside a child Component (fixes #44) [added] Tests to ensure anchors with a tabIndex but without an href require an ARIA button role (fixes #45) [added] selection and option to the list of interactive elements that require labels [removed] getFailures() method since all failures are now logged asynchronously
+
+
 v0.1.1 - Thu, 21 May 2015 17:25:45 GMT
 --------------------------------------
 
