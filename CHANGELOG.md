@@ -1,3 +1,9 @@
+v0.2.1 - Mon, 08 Jun 2015 23:02:25 GMT
+--------------------------------------
+
+- [8c6a7ce](../../commit/8c6a7ce) [fixed] bug where the label assertion can return a false failure #48
+
+
 v0.2.0 - Mon, 08 Jun 2015 19:27:33 GMT
 --------------------------------------
 
