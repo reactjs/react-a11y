@@ -1,3 +1,10 @@
+v0.2.2 - Tue, 09 Jun 2015 18:06:39 GMT
+--------------------------------------
+
+- [8f2a22a](../../commit/8f2a22a) [fixed] bug where label assertion didn't account for the label being an image created by a custom component (resolves #52) [fixed] bug where label assertion wouldn't fail when none of the child Components have label text (resolves #53)
+- [2c47c8d](../../commit/2c47c8d) [fixed] issue where elements with the presentation role required a label. resolves #50
+
+
 v0.2.1 - Mon, 08 Jun 2015 23:02:25 GMT
 --------------------------------------
 
