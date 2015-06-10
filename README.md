@@ -65,3 +65,9 @@ desktop-specific rules by specifying a specific device type:
 ```
 a11y(React, { device: ['mobile'] });
 ```
+
+It's also possible exclude certain tests:
+
+```
+a11y(React, { exclude: ['REDUNDANT_ALT'] });
+```
