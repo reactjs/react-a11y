@@ -1,3 +1,9 @@
+v0.2.4 - Wed, 10 Jun 2015 20:33:32 GMT
+--------------------------------------
+
+- [66aea56](../../commit/66aea56) [added] docs for excluding tests to the README (resolves #60)
+
+
 v0.2.3 - Wed, 10 Jun 2015 17:07:25 GMT
 --------------------------------------
 
