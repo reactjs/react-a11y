@@ -1,7 +1,7 @@
 v0.2.3 - Wed, 10 Jun 2015 17:07:25 GMT
 --------------------------------------
 
-- 
+- [6f38fe8](../../commit/6f38fe8) [Added] Ability to exclude tests (resolves #57)
 
 
 v0.2.2 - Tue, 09 Jun 2015 18:06:39 GMT
