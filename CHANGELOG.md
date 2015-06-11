@@ -1,3 +1,9 @@
+v0.2.5 - Thu, 11 Jun 2015 06:05:16 GMT
+--------------------------------------
+
+- [4d1f885](../../commit/4d1f885) [fixed] bug where placeholder links required a tabindex and an ARIA role (closes #62) [fixed] bug where elements with role=none required a label (closes #63) [fixed] bug where elements with aria-hidden required a label (closes #64) [added] test to ensure interactive elements hidden using aria-hidden are removed from the tab flow
+
+
 v0.2.4 - Wed, 10 Jun 2015 20:33:32 GMT
 --------------------------------------
 
