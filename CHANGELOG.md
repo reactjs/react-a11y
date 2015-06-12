@@ -1,3 +1,9 @@
+v0.2.6 - Fri, 12 Jun 2015 22:28:58 GMT
+--------------------------------------
+
+- [598c8f8](../../commit/598c8f8) [fixed] Label test should require a label for placeholder anchors (resolves #68) [fixed] Label assertion errors if label is a number (resolves #67)
+
+
 v0.2.5 - Thu, 11 Jun 2015 06:05:16 GMT
 --------------------------------------
 

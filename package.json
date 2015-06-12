@@ -1,6 +1,6 @@
 {
   "name": "react-a11y",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Warns about potential accessibility issues with your React elements.",
   "main": "./dist/index.js",
   "repository": {
