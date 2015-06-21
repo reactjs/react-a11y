@@ -22,7 +22,7 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "babel-runtime": "^5.1.11",
+    "babel-runtime": "^5.1.11"
   },
   "devDependencies": {
     "babel": "^5.2.17",
