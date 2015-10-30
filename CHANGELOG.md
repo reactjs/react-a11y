@@ -1,3 +1,13 @@
+v0.2.7 - Fri, 30 Oct 2015 15:46:37 GMT
+--------------------------------------
+
+- [f43b546](../../commit/f43b546) [fixed] Spelling error
+- [26afd1e](../../commit/26afd1e) [fixed] correctly accounting for aria-labelledby (resolves #87)
+- [0e6bb84](../../commit/0e6bb84) [added] includeSrcNode takes "asString" as option.
+- [2f5f942](../../commit/2f5f942) [added] warningPrefix option
+- [bdc24df](../../commit/bdc24df) [added] "picture" to the list of redundant words in img[alt]
+
+
 v0.2.6 - Fri, 12 Jun 2015 22:28:58 GMT
 --------------------------------------
 
