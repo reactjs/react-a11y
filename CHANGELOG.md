@@ -1,3 +1,9 @@
+v0.2.8 - Fri, 30 Oct 2015 17:01:59 GMT
+--------------------------------------
+
+- [78eb833](../../commit/78eb833) [fixed] correctly accounting for aria-labelledby (resolves #99)
+
+
 v0.2.7 - Fri, 30 Oct 2015 15:46:37 GMT
 --------------------------------------
 
