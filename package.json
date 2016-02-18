@@ -12,7 +12,7 @@
   "scripts": {
     "test": "jsxhint . && karma start --single-run",
     "watch-tests": "npm test -- --watch",
-    "prepublish": "babel --optional runtime lib --out-dir dist",
+    "prepublish": "babel lib --out-dir dist",
     "release": "release"
   },
   "authors": [
@@ -25,7 +25,6 @@
     "babel": "^5.2.17",
     "babel-core": "^5.2.17",
     "babel-loader": "^5.0.0",
-    "babel-runtime": "^5.1.11",
     "jsx-loader": "^0.12.2",
     "jsxhint": "^0.8.1",
     "karma": "^0.13.3",
@@ -36,6 +35,7 @@
     "karma-sourcemap-loader": "^0.3.2",
     "karma-webpack": "^1.7.0",
     "mocha": "^2.0.1",
+    "object.assign": "^4.0.3",
     "react": "^0.12 || ^0.13 || ^0.14",
     "rf-release": "0.4.0",
     "webpack": "^1.4.13"
