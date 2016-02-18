@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 
 var plugins = [
+  'transform-object-assign',
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production')
   })
@@ -35,7 +36,14 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader?optional=runtime' }
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          plugins: ['transform-object-assign']
+        }
+      }
     ]
   }
 
