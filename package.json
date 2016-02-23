@@ -37,6 +37,7 @@
     "mocha": "^2.0.1",
     "object.assign": "^4.0.3",
     "react": "^0.12 || ^0.13 || ^0.14",
+    "react-dom": "^0.14.7",
     "rf-release": "0.4.0",
     "webpack": "^1.4.13"
   },

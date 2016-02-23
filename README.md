@@ -71,3 +71,12 @@ It's also possible exclude certain tests:
 ```
 a11y(React, { exclude: ['REDUNDANT_ALT'] });
 ```
+
+ReactDOM
+--------
+
+You can pass `ReactDOM` to `a11y` for `React 0.14` compatibility.
+
+```
+a11y(React, { ReactDOM: ReactDOM });
+```
