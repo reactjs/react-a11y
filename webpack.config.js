@@ -19,7 +19,7 @@ if (process.env.COMPRESS) {
 module.exports = {
 
   output: {
-    library: 'Rackt.A11y',
+    library: 'ReactJS.A11y',
     libraryTarget: 'var'
   },
 
