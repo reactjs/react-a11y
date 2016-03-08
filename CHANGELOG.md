@@ -1,3 +1,21 @@
+v0.3.0 - Tue, 08 Mar 2016 05:15:59 GMT
+--------------------------------------
+
+- [78eb833](../../commit/78eb833) [fixed] correctly accounting for aria-labelledby (resolves #99)
+- [f43b546](../../commit/f43b546) [fixed] Spelling error
+- [26afd1e](../../commit/26afd1e) [fixed] correctly accounting for aria-labelledby (resolves #87)
+- [0e6bb84](../../commit/0e6bb84) [added] includeSrcNode takes "asString" as option.
+- [2f5f942](../../commit/2f5f942) [added] warningPrefix option
+- [bdc24df](../../commit/bdc24df) [added] "picture" to the list of redundant words in img[alt]
+- [598c8f8](../../commit/598c8f8) [fixed] Label test should require a label for placeholder anchors (resolves #68) [fixed] Label assertion errors if label is a number (resolves #67)
+- [4d1f885](../../commit/4d1f885) [fixed] bug where placeholder links required a tabindex and an ARIA role (closes #62) [fixed] bug where elements with role=none required a label (closes #63) [fixed] bug where elements with aria-hidden required a label (closes #64) [added] test to ensure interactive elements hidden using aria-hidden are removed from the tab flow
+- [66aea56](../../commit/66aea56) [added] docs for excluding tests to the README (resolves #60)
+- [8f2a22a](../../commit/8f2a22a) [fixed] bug where label assertion didn't account for the label being an image created by a custom component (resolves #52) [fixed] bug where label assertion wouldn't fail when none of the child Components have label text (resolves #53)
+- [2c47c8d](../../commit/2c47c8d) [fixed] issue where elements with the presentation role required a label. resolves #50
+- [8c6a7ce](../../commit/8c6a7ce) [fixed] bug where the label assertion can return a false failure #48
+- [c4d52fc](../../commit/c4d52fc) [fixed] Issue where label assertion returns a false negative when label is inside a child Component (fixes #44) [added] Tests to ensure anchors with a tabIndex but without an href require an ARIA button role (fixes #45) [added] selection and option to the list of interactive elements that require labels [removed] getFailures() method since all failures are now logged asynchronously
+
+
 v0.2.8 - Fri, 30 Oct 2015 17:01:59 GMT
 --------------------------------------
 
