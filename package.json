@@ -35,7 +35,6 @@
     "karma-sourcemap-loader": "^0.3.2",
     "karma-webpack": "^1.7.0",
     "mocha": "^2.0.1",
-    "object.assign": "^4.0.3",
     "react": "^0.12 || ^0.13 || ^0.14",
     "react-dom": "^0.14.7",
     "rf-release": "0.4.0",
@@ -50,5 +49,8 @@
     "accessibility",
     "react",
     "a11y"
-  ]
+  ],
+  "dependencies": {
+    "object.assign": "^4.0.3"
+  }
 }
