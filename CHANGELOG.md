@@ -1,3 +1,9 @@
+v0.3.1 - Wed, 09 Mar 2016 19:19:52 GMT
+--------------------------------------
+
+- [2e59bba](../../commit/2e59bba) [fixed] Move object.assign from devDeps to deps (resolves #115)
+
+
 v0.3.0 - Tue, 08 Mar 2016 05:15:59 GMT
 --------------------------------------
 
