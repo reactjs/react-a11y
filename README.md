@@ -80,3 +80,14 @@ You can pass `ReactDOM` to `a11y` for `React 0.14` compatibility.
 ```
 a11y(React, { ReactDOM: ReactDOM });
 ```
+
+Cleaning Up In Tests
+--------------------
+
+Use the `restoreAll()` method to clean up mutations made to `React`.
+Useful if you are using React-a11y in your test suite.
+
+```js
+beforeEach(() => a11y(React));
+afterEach(() => a11y.restoreAll());
+```
