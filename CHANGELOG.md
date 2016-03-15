@@ -1,3 +1,9 @@
+v0.3.2 - Tue, 15 Mar 2016 00:15:55 GMT
+--------------------------------------
+
+- [db67e43](../../commit/db67e43) [added] a11y.restoreAll() method to clean up mutations to React
+
+
 v0.3.1 - Wed, 09 Mar 2016 19:19:52 GMT
 --------------------------------------
 
