@@ -10,7 +10,7 @@
   "homepage": "https://github.com/reactjs/react-a11y/blob/latest/README.md",
   "bugs": "https://github.com/reactjs/react-a11y/issues",
   "scripts": {
-    "test": "jsxhint . && karma start --single-run",
+    "test": "karma start --single-run",
     "watch-tests": "npm test -- --watch",
     "prepublish": "babel lib --out-dir dist",
     "release": "release"
