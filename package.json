@@ -51,6 +51,5 @@
     "a11y"
   ],
   "dependencies": {
-    "object.assign": "^4.0.3"
   }
 }
