@@ -155,6 +155,8 @@ and document differences here.
   - Fixed upstream issue [#102](https://github.com/reactjs/react-a11y/issues/102)
     by correctly inferring the component instance.
 
+  - Removed depency on `object.assign`
+
 ## TO DO
 
 These are things I need to do in the short run to make the project
