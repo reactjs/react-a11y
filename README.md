@@ -51,7 +51,7 @@ accessibility tests.
 #### `throw : boolean`
 If you want it to throw errors instead of just warnings:
 
-```
+```js
 a11y(React, { throw: true })
 ```
 
