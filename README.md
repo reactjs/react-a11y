@@ -139,7 +139,6 @@ and document differences here.
   - To use `includeSrcNode`, one __must__ pass `ReactDOM` as
     well.  `a11y` will throw an error if you don't do this.
     This is because I want to move away from pre-`0.14` React.
-
   - Started using `ReactDOM.finDOMNode` instead of `document.getElementById`, as
     noted in upstream [#54](https://github.com/reactjs/react-a11y/issues/54).
     This fixes a lot of issues from upstream:
@@ -151,10 +150,8 @@ and document differences here.
       checks
     - [#85](https://github.com/reactjs/react-a11y/issues/85) Different
       react-a11y ids (server side render)
-
   - Fixed upstream issue [#102](https://github.com/reactjs/react-a11y/issues/102)
     by correctly inferring the component instance.
-
   - Removed depency on `object.assign`
 
 ## TO DO
