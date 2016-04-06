@@ -12,82 +12,115 @@ WIP
 
 This is a WIP, feel free to explore, open issues, and suggest assertions :)
 
-Installation
-------------
+## Installation
 
-`npm install react-a11y`
+Run:
 
-Usage
------
+```sh
+npm install react-a11y
+```
+
+## Usage
 
 In your main application file, require and call the module, you'll start
 getting warnings in the console as your app renders.
 
 ```js
-var a11y = require('react-a11y');
-if (ENV === 'development') a11y(React);
+if (ENV === 'development') {
+  const a11y = require('react-a11y').default
+  a11y(React)
+}
 ```
 
-You probably don't want to call it if you're in production, and better
-yet, alias the module to nothing with webpack in production.
+You probably don't want to call it if you're in production.
 
+## Options
+
+```js
+a11y(React : React, opts : object? )
+```
+
+`React` is the React object you want to shim to allow the 
+accessibility tests.
+
+### `options`
+
+#### `throw : boolean`
 If you want it to throw errors instead of just warnings:
 
 ```
-a11y(React, { throw: true });
+a11y(React, { throw: true })
 ```
 
+#### `filterFn : (string, string, string) => boolean`
 You can filter failures by passing a function to the `filterFn` option. The
 filter function will receive three arguments: the name of the Component
 instance or ReactElement, the id of the element, and the failure message.
-Note: If a ReactElement, the name will be the node type followed by the id
-(e.g. div#foo).
 
-```
-var commentListFailures = (name, id, msg) => {
+Note: If a ReactElement, the name will be the node type (eg. `div`)
+
+```js
+// only show errors on CommentList
+const commentListFailures = function (name, id, msg) {
   return name === "CommentList";
-};
+}
 
 a11y(React, { filterFn: commentListFailures });
 ```
 
-If you want to log DOM element references for easy lookups in the DOM inspector,
-use the `includeSrcNode` option.
+#### `includeSrcNode : boolean`
 
+If you want to log DOM element references for easy lookups in the DOM inspector,
+use the `includeSrcNode` option.  Because the lookup of the DOM nodes requires
+`react-dom`, you must also pass that as an option:
+
+```js
+import ReactDOM from 'react-dom'
+// ...
+a11y(React, {
+  includeSrcNode: true
+, ReactDOM: ReactDOM
+})
 ```
-a11y(React, { throw: true, includeSrcNode: true });
-```
+
+If you're using `react-a11y` on the server-side, always set `includeSrcNode` to
+`false`.  The way DOM-lookups work is that they wait until everything is
+rendered into the DOM and emit the warning after DOM update, but this doesn't happen
+on the server-side, so no warnings will be shown.
+
+#### `device : [ string ]`
 
 Some test are only relevant for certain device types. For example,
 if you are building a mobile web app, you can filter out
 desktop-specific rules by specifying a specific device type:
 
+```js
+a11y(React, {
+  device: ['mobile']
+})
 ```
-a11y(React, { device: ['mobile'] });
-```
+
+#### `exclude : [string]`
 
 It's also possible exclude certain tests:
 
-```
-a11y(React, { exclude: ['REDUNDANT_ALT'] });
-```
-
-ReactDOM
---------
-
-You should pass `ReactDOM` to `a11y` for `React >= 0.14` compatibility.
-
-```
-a11y(React, { ReactDOM: ReactDOM });
+```js
+a11y(React, {
+  exclude: ['REDUNDANT_ALT']
+})
 ```
 
-Cleaning Up In Tests
---------------------
+
+## Cleaning Up In Tests
 
 Use the `restoreAll()` method to clean up mutations made to `React`.
-Useful if you are using React-a11y in your test suite.
+Useful if you are using `react-a11y` in your test suite:
 
 ```js
-beforeEach(() => a11y(React));
-afterEach(() => a11y.restoreAll());
+beforeEach(() => a11y(React))
+afterEach(() => a11y.restoreAll())
 ```
+
+[react-a11y]: https://github.com/reactjs/react-a11y
+[eslint]:     http://eslint.org
+
