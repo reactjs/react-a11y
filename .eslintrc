@@ -177,9 +177,7 @@ rules:
   no-sync:                            off      # disallow use of synchronous methods
 
   # Stylistic Issues
-  array-bracket-spacing:                       # enforce spacing inside array brackets
-    - error
-    - always
+  array-bracket-spacing:               off     # enforce spacing inside array brackets
   block-spacing:                       error   # enforce spaces inside of single line blocks
   brace-style:                                 # enforce one true brace style
     - error
@@ -220,7 +218,7 @@ rules:
   new-cap:                             off     # require a capital letter for constructors
   new-parens:                          error   # disallow the omission of parentheses when invoking a constructor with no arguments
   newline-after-var:                   off     # require or disallow an empty newline after variable declarations
-  newline-before-return:               error   # require newline before return statement
+  newline-before-return:               off     # require newline before return statement
   newline-per-chained-call:                    # enforce newline after each call when chaining the calls
     - warn
     - ignoreChainWithDepth: 3
