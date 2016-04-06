@@ -14,10 +14,10 @@ module.exports = function (config) {
     , 'karma-sourcemap-loader'
     ]
   , files: [
-      'lib/__tests__/*.js'
+      'test/**/*.js'
     ]
   , preprocessors: {
-      'lib/__tests__/*.js': [ 'webpack', 'sourcemap' ]
+      'test/**/*.js': [ 'webpack', 'sourcemap' ]
     }
   // , reporters: [ 'dots' ]
   , webpack: {
