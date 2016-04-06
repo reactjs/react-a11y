@@ -7,8 +7,7 @@ Warns about potential accessibility issues with your React elements.
 
 ![screenshot](http://i.imgur.com/naQTETB.png)
 
-WIP
----
+## WIP
 
 This is a WIP, feel free to explore, open issues, and suggest assertions :)
 
@@ -19,6 +18,10 @@ Run:
 ```sh
 npm install react-a11y
 ```
+
+I want to prevent creating a new `npm` package for the fork, to reduce
+confusion and ease possible merging of the forks. However, if there is
+enough interest, I will probably do it anyway.
 
 ## Usage
 
