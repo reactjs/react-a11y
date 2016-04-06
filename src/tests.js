@@ -1,24 +1,25 @@
 import assertions from './assertions'
 
 const shouldRunTest = function (testName, options = {} ) {
-  let {
+  const {
     exclude = []
   , device
   } = options
 
-  if ( device == 'mobile' ) {
-    exclude = exclude.concat(assertions.mobileExclusions)
-  }
+  const exclusions = device === 'mobile'
+    ? exclude.concat(assertions.mobileExclusions)
+    : exclude
 
-  return exclude.indexOf(testName) === -1
+  return exclusions.indexOf(testName) === -1
 }
 
 const runTagTests = function (tagName, props, children, options, onFailure) {
   const tagTests = assertions.tags[tagName] || []
 
   Object.keys(tagTests).forEach(function (key) {
-    const testFailed = shouldRunTest(key, options) &&
-      !tagTests[key].test(tagName, props, children)
+    const testFailed =
+      shouldRunTest(key, options)
+      && !tagTests[key].test(tagName, props, children)
 
     if (tagTests[key] && testFailed) {
       onFailure(tagName, props, tagTests[key].msg)
@@ -29,10 +30,13 @@ const runTagTests = function (tagName, props, children, options, onFailure) {
 const runPropTests = function (tagName, props, children, options, onFailure) {
   Object.keys(props).forEach(function (propName) {
     if ( props[propName] !== null || props[propName] !== undefined ) {
-      const propTests = assertions.props[propName] || [];
+
+      const propTests = assertions.props[propName] || []
+
       Object.keys(propTests).forEach(function (key) {
-        const testTailed = shouldRunTest(key, options) &&
-          !propTests[key].test(tagName, props, children)
+        const testTailed =
+          shouldRunTest(key, options)
+          && !propTests[key].test(tagName, props, children)
 
         if (propTests[key] && testTailed) {
           onFailure(tagName, props, propTests[key].msg)
@@ -42,7 +46,7 @@ const runPropTests = function (tagName, props, children, options, onFailure) {
   })
 }
 
-var runLabelTests = function (tagName, props, children, options, onFailure) {
+const runLabelTests = function (tagName, props, children, options, onFailure) {
   const renderTests = assertions.render
 
   Object.keys(renderTests).forEach(function (key) {
@@ -56,7 +60,7 @@ var runLabelTests = function (tagName, props, children, options, onFailure) {
 }
 
 // run all tests
-const allTests = [runTagTests, runPropTests, runLabelTests]
+const allTests = [ runTagTests, runPropTests, runLabelTests ]
 const runTests = function (tagName, props, children, options, onFailure) {
   allTests.forEach(function (test) {
     test(tagName, props, children, options, onFailure)
