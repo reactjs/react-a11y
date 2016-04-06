@@ -1,6 +1,7 @@
 CONTRIBUTING.md
 bower.json
-lib
+src
+dist
 karma.conf.js
 scripts
 webpack.config.js

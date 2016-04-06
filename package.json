@@ -2,7 +2,7 @@
   "name": "react-a11y",
   "version": "0.3.2",
   "description": "Warns about potential accessibility issues with your React elements.",
-  "main": "./dist/index.js",
+  "main": "./lib/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/reactjs/react-a11y.git"
@@ -12,8 +12,8 @@
   "scripts": {
     "test": "karma start --single-run",
     "watch-tests": "npm test -- --watch",
-    "lint": "eslint lib",
-    "build": "babel lib --out-dir dist",
+    "lint": "eslint src",
+    "build": "babel src --out-dir lib",
     "prepublish": "npm run build",
     "release": "release",
     "bundle": "webpack",
