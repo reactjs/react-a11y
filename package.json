@@ -15,7 +15,8 @@
     "lint": "eslint lib",
     "build": "babel lib --out-dir dist",
     "prepublish": "npm run build",
-    "release": "release"
+    "release": "release",
+    "preview-release": "changelog -t previes -s"
   },
   "authors": [
     "Ryan Florence",
