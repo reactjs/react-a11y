@@ -11,6 +11,8 @@ the love it deserves.__
 The original repo had a lot of open issues and unmerged pull requests.
 Eventually, I would like to see all code merged back into the original!
 
+To see what's changed, look at [Differences from
+`react-a11y`](#differences-from-upstream-react-a11y).
 
 ## WIP
 
@@ -137,6 +139,21 @@ and document differences here.
   - To use `includeSrcNode`, one __must__ pass `ReactDOM` as
     well.  `a11y` will throw an error if you don't do this.
     This is because I want to move away from pre-`0.14` React.
+
+  - Started using `ReactDOM.finDOMNode` instead of `document.getElementById`, as
+    noted in upstream [#54](https://github.com/reactjs/react-a11y/issues/54).
+    This fixes a lot of issues from upstream:
+    - [#54](https://github.com/reactjs/react-a11y/issues/54) Use
+      React.findDOMNode to log element references
+    - [#55](https://github.com/reactjs/react-a11y/issues/55) Consider using ref
+      to log element references when there is a warning
+    - [#77](https://github.com/reactjs/react-a11y/issues/77) Breaks pure-render
+      checks
+    - [#85](https://github.com/reactjs/react-a11y/issues/85) Different
+      react-a11y ids (server side render)
+
+  - Fixed upstream issue [#102](https://github.com/reactjs/react-a11y/issues/102)
+    by correctly inferring the component instance.
 
 ## TO DO
 
