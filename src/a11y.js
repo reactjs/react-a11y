@@ -1,24 +1,22 @@
 import after   from './after'
 import defs    from './defaults'
 import browser from './util/browser'
+import test    from './test'
 
-class A11y {
+export default class A11y {
 
   /**
-   * @arg React            - The React instance you want to patch
+   * @arg {object} React   - The React instance you want to patch
    * @arg {object} options - the options
+   * @returns {A11y} The react-a11y instance
    */
   constructor (React, options = {}) {
-    this.options  = defs(options)  // extend default opts
-    this.React    = React          // save react for undoing patches
-    this.ReactDOM = opts.ReactDOM  // save ReactDOM, we'll need it
+    this.options  = defs(options)         // extend default opts
+    this.React    = React                 // save react for undoing patches
+    this.ReactDOM = this.options.ReactDOM
 
     if (!this.React && !this.React.createElement) {
       throw new Error('Missing parameter: React')
-    }
-
-    if (!this.ReactDOM) {
-      throw new Error('Missing option: ReactDOM')
     }
 
     this.patchReact()
@@ -27,6 +25,7 @@ class A11y {
   /**
    * Patch React, replacing its createElement by our implementation
    * so we can run the tests
+   * @returns {undefined}
    */
   patchReact () {
 
@@ -57,7 +56,7 @@ class A11y {
       // does not matter
       const newProps  = typeof klass === 'string' ? { ...props, ref } : props
 
-      const reactEl   = that._createElement(type, newProps, ...children)
+      const reactEl   = that._createElement(klass, newProps, ...children)
 
       // only test html elements
       if (typeof klass === 'string') {
@@ -67,7 +66,7 @@ class A11y {
           ? props.children || []
           : children
 
-        runTests(klass, props, childrenForTest, that.options, handler)
+        test(klass, props, childrenForTest, that.options, handler)
       }
 
       return reactEl
@@ -76,6 +75,7 @@ class A11y {
 
   /**
    * Restore React and all components as if we were never here
+   * @returns {undefined}
    */
   restoreAll () {
     this.React.createElement = this._createElement
@@ -84,8 +84,9 @@ class A11y {
 
   /**
    * Creates a failure handler based on the element that was created
-   * @arg reactEl - The react element this failure is for
-   * @arg refs    - The object that holds the DOM node (passed by ref)
+   * @arg {object} reactEl - The react element this failure is for
+   * @arg {object} refs    - The object that holds the DOM node (passed by ref)
+   * @returns {function} A handler that knows everything it needs to know
    */
   failureHandler (reactEl, refs) {
     const {
@@ -97,6 +98,7 @@ class A11y {
      * @arg {string} type  - The HTML tagname of the element
      * @arg {object} props - The props that were passed to the element
      * @arg {string} msg   - The warning message
+     * @returns {undefined}
      */
     return function (type, props, msg) {
 
@@ -122,7 +124,7 @@ class A11y {
       // if we need to include the rendered node, we need to wait until
       // the owner has rendered
       if ( owner && browser ) {
-        const instance = component._instance
+        const instance = owner._instance
         // Cannot log a node reference until the component is in the DOM,
         // so defer the call until componentDidMount or componentDidUpdate.
         after.render(instance, function () {
