@@ -3,10 +3,10 @@ import assertions from './assertions'
 const shouldRunTest = function (testName, options = {} ) {
   const {
     exclude = []
-  , device
+  , device  = []
   } = options
 
-  const exclusions = device === 'mobile'
+  const exclusions = device.indexOf('mobile') > -1
     ? exclude.concat(assertions.mobileExclusions)
     : exclude
 
