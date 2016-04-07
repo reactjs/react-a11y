@@ -2,9 +2,9 @@ import React      from 'react'
 import ReactDOM   from 'react-dom'
 import assert     from 'assert'
 
-import a11y       from '../lib/index'
-import  _after    from '../lib/after'
-import assertions from '../lib/assertions'
+import a11y       from '../src/index'
+import  _after    from '../src/after'
+import assertions from '../src/assertions'
 
 var k = () => {};
 
