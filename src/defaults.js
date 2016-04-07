@@ -1,9 +1,8 @@
-import after   from './after'
-
 /**
  * Throws an error based on the warning
  * If the last argument is a DOM node, it
  * coerces it to a string before throwing.
+ * @returns {undefined}
  */
 const throwError = function (...args) {
   const last = args[args.length - 1]
@@ -19,6 +18,7 @@ const throwError = function (...args) {
 
 /**
  * Show a warning
+ * @returns {undefined}
  */
 const showWarning = function (...args) {
   console.warn(...args)
@@ -26,7 +26,8 @@ const showWarning = function (...args) {
 
 /**
  * Creates a reporter function based on deprecated options
- * @arg opts - The options passed by the user
+ * @arg {object} opts - The options passed by the user
+ * @returns {function} The reporter
  */
 const mkReporter = function (opts) {
   const {
@@ -61,6 +62,7 @@ const mkReporter = function (opts) {
  * @arg {object} opts - the options object under scrutiny
  * @arg {string} name - the name of the deprecated option
  * @arg {string} msg  - an optional reason for the deprecation
+ * @returns {undefined}
  */
 const deprecate = function (opts, name, msg = '') {
   if ( name in opts ) {
@@ -73,6 +75,7 @@ const deprecate = function (opts, name, msg = '') {
  * @arg {object} opts - the options object under scrutiny
  * @arg {string} name - the name of the mandatory option
  * @arg {string} msg  - an optional reason
+ * @returns {undefined}
  */
 const mandatory = function (opts, name, msg = '') {
   if ( !(name in opts) ) {
@@ -84,11 +87,12 @@ const mandatory = function (opts, name, msg = '') {
 const always = () => true
 
 // deprecation message
-const msg = 'Use the `reporter` option to change the way warnings are displayed."
+const msg = 'Use the `reporter` option to change how warnings are displayed.'
 
 /**
  * Normalize and validate the options that the user passed in.
  * @arg {object} opts - The opts the user passed in
+ * @returns {object} the validated options
  */
 export default function (opts = {}) {
   deprecate(opts, 'includeSrcNode', msg)
@@ -97,7 +101,7 @@ export default function (opts = {}) {
   mandatory(opts, 'ReactDOM')
 
   const {
-    reporter     = mkReporter(opts) // make a reporter based on (deprecated) options
+    reporter     = mkReporter(opts) // make a reporter based on options
   , filterFn     = always
   , plugins      = []
   , rules        = {}
