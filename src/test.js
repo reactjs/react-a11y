@@ -30,8 +30,14 @@ const normalize = function (opts = 'off') {
 
 export default class Suite {
 
-  constructor (options) {
-    this.options = options
+  constructor (React, options) {
+    this.options  = options
+    this.React    = React
+    this.ReactDOM = this.options.ReactDOM
+
+    if (!this.React && !this.React.createElement) {
+      throw new Error('Missing parameter: React')
+    }
 
     const {
       plugins = []

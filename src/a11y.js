@@ -1,7 +1,7 @@
 import after   from './after'
 import defs    from './defaults'
 import browser from './util/browser'
-import test    from './test'
+import Suite   from './test'
 
 export default class A11y {
 
@@ -18,6 +18,8 @@ export default class A11y {
     if (!this.React && !this.React.createElement) {
       throw new Error('Missing parameter: React')
     }
+
+    this.suite = new Suite(React, options)
 
     this.patchReact()
   }
@@ -66,7 +68,7 @@ export default class A11y {
           ? props.children || []
           : children
 
-        test(klass, props, childrenForTest, that.options, handler)
+        that.suite.test(klass, props, childrenForTest, handler)
       }
 
       return reactEl
