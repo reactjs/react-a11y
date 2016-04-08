@@ -29,90 +29,92 @@ In your main application file, require and call the module, you'll start
 getting warnings in the console as your app renders.
 
 ```js
+import React    from 'react'
+import ReactDOM from 'react-dom'
+import a11y     from 'react-a11y'
+
 if (ENV === 'development') {
-  const a11y = require('react-a11y').default
-  a11y(React)
+  const a11y = require('react-a11y')
+  a11y(React, ReactDOM, {
+    // options
+  })
 }
 ```
 
-You probably don't want to call it if you're in production.
+You probably don't want to call it if you're in production, since it patches the 
+React rendering functions and this might make this slower.
 
 ## Options
 
+These are the supported configuration options, annotated using [flow][] type
+annotations
+
 ```js
-a11y(React : React, opts : object? )
+a11y(React : React, ReactDOM : ReactDOM, opts : object? )
 ```
 
 `React` is the React object you want to shim to allow the 
 accessibility tests.
 
-### `options`
+`ReactDOM` is the ReactDOM object you're using to render the
+React components (usually `react-dom` on the client-side and 
+`react-dom/server` on the server).
 
-#### `throw : boolean`
-If you want it to throw errors instead of just warnings:
+`options`:
+  - `plugins : [string]`
+    An array of strings corresponding to names of plugins to be used.
+    Eg. if the array contains `'aria-wai'` it would include the rules 
+    in a (yet to be written) `react-a11y-plugin-aria-wai` module.  You
+    are responsible for installing this module.
 
-```js
-a11y(React, { throw: true })
-```
+  - `rules : object`
+    The configuration options for each of the rules. This uses the same format
+    as [eslint][] does: 
+    ```js
+    const rules = {
+      'img-uses-alt': 'off'
+    , 'label-uses-for': [
+        'warn', // other options to pass to the rule
+      ]
+    }
 
-#### `filterFn : (string, string, string) => boolean`
-You can filter failures by passing a function to the `filterFn` option. The
-filter function will receive three arguments: the name of the Component
-instance or ReactElement, the id of the element, and the failure message.
+    ```
 
-Note: If a ReactElement, the name will be the node type (eg. `div`)
+  - `reporter : object => undefined`
+    Use this to modify how the warnings are displayed.
+    The reporter is a function that accepts an object with
+    the following keys:
+    - `msg : string` - the error message
+    - `tagName : string` - the tagName of the violating element (eg. `'img'`)
+    - `severity : string` - the severity as configured by the user in the 
+      corresponding rule configuration (one of `'off'`, `'warn'`, or `'error'`)
+    - `props : object` - the props as passed to the element
+    - `displayName : string?` - the `displayName` of the owner, if any
+    - `DOMNode : object?` - the violating DOMNode as rendered to the browser
+      DOM, this is only available on when `react-a11y` is running in the
+      browser.
+    - `url : string` - The url to a webpage explaining the reason why to listen
+      to this rule.
+    The default reporter displays all the information it can, but listens
+    to the deprecated options `includeSrcNode`, `warningPrefix` and
+    `throwErro and `throwError`.
 
-```js
-// only show errors on CommentList
-const commentListFailures = function (name, id, msg) {
-  return name === "CommentList";
-}
+  - `filterFn : (string, string, string) => boolean`
+    You can filter failures by passing a function to the `filterFn` option. The
+    filter function will receive three arguments: the name of the Component
+    instance or ReactElement, the id of the violating element, and the failure
+    message.
 
-a11y(React, { filterFn: commentListFailures });
-```
+    Note: If a ReactElement, the name will be the node type (eg. `div`)
 
-#### `includeSrcNode : boolean`
+    ```js
+    // only show errors on CommentList
+    const commentListFailures = function (name, id, msg) {
+      return name === "CommentList";
+    }
 
-If you want to log DOM element references for easy lookups in the DOM inspector,
-use the `includeSrcNode` option.  Because the lookup of the DOM nodes requires
-`react-dom`, you must also pass that as an option:
-
-```js
-import ReactDOM from 'react-dom'
-// ...
-a11y(React, {
-  includeSrcNode: true
-, ReactDOM: ReactDOM
-})
-```
-
-If you're using `react-a11y` on the server-side, always set `includeSrcNode` to
-`false`.  The way DOM-lookups work is that they wait until everything is
-rendered into the DOM and emit the warning after DOM update, but this doesn't happen
-on the server-side, so no warnings will be shown.
-
-#### `device : [ string ]`
-
-Some test are only relevant for certain device types. For example,
-if you are building a mobile web app, you can filter out
-desktop-specific rules by specifying a specific device type:
-
-```js
-a11y(React, {
-  device: ['mobile']
-})
-```
-
-#### `exclude : [string]`
-
-It's also possible exclude certain tests:
-
-```js
-a11y(React, {
-  exclude: ['REDUNDANT_ALT']
-})
-```
-
+    a11y(React, ReactDOM, { filterFn: commentListFailures });
+    ```
 
 ## Cleaning Up In Tests
 
@@ -126,4 +128,4 @@ afterEach(() => a11y.restoreAll())
 
 [react-a11y]: https://github.com/reactjs/react-a11y
 [eslint]:     http://eslint.org
-
+[flow]:       http://flowtype.org
