@@ -40,15 +40,19 @@ const mkReporter = function (opts) {
       msg
     , owner
     , DOMNode
+    , url
+    , tagName
+    , severity
     } = info
 
     // build warning
     const warning = [
       owner
     , warningPrefix.concat(msg)
-    ].concat(DOMNode || [])
+    , `see ${url}`
+    ].concat(DOMNode || tagName)
 
-    if ( doThrow ) {
+    if ( doThrow || severity === 'error' ) {
       throwError(...warning)
     } else {
       showWarning(...warning)
