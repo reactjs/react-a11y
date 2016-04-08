@@ -3,7 +3,7 @@ import a11y from '../util'
 export default ctx => ({
   img (props) {
 
-    if ( props.alt !== 'string' ) {
+    if ( typeof props.alt !== 'string' ) {
       // no alt is present
 
       ctx.report({
@@ -14,6 +14,7 @@ export default ctx => ({
           a11y.devices.screenReaders
         ]
       })
+
     } else if ( props.alt === '' && props.role !== 'presentation' ) {
       // alt is empty and role="presentation" is not set
 
