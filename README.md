@@ -1,8 +1,6 @@
 React A11y
 ==========
 
-[![build status](https://img.shields.io/travis/reactjs/react-a11y/master.svg?style=flat-square)](https://travis-ci.org/reactjs/react-a11y)
-
 Warns about potential accessibility issues with your React elements.
 
 __This is a fork of [`reactjs/react-a11y`][react-a11y], that didn't seem to get
@@ -14,16 +12,20 @@ Eventually, I would like to see all code merged back into the original!
 To see what's changed, look at [Differences from
 `react-a11y`](#differences-from-upstream-react-a11y).
 
-## WIP
+## `next`
 
-This is a WIP, feel free to explore, open issues, and suggest assertions :)
+This is the `next` branch, where I move away from the original
+`reactjs/react-a11y` codebase and API.  The API will be different,
+but I will try to make the transition between API's as smooth as possible
+by adding deprecation warnings and building the new defaults on top of the 
+old API.
 
 ## Installation
 
 Run:
 
 ```sh
-npm install romeovs/react-a11y
+npm install romeovs/react-a11y@next
 ```
 
 I want to prevent creating a new `npm` package for the fork, to reduce
@@ -36,90 +38,92 @@ In your main application file, require and call the module, you'll start
 getting warnings in the console as your app renders.
 
 ```js
+import React    from 'react'
+import ReactDOM from 'react-dom'
+import a11y     from 'react-a11y'
+
 if (ENV === 'development') {
-  const a11y = require('react-a11y').default
-  a11y(React)
+  const a11y = require('react-a11y')
+  a11y(React, ReactDOM, {
+    // options
+  })
 }
 ```
 
-You probably don't want to call it if you're in production.
+You probably don't want to call it if you're in production, since it patches the 
+React rendering functions and this might make this slower.
 
 ## Options
 
+These are the supported configuration options, annotated using [flow][] type
+annotations
+
 ```js
-a11y(React : React, opts : object? )
+a11y(React : React, ReactDOM : ReactDOM, opts : object? )
 ```
 
 `React` is the React object you want to shim to allow the 
 accessibility tests.
 
-### `options`
+`ReactDOM` is the ReactDOM object you're using to render the
+React components (usually `react-dom` on the client-side and 
+`react-dom/server` on the server).
 
-#### `throw : boolean`
-If you want it to throw errors instead of just warnings:
+`options`:
+  - `plugins : [string]`
+    An array of strings corresponding to names of plugins to be used.
+    Eg. if the array contains `'aria-wai'` it would include the rules 
+    in a (yet to be written) `react-a11y-plugin-aria-wai` module.  You
+    are responsible for installing this module.
 
-```js
-a11y(React, { throw: true })
-```
+  - `rules : object`
+    The configuration options for each of the rules. This uses the same format
+    as [eslint][] does: 
+    ```js
+    const rules = {
+      'img-uses-alt': 'off'
+    , 'label-uses-for': [
+        'warn', // other options to pass to the rule
+      ]
+    }
 
-#### `filterFn : (string, string, string) => boolean`
-You can filter failures by passing a function to the `filterFn` option. The
-filter function will receive three arguments: the name of the Component
-instance or ReactElement, the id of the element, and the failure message.
+    ```
 
-Note: If a ReactElement, the name will be the node type (eg. `div`)
+  - `reporter : object => undefined`
+    Use this to modify how the warnings are displayed.
+    The reporter is a function that accepts an object with
+    the following keys:
+    - `msg : string` - the error message
+    - `tagName : string` - the tagName of the violating element (eg. `'img'`)
+    - `severity : string` - the severity as configured by the user in the 
+      corresponding rule configuration (one of `'off'`, `'warn'`, or `'error'`)
+    - `props : object` - the props as passed to the element
+    - `displayName : string?` - the `displayName` of the owner, if any
+    - `DOMNode : object?` - the violating DOMNode as rendered to the browser
+      DOM, this is only available on when `react-a11y` is running in the
+      browser.
+    - `url : string` - The url to a webpage explaining the reason why to listen
+      to this rule.
+    The default reporter displays all the information it can, but listens
+    to the deprecated options `includeSrcNode`, `warningPrefix` and
+    `throwErro and `throwError`.
 
-```js
-// only show errors on CommentList
-const commentListFailures = function (name, id, msg) {
-  return name === "CommentList";
-}
+  - `filterFn : (string, string, string) => boolean`
+    You can filter failures by passing a function to the `filterFn` option. The
+    filter function will receive three arguments: the name of the Component
+    instance or ReactElement, the id of the violating element, and the failure
+    message.
 
-a11y(React, { filterFn: commentListFailures });
-```
+    Note: If a ReactElement, the name will be the node type (eg. `div`)
 
-#### `includeSrcNode : boolean`
+    ```js
+    // only show errors on CommentList
+    const commentListFailures = function (name, id, msg) {
+      return name === "CommentList";
+    }
 
-If you want to log DOM element references for easy lookups in the DOM inspector,
-use the `includeSrcNode` option.  Because the lookup of the DOM nodes requires
-`react-dom`, you must also pass that as an option:
-
-```js
-import ReactDOM from 'react-dom'
-// ...
-a11y(React, {
-  includeSrcNode: true
-, ReactDOM: ReactDOM
-})
-```
-
-If you're using `react-a11y` on the server-side, always set `includeSrcNode` to
-`false`.  The way DOM-lookups work is that they wait until everything is
-rendered into the DOM and emit the warning after DOM update, but this doesn't happen
-on the server-side, so no warnings will be shown.
-
-#### `device : [ string ]`
-
-Some test are only relevant for certain device types. For example,
-if you are building a mobile web app, you can filter out
-desktop-specific rules by specifying a specific device type:
-
-```js
-a11y(React, {
-  device: ['mobile']
-})
-```
-
-#### `exclude : [string]`
-
-It's also possible exclude certain tests:
-
-```js
-a11y(React, {
-  exclude: ['REDUNDANT_ALT']
-})
-```
-
+    a11y(React, ReactDOM, { filterFn: commentListFailures });
+    ```
 
 ## Cleaning Up In Tests
 
@@ -136,9 +140,9 @@ afterEach(() => a11y.restoreAll())
 I will try to stay close to the upstream `react-a11y` API,
 and document differences here.
 
-  - To use `includeSrcNode`, one __must__ pass `ReactDOM` as
-    well.  `a11y` will throw an error if you don't do this.
-    This is because I want to move away from pre-`0.14` React.
+  - The API is totally different on this branch,
+    I implemented a simple plugin system so other poeple can write and publish
+    rules.
   - Started using `ReactDOM.finDOMNode` instead of `document.getElementById`, as
     noted in upstream [#54](https://github.com/reactjs/react-a11y/issues/54).
     This fixes a lot of issues from upstream:
@@ -159,26 +163,44 @@ and document differences here.
 These are things I need to do in the short run to make the project
 usable:
 
-  - [ ] add a build-step that mirrors changes in code-style such as
+  - [x] add a build-step that mirrors changes in code-style such as
     increased use of ES6 features.
-  - [ ] add [`eslint`][eslint] config so poeple can collaborate
+  - [x] add [`eslint`][eslint] config so poeple can collaborate
     more easy.
+  - [ ] put up a travis worker to make merging easier.
+  - [ ] write docs about how to write plugins.
+  - [ ] implement all the rules that are in upstream and in
+    `eslint-plugin-jsx-a11y`.
+    - [x] `img-uses-alt` (`MISSING_ALT`)
+    - [x] `label-uses-for`
+    - [x] `mouse-events-map-to-key-events`
+    - [ ] `no-access-key`
+    - [ ] `no-hash-ref`
+    - [ ] `onclick-uses-role`
+    - [ ] `redundant-alt`
+    - [ ] `use-onblur-not-onchange`
+    - [ ] `valid-aria-role`
+    - [ ] `clickhandler-but-no-role` (`NO_ROLE`)
+    - [ ] `clickhandler-but-no-tabindex` (`NO_TABINDEX`)
+    - [ ] `button-role-space` (`BUTTON_ROLE_SPACE`)
+    - [ ] `button-role-enter` (`BUTTON_ROLE_ENTER`)
+    - [ ] `tabindex-required-when-aria-hidden`
+    - [ ] `hash-href-needs-button`
+    - [ ] `tabindex-needs-button`
 
 ## Plans
 
 These are some plans I've dreamt up for `react-a11y`:
 
-  - [ ] **make rules pluggable like [eslint][eslint].**  It would be nice
+  - [x] **make rules pluggable like [eslint][eslint].**  It would be nice
     for everyone to be able to write their own rules and inject
     them into `react-a11y`.  First of all, this would mean less 
     maintenance for me, since poeple can build their own, and it 
     would make `react-a11y` a formidable validation tool.
   - [ ] **create a nice project page** with documentation, because
     that is what poeple like these days.
-  - [ ] move away from global variables in modules, everything is lamda.
-    This would make some bugs less likely.
-
+  - create filtering options based on rule outputs like `affects`
 
 [react-a11y]: https://github.com/reactjs/react-a11y
 [eslint]:     http://eslint.org
-
+[flow]:       http://flowtype.org
