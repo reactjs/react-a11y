@@ -3,11 +3,13 @@ import ReactDOM   from 'react'
 import A11y       from '../../src/a11y'
 import { expect } from 'chai'
 
-const onWarn = function (rule, el, cb) {
+const onWarn = function (rule, el, needCall, cb) {
   return function (done) {
+    let called = false
     const a11y = new A11y(React, {
       ReactDOM
     , reporter (info) {
+        called = true
         a11y.restoreAll()
         cb(info)
       }
@@ -24,12 +26,15 @@ const onWarn = function (rule, el, cb) {
     el()
 
     // because of sync mode, we can callback here
+    if ( needCall ) {
+      expect(called).to.be.true
+    }
     done()
   }
 }
 
 export const warns = function (rule, title, re, el) {
-  it(title, onWarn(rule, el, function (info) {
+  it(title, onWarn(rule, el, true, function (info) {
     const {
       msg
     } = info
@@ -39,7 +44,7 @@ export const warns = function (rule, title, re, el) {
 }
 
 const doesntWarn = function (rule, title, re, el) {
-  it(title, onWarn(rule, el, function (info) {
+  it(title, onWarn(rule, el, false, function (info) {
     const {
       msg
     } = info
@@ -49,3 +54,4 @@ const doesntWarn = function (rule, title, re, el) {
 }
 
 export const doesnt = { warn: doesntWarn }
+export const fn     = () => null
