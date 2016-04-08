@@ -19,7 +19,8 @@ export default class A11y {
       throw new Error('Missing parameter: React')
     }
 
-    this.suite = new Suite(React, this.options)
+    this.__sync = false
+    this.suite  = new Suite(React, this.options)
 
     this.patchReact()
   }
@@ -123,7 +124,7 @@ export default class A11y {
 
       // if we need to include the rendered node, we need to wait until
       // the owner has rendered
-      if ( owner && browser ) {
+      if ( owner && browser && !this.__sync ) {
         const instance = owner._instance
         // Cannot log a node reference until the component is in the DOM,
         // so defer the call until componentDidMount or componentDidUpdate.
@@ -144,5 +145,13 @@ export default class A11y {
         reporter(info)
       }
     }
+  }
+
+  /**
+   * Force A11y in sync mode, DOMNodes might be omitted
+   * @arg {boolean} sync - wether or not to force sync mode
+   */
+  __forceSync (sync = true) {
+    this.__sync = !!sync
   }
 }
