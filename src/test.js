@@ -65,7 +65,6 @@ export default class Suite {
   }
 
   test (tagName, props, children, done) {
-
     Object.keys(this.rules)
       .forEach(function (key) {
           // find ruleopts

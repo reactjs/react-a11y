@@ -37,6 +37,7 @@ export default class A11y {
 
     const that = this
     this.React.createElement = function (klass, _props = {}, ...children) {
+
       // fix for props = null
       const props = _props || {}
 
@@ -109,7 +110,7 @@ export default class A11y {
 
       // if there is an owner, use its name
       // if not, use the tagname of the violating elemnent
-      const displayName = owner && owner.getName  || errInfo.tagName
+      const displayName = owner && owner.getName() || errInfo.tagName
 
       // stop if we're not allowed to proceed
       if ( !filterFn(displayName, errInfo.props.id, errInfo.msg) ) {
@@ -144,7 +145,7 @@ export default class A11y {
       } else {
         reporter(info)
       }
-    }
+    }.bind(this)
   }
 
   /**
