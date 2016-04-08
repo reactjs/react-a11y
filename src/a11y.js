@@ -112,6 +112,7 @@ export default class A11y {
       // get the owning component (the one that has
       // the element in its render fn)
       const owner = reactEl._owner
+      console.log('owner', owner &&  owner._instance)
 
       // if there is an owner, use its name
       // if not, use the tagname of the violating elemnent
@@ -146,7 +147,7 @@ export default class A11y {
           }
 
           reporter({ ...info, DOMNode })
-        })
+        }.bind(this))
       } else {
         reporter(info)
       }
