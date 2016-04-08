@@ -14,7 +14,8 @@ module.exports = function (config) {
     , 'karma-sourcemap-loader'
     ]
   , files: [
-      'test/**/*.js'
+      'test/browser/**/*.js'
+    , 'test/*.js'
     ]
   , preprocessors: {
       'test/**/*.js': [ 'webpack', 'sourcemap' ]
