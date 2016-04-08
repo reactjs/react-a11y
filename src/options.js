@@ -98,7 +98,6 @@ export default function (opts = {}) {
   deprecate(opts, 'includeSrcNode', msg)
   deprecate(opts, 'throw',          msg)
   deprecate(opts, 'warningPrefix',  msg)
-  mandatory(opts, 'ReactDOM')
 
   const {
     reporter     = mkReporter(opts) // make a reporter based on options

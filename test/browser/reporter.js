@@ -9,9 +9,8 @@ const recieves = function (name, type) {
     const div = document.createElement('div')
     document.body.appendChild(div)
 
-    const a11y = new A11y(React, {
-      ReactDOM
-    , reporter (info) {
+    const a11y = new A11y(React, ReactDOM, {
+      reporter (info) {
         expect(info).to.have.property(name)
         expect(typeof info[name]).to.equal(type)
         a11y.restoreAll()
