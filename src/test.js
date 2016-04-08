@@ -65,7 +65,7 @@ export default class Suite {
   }
 
   test (tagName, props, children, done) {
-    Object.keys(this.rules)
+    Object.keys(this.options.rules)
       .forEach(function (key) {
           // find ruleopts
           const opts = normalize(this.options.rules[key])
@@ -93,6 +93,11 @@ export default class Suite {
             , options
             , React:    this.React
             , ReactDOM: this.ReactDOM
+            }
+
+            if ( !(key in this.rules) ) {
+              throw new Error(`react-a11y: rule ${key} not found,`
+                            + `maybe you're missing a plugin?`)
             }
 
             const tests = this.rules[key](ctx)
