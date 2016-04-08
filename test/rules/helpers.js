@@ -5,11 +5,9 @@ import { expect } from 'chai'
 
 const onWarn = function (rule, el, cb) {
   return function (done) {
-    let called = false
     const a11y = new A11y(React, {
       ReactDOM
     , reporter (info) {
-        called = true
         a11y.restoreAll()
         cb(info)
       }
