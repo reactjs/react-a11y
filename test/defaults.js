@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import ReactDOM   from 'react-dom/server'
+import ReactDOM   from 'react-dom'
 import defs       from '../src/defaults'
 
 // minimal valid options
