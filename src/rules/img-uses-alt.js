@@ -1,4 +1,4 @@
-import a11y from 'react-a11y'
+import a11y from '../util'
 
 export default ctx => ({
   img (props) {
@@ -9,9 +9,9 @@ export default ctx => ({
       ctx.report({
         msg: 'The img does not have an `alt` prop, '
            + 'screen-readers will not know what it is'
-      , url: 'https://dev.w3.org/html5/alt-techniques/'
+      , url: 'https://dev.w3.org/html5/alt-techniques'
       , affects: [
-          a11y.users.screenReaders
+          a11y.devices.screenReaders
         ]
       })
     } else if ( props.alt === '' && props.role !== 'presentation' ) {
@@ -22,7 +22,7 @@ export default ctx => ({
            + 'role="presentation" is not set.'
       , url: 'https://www.w3.org/TR/wai-aria/roles#presentation'
       , affects: [
-          a11y.users.screenReaders
+          a11y.devices.screenReaders
         ]
       })
     }

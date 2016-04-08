@@ -7,7 +7,7 @@ export default ctx => ({
     if ( typeof props.htmlFor !== 'string' ) {
       ctx.report({
         msg
-      , url: 'https://www.w3.org/WAI/tutorials/forms/labels/'
+      , url: 'https://www.w3.org/WAI/tutorials/forms/labels'
       })
     }
   }
