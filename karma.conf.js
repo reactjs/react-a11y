@@ -15,7 +15,8 @@ module.exports = function (config) {
     ]
   , files: [
       'test/browser/**/*.js'
-    , 'test/rules/**/*.js'
+    // , 'test/rules#<{(||)}>#*.js'
+    , 'test/rules/!(helpers).js'
     , 'test/*.js'
     ]
   , preprocessors: {
