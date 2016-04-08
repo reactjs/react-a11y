@@ -100,7 +100,7 @@ export default class A11y {
      * @arg {string} msg   - The warning message
      * @returns {undefined}
      */
-    return function (type, props, msg) {
+    return function (errInfo) {
 
       // get the owning component (the one that has
       // the element in its render fn)
@@ -117,8 +117,8 @@ export default class A11y {
 
       // gather all info for the reporter
       const info = {
-        displayName
-      , msg
+        ...errInfo
+      , displayName
       }
 
       // if we need to include the rendered node, we need to wait until
