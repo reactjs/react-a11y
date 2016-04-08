@@ -1,7 +1,7 @@
-import after   from './after'
-import defs    from './defaults'
-import browser from './util/browser'
-import Suite   from './test'
+import after    from './after'
+import validate from './options'
+import browser  from './util/browser'
+import Suite    from './test'
 
 export default class A11y {
 
@@ -11,7 +11,7 @@ export default class A11y {
    * @returns {A11y} The react-a11y instance
    */
   constructor (React, options = {}) {
-    this.options  = defs(options)         // extend default opts
+    this.options  = validate(options)     // extend default opts
     this.React    = React                 // save react for undoing patches
     this.ReactDOM = this.options.ReactDOM
 
