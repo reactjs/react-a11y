@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import ReactDOM   from 'react-dom'
-import defs       from '../src/defaults'
+import defs       from '../src/options'
 
 // minimal valid options
 const valid = {
