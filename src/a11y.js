@@ -42,20 +42,18 @@ export default class A11y {
       // create a refs object to hold the ref.
       // this needs to be an object so that it can be passed
       // by reference, and hold chaning state.
-      const refs = {}
-      const ref = function (node) {
-        refs.node = node
+      const refs = typeof props.ref === 'string' ? props.ref : {}
+      const ref  = typeof props.ref === 'string'
+        ? props.ref
+        : function (node) {
+          refs.node = node
 
-        // maintain behaviour when ref prop was already set
-        if ( typeof props.ref === 'function' ) {
-          props.ref(node)
-        } else if ( typeof props.ref === 'string' ) {
-          // TODO: fix this
-          throw new Error('react-a11y does not support string refs yet')
+          // maintain behaviour when ref prop was already set
+          if ( typeof props.ref === 'function' ) {
+            props.ref(node)
+          }
         }
-      }
-      // TODO: make sure we don't override existing refs or fix it up so it
-      // does not matter
+
       const newProps  = typeof klass === 'string' ? { ...props, ref } : props
 
       const reactEl   = that._createElement(klass, newProps, ...children)
@@ -90,7 +88,7 @@ export default class A11y {
    * @arg {object} refs    - The object that holds the DOM node (passed by ref)
    * @returns {function} A handler that knows everything it needs to know
    */
-  failureHandler (reactEl, refs) {
+  failureHandler (reactEl, ref) {
     const {
       reporter
     , filterFn
@@ -131,7 +129,14 @@ export default class A11y {
         // so defer the call until componentDidMount or componentDidUpdate.
         after.render(instance, function () {
           // unpack the ref
-          const DOMNode = refs.node
+          let DOMNode
+          if ( typeof ref === 'string' ) {
+            DOMNode = this.ReactDOM.findDOMNode(instance.refs[ref])
+          } else if ( 'node' in ref ) {
+            DOMNode = ref.node
+          } else {
+            throw new Error('could not resolve ref')
+          }
 
           reporter({ ...info, DOMNode })
         })
