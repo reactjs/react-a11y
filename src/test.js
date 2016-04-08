@@ -33,10 +33,10 @@ const normalize = function (opts = 'off') {
 
 export default class Suite {
 
-  constructor (React, options) {
+  constructor (React, ReactDOM, options) {
     this.options  = options
     this.React    = React
-    this.ReactDOM = this.options.ReactDOM
+    this.ReactDOM = ReactDOM
 
     if (!this.React && !this.React.createElement) {
       throw new Error('Missing parameter: React')

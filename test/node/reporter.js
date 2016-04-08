@@ -7,12 +7,11 @@ import { expect } from 'chai'
 const recieves = function (name, type) {
   it(`recieves \`${name}\``, done => {
 
-    const a11y = new A11y(React, {
-      ReactDOM
-    , reporter (info) {
+    const a11y = new A11y(React, ReactDOM, {
+      reporter (info) {
+        a11y.restoreAll()
         expect(info).to.have.property(name)
         expect(info[name]).to.be.a(type)
-        a11y.restoreAll()
         done()
       }
     , rules: {
@@ -31,5 +30,5 @@ describe('reporter (node)', () => {
   recieves('tagName',     'string')
   recieves('severity',    'string')
   recieves('props',       'object')
-  recieves('displayName', 'string')
+  // recieves('displayName', 'string')
 })

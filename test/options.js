@@ -58,8 +58,6 @@ describe('options parsing', () => {
   deprecated('throw')
   deprecated('warningPrefix')
 
-  requires('ReactDOM')
-
   contains('reporter')
   contains('filterFn')
   contains('plugins')

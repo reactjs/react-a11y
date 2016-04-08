@@ -6,21 +6,26 @@ import Suite    from './test'
 export default class A11y {
 
   /**
-   * @arg {object} React   - The React instance you want to patch
-   * @arg {object} options - the options
+   * @arg {object} React    - The React instance you want to patch
+   * @arg {object} ReactDOM - The ReactDOM instance you'll be using
+   * @arg {object} options  - the options
    * @returns {A11y} The react-a11y instance
    */
-  constructor (React, options = {}) {
+  constructor (React, ReactDOM, options = {}) {
     this.options  = validate(options)     // extend default opts
     this.React    = React                 // save react for undoing patches
-    this.ReactDOM = this.options.ReactDOM
+    this.ReactDOM = ReactDOM
 
-    if (!this.React && !this.React.createElement) {
+    if (!this.React || !this.React.createElement) {
       throw new Error('Missing parameter: React')
     }
 
+    if (!this.ReactDOM || !this.ReactDOM.findDOMNode ) {
+      throw new Error('Missing parameter: ReactDOM')
+    }
+
     this.__sync = false
-    this.suite  = new Suite(React, this.options)
+    this.suite  = new Suite(React, ReactDOM, this.options)
 
     this.patchReact()
   }
@@ -110,7 +115,7 @@ export default class A11y {
 
       // if there is an owner, use its name
       // if not, use the tagname of the violating elemnent
-      const displayName = owner && owner.getName() || errInfo.tagName
+      const displayName = owner && owner.getName()
 
       // stop if we're not allowed to proceed
       if ( !filterFn(displayName, errInfo.props.id, errInfo.msg) ) {
