@@ -4,14 +4,13 @@ import { expect } from 'chai'
 import A11y       from '../../src/a11y'
 
 const warns = function (rule, title, re, el) {
-  it(title, () => {
-    let ok = false
-
+  it(title, done => {
     const a11y = new A11y(React, {
       ReactDOM
     , reporter ({ props, msg }) {
-        console.log(props, msg)
-        ok = msg && re.test(msg)
+        const ok = msg && re.test(msg)
+        expect(ok).to.be.true
+        done()
       }
     , rules: {
         'img-uses-alt': 1
@@ -19,7 +18,6 @@ const warns = function (rule, title, re, el) {
     })
 
     el()
-    expect(ok).to.be.true
 
     a11y.restoreAll()
   })
