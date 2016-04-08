@@ -75,12 +75,21 @@ export default class Suite {
           if ( sev !== 'off' ) {
             const ctx = {
               report (info) {
+                const {
+                  devices = Object.values(util.devices)
+                } = info
+
                 // TODO: fix this and failureHandler to accept all info
-                done(tagName, props, info.msg)
+                // TODO: add ability to ignore by device class
+                done({
+                  ...info
+                , tagName
+                , props
+                })
               }
             , options
             , React:    this.React
-            , ReactDOM: this.ReactDOM // TODO: pass these in
+            , ReactDOM: this.ReactDOM
             }
 
             const tests = this.rules[key](ctx)
@@ -92,6 +101,5 @@ export default class Suite {
             }
           }
       }.bind(this))
-
   }
 }
