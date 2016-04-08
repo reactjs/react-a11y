@@ -79,7 +79,7 @@ const deprecate = function (opts, name, msg = '') {
  */
 const mandatory = function (opts, name, msg = '') {
   if ( !(name in opts) ) {
-    console.warn(`react-a11y: the \`${name}\` option is mandatory. ${msg}`)
+    throw new Error(`react-a11y: the \`${name}\` option is mandatory. ${msg}`)
   }
 }
 
