@@ -1,4 +1,7 @@
 import defRules from './rules'
+import util     from './util'
+
+const allDevices = Object.keys(util.devices).map(key => util.devices[key])
 
 const severity = function (val) {
   switch (val) {
@@ -76,7 +79,7 @@ export default class Suite {
             const ctx = {
               report (info) {
                 const {
-                  devices = Object.values(util.devices)
+                  devices = allDevices
                 } = info
 
                 // TODO: fix this and failureHandler to accept all info
@@ -85,6 +88,7 @@ export default class Suite {
                   ...info
                 , tagName
                 , props
+                , severity: sev
                 })
               }
             , options
