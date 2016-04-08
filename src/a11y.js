@@ -19,7 +19,7 @@ export default class A11y {
       throw new Error('Missing parameter: React')
     }
 
-    this.suite = new Suite(React, options)
+    this.suite = new Suite(React, this.options)
 
     this.patchReact()
   }
@@ -108,10 +108,10 @@ export default class A11y {
 
       // if there is an owner, use its name
       // if not, use the tagname of the violating elemnent
-      const displayName = owner && owner.getName  || type
+      const displayName = owner && owner.getName  || errInfo.tagName
 
       // stop if we're not allowed to proceed
-      if ( !filterFn(displayName, props.id, msg) ) {
+      if ( !filterFn(displayName, errInfo.props.id, errInfo.msg) ) {
         return
       }
 
