@@ -3,7 +3,7 @@ import ReactDOM   from 'react'
 import A11y       from '../../src/a11y'
 import { expect } from 'chai'
 
-const onWarn = function (rule, el, needCall, cb, opts) {
+const onWarn = function (rule, el, needCall, opts, cb) {
   return function (done) {
     let called = false
     const a11y = new A11y(React, ReactDOM, {
@@ -12,7 +12,7 @@ const onWarn = function (rule, el, needCall, cb, opts) {
         cb(info)
       }
     , rules: {
-        [rule]: [1].concat(opts || [])
+        [rule]: [1].concat(opts ? [opts] : [])
       }
     })
 
@@ -33,8 +33,8 @@ const onWarn = function (rule, el, needCall, cb, opts) {
   }
 }
 
-export const warns = function (rule, title, re, el) {
-  it(title, onWarn(rule, el, true, function (info) {
+export const warns = function (rule, title, re, el, opts) {
+  it(title, onWarn(rule, el, true, opts, function (info) {
     const {
       msg
     } = info
@@ -43,8 +43,8 @@ export const warns = function (rule, title, re, el) {
   }))
 }
 
-const doesntWarn = function (rule, title, re, el) {
-  it(title, onWarn(rule, el, false, function (info) {
+const doesntWarn = function (rule, title, re, el, opts) {
+  it(title, onWarn(rule, el, false, opts, function (info) {
     const {
       msg
     } = info
