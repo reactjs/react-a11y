@@ -5,7 +5,7 @@ import {
 , fn
 } from './helpers'
 
-const re = /You have a click handler on a non-interactive/
+const re = /but no `role` DOM property/
 
 describe('click-but-no-role', () => {
 
