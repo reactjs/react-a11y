@@ -14,7 +14,8 @@ export default ctx => function (tagName, props, children) {
          + 'users of screen readers.'
     , url: 'http://john.foliot.ca/aria-hidden'
     , affects: [
-        devices.screenReaders
+        devices.keyboardOnly
+      , devices.screenReaders
       ]
     })
   }
