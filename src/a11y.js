@@ -20,7 +20,7 @@ export default class A11y {
       throw new Error('Missing parameter: React')
     }
 
-    if (!this.ReactDOM || !this.ReactDOM.findDOMNode ) {
+    if (!this.ReactDOM || !this.ReactDOM.version ) {
       throw new Error('Missing parameter: ReactDOM')
     }
 
