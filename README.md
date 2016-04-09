@@ -179,7 +179,7 @@ usable:
     - [ ] `redundant-alt`
     - [ ] `use-onblur-not-onchange`
     - [ ] `valid-aria-role`
-    - [ ] `button-role-space` (`BUTTON_ROLE_SPACE`)
+    - [x] `button-role-space` (`BUTTON_ROLE_SPACE`)
     - [ ] `button-role-enter` (`BUTTON_ROLE_ENTER`)
     - [ ] `tabindex-required-when-aria-hidden`
     - [ ] `hash-href-needs-button`
