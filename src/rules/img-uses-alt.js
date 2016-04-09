@@ -1,4 +1,6 @@
-import a11y from '../util'
+import {
+  devices
+} from '../util'
 
 export default ctx => ({
   img (props) {
@@ -11,7 +13,7 @@ export default ctx => ({
            + 'screen-readers will not know what it is'
       , url: 'https://dev.w3.org/html5/alt-techniques'
       , affects: [
-          a11y.devices.screenReaders
+          devices.screenReaders
         ]
       })
 
@@ -23,7 +25,7 @@ export default ctx => ({
            + 'role="presentation" is not set.'
       , url: 'https://www.w3.org/TR/wai-aria/roles#presentation'
       , affects: [
-          a11y.devices.screenReaders
+          devices.screenReaders
         ]
       })
     }

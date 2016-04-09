@@ -1,9 +1,7 @@
-import a11y from '../util'
-
-const hasCallback = function (props, name) {
-  return typeof props[name] === 'function'
-}
-
+import {
+  devices
+, listensTo
+} from '../util'
 
 const mouseOverMsg =
   'onMouseOver must be accompanied by onFocus for accessibility.'
@@ -16,22 +14,22 @@ const url = 'http://webaim.org/techniques/javascript/eventhandlers#onmouseover'
 export default ctx => ({
 
   _any_(tagName, props) {
-    if (  hasCallback(props, 'onMouseOver')
-      && !hasCallback(props, 'onFocus') ) {
+    if (  listensTo(props, 'onMouseOver')
+      && !listensTo(props, 'onFocus') ) {
       ctx.report({
         msg: mouseOverMsg
       , url
       , affects: [
-          a11y.devices.keyboardOnly
+          devices.keyboardOnly
         ]
       })
-    } else if ( hasCallback(props, 'onMouseOut')
-            && !hasCallback(props, 'onBlur') ) {
+    } else if ( listensTo(props, 'onMouseOut')
+            && !listensTo(props, 'onBlur') ) {
       ctx.report({
         msg: mouseOutMsg
       , url
       , affects: [
-          a11y.devices.keyboardOnly
+          devices.keyboardOnly
         ]
       })
     }
