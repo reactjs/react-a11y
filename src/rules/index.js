@@ -5,6 +5,7 @@ import onclickUsesRole     from './onclick-uses-role'
 import onclickUsesTabIndex from './onclick-uses-tabindex'
 import buttonRoleSpace     from './button-role-space'
 import noAccessKey         from './no-access-key'
+import noHashRef           from './no-hash-ref'
 
 export default {
   'img-uses-alt': imgUsesAlt
@@ -14,4 +15,5 @@ export default {
 , 'onclick-uses-tabindex': onclickUsesTabIndex
 , 'button-role-space': buttonRoleSpace
 , 'no-access-key': noAccessKey
+, 'no-hash-ref': noHashRef
 }
