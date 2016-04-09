@@ -5,7 +5,6 @@ import {
 , devices
 } from '../util'
 
-console.log("OK")
 export default ctx => ({
   _any_ (tagName, props, children) {
     const hidden      = hiddenFromAT(props)

@@ -174,12 +174,11 @@ usable:
     - [x] `mouse-events-map-to-key-events`
     - [ ] `no-access-key`
     - [ ] `no-hash-ref`
-    - [ ] `onclick-uses-role`
+    - [x] `onclick-uses-role` (`NO_ROLE`)
+    - [x] `onclick-uses-tabindex` (`NO_TABINDEX`)
     - [ ] `redundant-alt`
     - [ ] `use-onblur-not-onchange`
     - [ ] `valid-aria-role`
-    - [ ] `clickhandler-but-no-role` (`NO_ROLE`)
-    - [ ] `clickhandler-but-no-tabindex` (`NO_TABINDEX`)
     - [ ] `button-role-space` (`BUTTON_ROLE_SPACE`)
     - [ ] `button-role-enter` (`BUTTON_ROLE_ENTER`)
     - [ ] `tabindex-required-when-aria-hidden`

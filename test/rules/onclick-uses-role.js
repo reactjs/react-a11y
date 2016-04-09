@@ -7,27 +7,27 @@ import {
 
 const re = /but no `role` DOM property/
 
-describe('click-but-no-role', () => {
+describe('onclick-uses-role', () => {
 
-  warns('click-but-no-role'
+  warns('onclick-uses-role'
   , 'warns when there is an `onClick` with no `role`'
   , re
   , () => <span onClick={fn} />
   )
 
-  doesnt.warn('click-but-no-role'
+  doesnt.warn('onclick-uses-role'
   , 'doesn\'t warn when there is an `onClick` with a `role`'
   , re
   , () => <span onClick={fn} role='button' />
   )
 
-  doesnt.warn('click-but-no-role'
+  doesnt.warn('onclick-uses-role'
   , 'doesn\'t warn when the element is hidden from aria'
   , re
   , () => <span onClick={fn} ariaHidden />
   )
 
-  doesnt.warn('click-but-no-role'
+  doesnt.warn('onclick-uses-role'
   , 'doen\'t warn when the element is interactive'
   , re
   , () => <button onClick={fn} />
