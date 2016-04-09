@@ -23,7 +23,11 @@ const throwError = function (...args) {
  * @returns {undefined}
  */
 const showWarning = function (...args) {
-  console.warn(...args)
+  if ( browser ) {
+    console.warn(...args)
+  } else {
+    console.warn(args.join('\n  '))
+  }
 }
 
 /**
@@ -51,7 +55,7 @@ const mkReporter = function (opts) {
     const warning = [
       displayName || tagName
     , warningPrefix.concat(msg)
-    , url
+    , `See '${url}' for more info.`
     , DOMNode || tagName
     ]
 
