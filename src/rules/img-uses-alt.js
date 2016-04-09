@@ -1,9 +1,13 @@
 import {
   devices
+, hiddenFromAT
 } from '../util'
 
 export default ctx => ({
   img (props) {
+    if ( hiddenFromAT(props) ) {
+      return
+    }
 
     if ( typeof props.alt !== 'string' ) {
       // no alt is present
