@@ -7,6 +7,7 @@ import buttonRoleSpace     from './button-role-space'
 import noAccessKey         from './no-access-key'
 import noHashRef           from './no-hash-ref'
 import redundantAlt        from './redundant-alt'
+import onBlurNotOnChange   from './use-onblur-not-onchange'
 
 export default {
   'img-uses-alt': imgUsesAlt
@@ -18,4 +19,5 @@ export default {
 , 'no-access-key': noAccessKey
 , 'no-hash-ref': noHashRef
 , 'redundant-alt': redundantAlt
+, 'use-onblur-not-onchange': onBlurNotOnChange
 }
