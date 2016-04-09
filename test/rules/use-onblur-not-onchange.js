@@ -26,4 +26,17 @@ describe('use-onblur-not-onchange', () => {
   , re
   , () => <input onChange={fn} ariaHidden />
   )
+
+  doesnt.warn('use-onblur-not-onchange'
+  , 'doesn\'t warn when the element is aria-disabled'
+  , re
+  , () => <input onChange={fn} ariaDisabled />
+  )
+
+  doesnt.warn('use-onblur-not-onchange'
+  , 'doesn\'t warn when the element is aria-readonly'
+  , re
+  , () => <input onChange={fn} ariaReadonly />
+  )
+
 })
