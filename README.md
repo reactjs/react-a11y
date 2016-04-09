@@ -178,7 +178,7 @@ usable:
     - [x] `onclick-uses-tabindex` (`NO_TABINDEX`)
     - [x] `redundant-alt`
     - [x] `use-onblur-not-onchange`
-    - [ ] `valid-aria-role`
+    - [x] `valid-aria-role`
     - [x] `button-role-space` (`BUTTON_ROLE_SPACE`)
     - [ ] `button-role-enter` (`BUTTON_ROLE_ENTER`)
     - [ ] `tabindex-required-when-aria-hidden`
