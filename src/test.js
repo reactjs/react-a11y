@@ -90,6 +90,7 @@ export default class Suite {
                 , tagName
                 , props
                 , severity: sev
+                , rule: key
                 })
               }
             , options
