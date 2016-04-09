@@ -167,8 +167,8 @@ usable:
     more easy.
   - [ ] put up a travis worker to make merging easier.
   - [ ] write docs about how to write plugins.
-  - [ ] normalize props before passing to the rules, eg. change
-    `aria-hidden="true"` into `ariaHidden={true}`, so every test can use the
+  - [x] normalize props before passing to the rules, eg. change
+    `aria-hidden` into `ariaHidden`, so every test can use the
     same method.
   - [ ] implement all the rules that are in upstream and in
     `eslint-plugin-jsx-a11y`.
