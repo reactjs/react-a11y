@@ -105,7 +105,9 @@ export default class Suite {
 
             const tests = this.rules[key](ctx)
 
-            if ( tagName in tests ) {
+            if ( typeof tests === 'function' ) {
+              tests(tagName, props, children)
+            } else if ( tagName in tests ) {
               tests[tagName](props, children)
             } else if ( '_any_' in tests ) {
               tests._any_(tagName, props, children)
