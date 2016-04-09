@@ -38,7 +38,7 @@ const mkReporter = function (opts) {
   return function (info) {
     const {
       msg
-    , owner
+    , displayName
     , DOMNode
     , url
     , tagName
@@ -47,10 +47,11 @@ const mkReporter = function (opts) {
 
     // build warning
     const warning = [
-      owner
+      displayName || tagName
     , warningPrefix.concat(msg)
-    , `see ${url}`
-    ].concat(DOMNode || tagName)
+    , url
+    , DOMNode || tagName
+    ]
 
     if ( doThrow || severity === 'error' ) {
       throwError(...warning)
