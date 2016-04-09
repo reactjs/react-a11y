@@ -173,7 +173,7 @@ usable:
     - [x] `label-uses-for`
     - [x] `mouse-events-map-to-key-events`
     - [x] `no-access-key`
-    - [ ] `no-hash-ref`
+    - [x] `no-hash-ref`
     - [x] `onclick-uses-role` (`NO_ROLE`)
     - [x] `onclick-uses-tabindex` (`NO_TABINDEX`)
     - [ ] `redundant-alt`
