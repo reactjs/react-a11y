@@ -183,7 +183,7 @@ usable:
     - [x] `use-onblur-not-onchange`
     - [x] `valid-aria-role`
     - [x] `button-role-space` (`BUTTON_ROLE_SPACE`)
-    - [ ] `button-role-enter` (`BUTTON_ROLE_ENTER`)
+    - [x] `button-role-enter` (`BUTTON_ROLE_ENTER`)
     - [ ] `tabindex-required-when-aria-hidden`
     - [ ] `hash-href-needs-button`
     - [ ] `tabindex-needs-button`
