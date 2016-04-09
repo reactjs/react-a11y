@@ -1,9 +1,5 @@
-import {
-  devices
-} from '../util'
-
 export default ctx => ({
-  a (props, children) {
+  a (props) {
     if ( props.href && props.href === '#' ) {
       ctx.report({
         msg: 'Links must not point to `#`. '

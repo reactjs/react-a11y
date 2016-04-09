@@ -16,5 +16,5 @@ const interactive = {
 
 export default function (tagName, props) {
   const tag = interactive[tagName]
-  return (typeof tag === 'function') ? tag(props) : tag;
+  return (typeof tag === 'function') ? tag(props) : tag
 }

@@ -11,28 +11,25 @@ const mouseOutMsg =
 
 const url = 'http://webaim.org/techniques/javascript/eventhandlers#onmouseover'
 
-export default ctx => ({
-
-  _any_(tagName, props) {
-    if (  listensTo(props, 'onMouseOver')
-      && !listensTo(props, 'onFocus') ) {
-      ctx.report({
-        msg: mouseOverMsg
-      , url
-      , affects: [
-          devices.keyboardOnly
-        ]
-      })
-    } else if ( listensTo(props, 'onMouseOut')
-            && !listensTo(props, 'onBlur') ) {
-      ctx.report({
-        msg: mouseOutMsg
-      , url
-      , affects: [
-          devices.keyboardOnly
-        ]
-      })
-    }
+export default ctx => function (tagName, props) {
+  if (  listensTo(props, 'onMouseOver')
+    && !listensTo(props, 'onFocus') ) {
+    ctx.report({
+      msg: mouseOverMsg
+    , url
+    , affects: [
+        devices.keyboardOnly
+      ]
+    })
+  } else if ( listensTo(props, 'onMouseOut')
+          && !listensTo(props, 'onBlur') ) {
+    ctx.report({
+      msg: mouseOutMsg
+    , url
+    , affects: [
+        devices.keyboardOnly
+      ]
+    })
   }
+}
 
-})

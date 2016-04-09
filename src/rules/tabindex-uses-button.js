@@ -1,11 +1,9 @@
 import {
-  isInteractive
-, hiddenFromAT
-, devices
+  hiddenFromAT
 } from '../util'
 
 export default ctx => ({
-  a (props, children) {
+  a (props) {
     const hidden      = hiddenFromAT(props)
     const href        = 'href' in props
     const button      = props.role === 'button'
