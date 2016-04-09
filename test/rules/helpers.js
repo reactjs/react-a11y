@@ -8,8 +8,8 @@ const onWarn = function (rule, el, needCall, cb) {
     let called = false
     const a11y = new A11y(React, ReactDOM, {
       reporter (info) {
+        console.log(info)
         called = true
-        a11y.restoreAll()
         cb(info)
       }
     , rules: {
@@ -28,6 +28,8 @@ const onWarn = function (rule, el, needCall, cb) {
     if ( needCall ) {
       expect(called).to.be.true
     }
+
+    a11y.restoreAll()
     done()
   }
 }
