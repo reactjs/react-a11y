@@ -66,10 +66,10 @@ a11y(React : React, ReactDOM : ReactDOM, opts : object? )
 accessibility tests.
 
 `ReactDOM` is the ReactDOM object you're using to render the
-React components (usually `react-dom` on the client-side and 
-`react-dom/server` on the server).
+React components. This is only used on the client side, so you
+can safely omit it when using `react-a11y` in node.
 
-`options`:
+### `options`:
   - `plugins : [string]`
     An array of strings corresponding to names of plugins to be used.
     Eg. if the array contains `'aria-wai'` it would include the rules 
