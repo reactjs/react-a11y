@@ -50,7 +50,7 @@ const doesntWarn = function (rule, title, re, el) {
     } = info
 
     expect(msg).to.not.match(re)
-  }, true))
+  }))
 }
 
 export const doesnt = { warn: doesntWarn }
