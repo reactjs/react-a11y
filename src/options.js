@@ -113,14 +113,14 @@ export default function (...args) {
     React
   , ReactDOM
   , opts
-  ] = args.length === 3 ? args : [args[0], null, args[1]]
+  ] = args.length === 3 ? args : [args[0], null, args[1] || {}]
 
   if (!React || !React.createElement) {
     throw new Error('react-a11y: missing argument `React`')
   }
 
   // make sure ReactDOM is passed in in browser code
-  if ( browser && !(ReactDOM &&ReactDOM.version) ) {
+  if ( browser && !(ReactDOM && ReactDOM.version) ) {
     throw new Error('react-a11y: missing argument `ReactDOM`')
   }
 
