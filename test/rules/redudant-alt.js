@@ -13,6 +13,13 @@ describe('redundant-alt', () => {
   , () => <img src='foo' alt='bar image foo' />
   )
 
+  warns('redundant-alt'
+  , 'warn whenever there is a redundant alt message'
+  , re
+  , () => <img src='foo' alt='bar foto' />
+  , [ 'foto' ]
+  )
+
   doesnt.warn('redundant-alt'
   , 'doesn\'t warn when the alt does not contain redundant words'
   , re
@@ -24,13 +31,5 @@ describe('redundant-alt', () => {
   , re
   , () => <img src='foo' alt='nice' ariaHidden />
   )
-
-  doesnt.warn('redundant-alt'
-  , 'doesn\'t warn when there are no bad words'
-  , re
-  , () => <img src='foo' alt='nice' />
-  , []
-  )
-
 })
 
