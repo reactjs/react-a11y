@@ -1,4 +1,5 @@
+import trueish from './trueish'
 
 export default function (props) {
-  return props.ariaHidden === 'true' || props.ariaHidden === true
+  return trueish(props, 'ariaHidden')
 }

@@ -33,6 +33,17 @@ const normalize = function (opts = 'off') {
   }
 }
 
+
+const normalizeProps = function (props) {
+  return Object.keys(props).reduce(function (acc, name) {
+    // turn name into camelCase
+    const camel = name.replace(/-([a-z])/g, $ => $[1].toUpperCase())
+    return {
+      [camel]: props[name]
+    }
+  }, {})
+}
+
 export default class Suite {
 
   constructor (React, ReactDOM, options) {
@@ -103,14 +114,15 @@ export default class Suite {
                             + `maybe you're missing a plugin?`)
             }
 
-            const tests = this.rules[key](ctx)
+            const tests  = this.rules[key](ctx)
+            const nprops = normalizeProps(props)
 
             if ( typeof tests === 'function' ) {
-              tests(tagName, props, children)
+              tests(tagName, nprops, children)
             } else if ( tagName in tests ) {
-              tests[tagName](props, children)
+              tests[tagName](nprops, children)
             } else if ( '_any_' in tests ) {
-              tests._any_(tagName, props, children)
+              tests._any_(tagName, nprops, children)
             }
           }
       }.bind(this))
