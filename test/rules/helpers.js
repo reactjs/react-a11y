@@ -8,7 +8,6 @@ const onWarn = function (rule, el, needCall, cb) {
     let called = false
     const a11y = new A11y(React, ReactDOM, {
       reporter (info) {
-        console.log(info)
         called = true
         cb(info)
       }
