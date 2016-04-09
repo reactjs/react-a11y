@@ -184,7 +184,7 @@ usable:
     - [x] `valid-aria-role`
     - [x] `button-role-space` (`BUTTON_ROLE_SPACE`)
     - [x] `button-role-enter` (`BUTTON_ROLE_ENTER`)
-    - [ ] `tabindex-required-when-aria-hidden`
+    - [x] `hidden-uses-tabindex` (`TABINDEX_REQUIRED_WHEN_ARIA_HIDDEN`)
     - [ ] `hash-href-needs-button`
     - [ ] `tabindex-needs-button`
 

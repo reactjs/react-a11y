@@ -9,6 +9,7 @@ import noHashRef           from './no-hash-ref'
 import redundantAlt        from './redundant-alt'
 import onBlurNotOnChange   from './use-onblur-not-onchange'
 import validAriaRole       from './valid-aria-role'
+import hiddenUsesTabIndex  from './hidden-uses-tabindex'
 
 export default {
   'img-uses-alt': imgUsesAlt
@@ -22,4 +23,5 @@ export default {
 , 'redundant-alt': redundantAlt
 , 'use-onblur-not-onchange': onBlurNotOnChange
 , 'valid-aria-role': validAriaRole
+, 'hidden-uses-tabindex': hiddenUsesTabIndex
 }
