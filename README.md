@@ -31,10 +31,9 @@ getting warnings in the console as your app renders.
 ```js
 import React    from 'react'
 import ReactDOM from 'react-dom'
-import a11y     from 'react-a11y'
 
 if (ENV === 'development') {
-  const a11y = require('react-a11y')
+  const a11y = require('react-a11y').default
   a11y(React, ReactDOM, {
     // options
   })
