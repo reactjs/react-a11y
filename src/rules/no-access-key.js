@@ -2,7 +2,7 @@ import {
   devices
 } from '../util'
 
-export default ctx => function (tagName, props, children) {
+export default ctx => function (tagName, props) {
   if ( 'accessKey' in props ) {
     ctx.report({
       msg: 'No `accessKey` attribute allowed. Inconsistencies '

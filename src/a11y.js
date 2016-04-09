@@ -90,7 +90,7 @@ export default class A11y {
   /**
    * Creates a failure handler based on the element that was created
    * @arg {object} reactEl - The react element this failure is for
-   * @arg {object} refs    - The object that holds the DOM node (passed by ref)
+   * @arg {object} ref     - The object that holds the DOM node (passed by ref)
    * @returns {function} A handler that knows everything it needs to know
    */
   failureHandler (reactEl, ref) {
@@ -100,9 +100,7 @@ export default class A11y {
     } = this.options
 
     /**
-     * @arg {string} type  - The HTML tagname of the element
-     * @arg {object} props - The props that were passed to the element
-     * @arg {string} msg   - The warning message
+     * @arg {string} errInfo  - All the error info (see docs what this means)
      * @returns {undefined}
      */
     return function (errInfo) {
@@ -136,7 +134,7 @@ export default class A11y {
         // so defer the call until componentDidMount or componentDidUpdate.
         after.render(instance, function () {
           // unpack the ref
-          let DOMNode
+          let DOMNode = false
           if ( typeof ref === 'string' ) {
             DOMNode = this.ReactDOM.findDOMNode(instance.refs[ref])
           } else if ( 'node' in ref ) {
@@ -156,8 +154,9 @@ export default class A11y {
   /**
    * Force A11y in sync mode, DOMNodes might be omitted
    * @arg {boolean} sync - wether or not to force sync mode
+   * @returns {undefined}
    */
   __forceSync (sync = true) {
-    this.__sync = !!sync
+    this.__sync = Boolean(sync)
   }
 }

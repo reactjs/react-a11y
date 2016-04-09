@@ -207,10 +207,7 @@ rules:
   linebreak-style:                     error   # enforce linebreak style
   lines-around-comment:                off     # enforce empty lines around comments
   max-depth:                           off     # specify the maximum depth that blocks can be nested
-  max-len:                                     # specify the maximum length of a line in your program
-    - error
-    - 80
-    - 2
+  max-len:                             off     # specify the maximum length of a line in your program
   max-nested-callbacks:                off     # specify the maximum depth callbacks can be nested
   max-params:                          off     # specify the number of parameters that can be used in the function declaration
   max-statements:                      off     # specify the maximum number of statement allowed in a function

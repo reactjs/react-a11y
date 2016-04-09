@@ -114,9 +114,9 @@ export default function (...args) {
   , ReactDOM
   , opts
   ] = args.length === 2
-    ? args[1].version !== undefined
-      ? [args[0], args[1], {}]
-      : [args[0], null, args[1] || {}]
+    ? args[1].version === undefined
+      ? [ args[0], null, args[1] || {} ]
+      : [ args[0], args[1], {} ]
     : args
 
   if (!React || !React.createElement) {

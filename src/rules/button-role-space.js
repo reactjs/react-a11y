@@ -1,11 +1,10 @@
 import {
-  isInteractive
-, hiddenFromAT
+  hiddenFromAT
 , listensTo
 , devices
 } from '../util'
 
-export default ctx => function (tagName, props, children) {
+export default ctx => function (tagName, props) {
   const hidden      = hiddenFromAT(props)
   const button      = props.role === 'button'
   const onKeyDown   = listensTo(props, 'onKeyDown')

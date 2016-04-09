@@ -1,9 +1,7 @@
-import defRules from './rules'
-import {
-  devices
-}  from './util'
+import defRules  from './rules'
+import * as util from './util'
 
-const allDevices = Object.keys(devices).map(key => devices[key])
+const allDevices = Object.keys(util.devices).map(key => util.devices[key])
 
 const severity = function (val) {
   switch (val) {
@@ -103,6 +101,7 @@ export default class Suite {
                 , props
                 , severity: sev
                 , rule: key
+                , devices
                 })
               }
             , options
@@ -112,7 +111,7 @@ export default class Suite {
 
             if ( !(key in this.rules) ) {
               throw new Error(`react-a11y: rule ${key} not found, `
-                            + `maybe you're missing a plugin?`)
+                            + 'maybe you\'re missing a plugin?')
             }
 
             const tests  = this.rules[key](ctx)

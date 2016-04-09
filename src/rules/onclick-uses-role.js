@@ -5,7 +5,7 @@ import {
 , devices
 } from '../util'
 
-export default ctx => function (tagName, props, children) {
+export default ctx => function (tagName, props) {
   const hidden      = hiddenFromAT(props)
   const interactive = isInteractive(tagName, props)
   const onClick     = listensTo(props, 'onClick')
