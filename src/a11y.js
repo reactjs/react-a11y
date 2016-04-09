@@ -131,7 +131,9 @@ export default class A11y {
 
       // if we need to include the rendered node, we need to wait until
       // the owner has rendered
-      if ( owner && browser && !this.__sync ) {
+      // TODO: reduce the number of case where ther is no instance
+      // by forcing every component to have one.
+      if ( browser && !this.__sync && owner && owner._instance ) {
         const instance = owner._instance
         // Cannot log a node reference until the component is in the DOM,
         // so defer the call until componentDidMount or componentDidUpdate.
