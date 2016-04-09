@@ -39,7 +39,8 @@ const normalizeProps = function (props) {
     // turn name into camelCase
     const camel = name.replace(/-([a-z])/g, $ => $[1].toUpperCase())
     return {
-      [camel]: props[name]
+      ...acc
+    , [camel]: props[name]
     }
   }, {})
 }
