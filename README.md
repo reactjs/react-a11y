@@ -14,11 +14,10 @@ To see what's changed, look at [Differences from
 
 ## `next`
 
-This is the `next` branch, where I move away from the original
-`reactjs/react-a11y` codebase and API.  The API will be different,
-but I will try to make the transition between API's as smooth as possible
-by adding deprecation warnings and building the new defaults on top of the 
-old API.
+This is the `next` branch, that moves away from the API in the upstream
+`reactjs/react-a11y`.  The API will be different, transition between API's is
+made  as smooth as possible by adding deprecation warnings and building the new
+defaults on top of the old API.
 
 ## Installation
 
@@ -40,10 +39,9 @@ getting warnings in the console as your app renders.
 ```js
 import React    from 'react'
 import ReactDOM from 'react-dom'
-import a11y     from 'react-a11y'
 
 if (ENV === 'development') {
-  const a11y = require('react-a11y')
+  const a11y = require('react-a11y').default
   a11y(React, ReactDOM, {
     // options
   })
@@ -140,9 +138,9 @@ afterEach(() => a11y.restoreAll())
 I will try to stay close to the upstream `react-a11y` API,
 and document differences here.
 
-  - The API is totally different on this branch,
-    I implemented a simple plugin system so other poeple can write and publish
-    rules.
+  - The API is totally different on this branch.  It has a simple plugin system
+    so other poeple can write and publish their own rules.  The options have
+    become much simpler also.
   - Started using `ReactDOM.finDOMNode` instead of `document.getElementById`, as
     noted in upstream [#54](https://github.com/reactjs/react-a11y/issues/54).
     This fixes a lot of issues from upstream:
@@ -199,7 +197,7 @@ These are some plans I've dreamt up for `react-a11y`:
     would make `react-a11y` a formidable validation tool.
   - [ ] **create a nice project page** with documentation, because
     that is what poeple like these days.
-  - create filtering options based on rule outputs like `affects`
+  - [ ] create filtering options based on rule outputs like `affects`
 
 [react-a11y]: https://github.com/reactjs/react-a11y
 [eslint]:     http://eslint.org
