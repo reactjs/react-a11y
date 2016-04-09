@@ -11,18 +11,16 @@ export default class A11y {
    * @arg {object} options  - the options
    * @returns {A11y} The react-a11y instance
    */
-  constructor (React, ReactDOM, options = {}) {
-    this.options  = validate(options)     // extend default opts
-    this.React    = React                 // save react for undoing patches
+  constructor (...args) {
+    const {
+      React
+    , ReactDOM
+    , ...options
+    } = validate(...args)
+
+    this.options  = options
+    this.React    = React
     this.ReactDOM = ReactDOM
-
-    if (!this.React || !this.React.createElement) {
-      throw new Error('Missing parameter: React')
-    }
-
-    if (!this.ReactDOM || !this.ReactDOM.version ) {
-      throw new Error('Missing parameter: ReactDOM')
-    }
 
     this.__sync = false
     this.suite  = new Suite(React, ReactDOM, this.options)
@@ -112,7 +110,6 @@ export default class A11y {
       // get the owning component (the one that has
       // the element in its render fn)
       const owner = reactEl._owner
-      console.log('owner', owner &&  owner._instance)
 
       // if there is an owner, use its name
       // if not, use the tagname of the violating elemnent
