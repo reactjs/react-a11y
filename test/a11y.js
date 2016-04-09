@@ -8,8 +8,6 @@ describe('A11y', () => {
   it('throws when React or ReactDOM option is invalid', () => {
     expect(() => new A11y()).to.throw('React')
     expect(() => new A11y({})).to.throw('React')
-    expect(() => new A11y(React)).to.throw('ReactDOM')
-    expect(() => new A11y(React, {})).to.throw('ReactDOM')
   })
 
   it('restoreAll restores React.createElement', () => {
