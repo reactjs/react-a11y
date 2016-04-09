@@ -4,6 +4,7 @@ import mouseEvents         from './mouse-events-map-to-key-events'
 import onclickUsesRole     from './onclick-uses-role'
 import onclickUsesTabIndex from './onclick-uses-tabindex'
 import buttonRoleSpace     from './button-role-space'
+import noAccessKey         from './no-access-key'
 
 export default {
   'img-uses-alt': imgUsesAlt
@@ -12,4 +13,5 @@ export default {
 , 'onclick-uses-role': onclickUsesRole
 , 'onclick-uses-tabindex': onclickUsesTabIndex
 , 'button-role-space': buttonRoleSpace
+, 'no-access-key': noAccessKey
 }
