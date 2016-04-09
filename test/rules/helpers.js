@@ -3,7 +3,7 @@ import ReactDOM   from 'react'
 import A11y       from '../../src/a11y'
 import { expect } from 'chai'
 
-const onWarn = function (rule, el, needCall, cb) {
+const onWarn = function (rule, el, needCall, cb, opts) {
   return function (done) {
     let called = false
     const a11y = new A11y(React, ReactDOM, {
@@ -12,7 +12,7 @@ const onWarn = function (rule, el, needCall, cb) {
         cb(info)
       }
     , rules: {
-        [rule]: 1
+        [rule]: [1].concat(opts || [])
       }
     })
 

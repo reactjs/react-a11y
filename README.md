@@ -176,7 +176,7 @@ usable:
     - [x] `no-hash-ref`
     - [x] `onclick-uses-role` (`NO_ROLE`)
     - [x] `onclick-uses-tabindex` (`NO_TABINDEX`)
-    - [ ] `redundant-alt`
+    - [x] `redundant-alt`
     - [ ] `use-onblur-not-onchange`
     - [ ] `valid-aria-role`
     - [x] `button-role-space` (`BUTTON_ROLE_SPACE`)
