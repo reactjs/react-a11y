@@ -1,3 +1,5 @@
+import browser from './util/browser'
+
 /**
  * Throws an error based on the warning
  * If the last argument is a DOM node, it
@@ -99,7 +101,25 @@ const msg = 'Use the `reporter` option to change how warnings are displayed.'
  * @arg {object} opts - The opts the user passed in
  * @returns {object} the validated options
  */
-export default function (opts = {}) {
+export default function (...args) {
+
+  // signature is a11y(React, opts) or a11y(React, ReactDOM, opts)
+  // so destructure args based on number of args passed
+  const [
+    React
+  , ReactDOM
+  , opts
+  ] = args.length === 3 ? args : [args[0], null, args[1]]
+
+  if (!React || !React.createElement) {
+    throw new Error('react-a11y: missing argument `React`')
+  }
+
+  // make sure ReactDOM is passed in in browser code
+  if ( browser && !(ReactDOM &&ReactDOM.version) ) {
+    throw new Error('react-a11y: missing argument `ReactDOM`')
+  }
+
   deprecate(opts, 'includeSrcNode', msg)
   deprecate(opts, 'throw',          msg)
   deprecate(opts, 'warningPrefix',  msg)
@@ -112,7 +132,9 @@ export default function (opts = {}) {
   } = opts
 
   return {
-    filterFn
+    React
+  , ReactDOM
+  , filterFn
   , reporter
   , plugins
   , rules
