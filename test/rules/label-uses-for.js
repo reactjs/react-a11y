@@ -18,5 +18,11 @@ describe('label-uses-for', () => {
   , () => <label htmlFor='foo' />
   )
 
+  doesnt.warn('label-uses-for'
+  , 'doesn\'t warn when hidden from aria tree'
+  , /empty string/
+  , () => <img src='bae' ariaHidden />
+  )
+
 })
 

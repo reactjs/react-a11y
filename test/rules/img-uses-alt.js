@@ -30,5 +30,11 @@ describe('img-uses-alt', () => {
   , () => <img src='bae' alt='' role='presentation' />
   )
 
+  doesnt.warn('img-uses-alt'
+  , 'doesn\'t warn when hidden from aria tree'
+  , /empty string/
+  , () => <img src='bae' ariaHidden />
+  )
+
 })
 
