@@ -170,8 +170,8 @@ usable:
   - [x] normalize props before passing to the rules, eg. change
     `aria-hidden` into `ariaHidden`, so every test can use the
     same method.
-  - [ ] implement all the rules that are in upstream and in
-    `eslint-plugin-jsx-a11y`.
+  - [x] implement all the rules that are in `facebook/react-a11y` and
+    in `eslint-plugin-jsx-a11y`.
     - [x] `img-uses-alt` (`MISSING_ALT`)
     - [x] `label-uses-for`
     - [x] `mouse-events-map-to-key-events`
