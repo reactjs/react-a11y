@@ -1,7 +1,9 @@
 import defRules from './rules'
-import util     from './util'
+import {
+  devices
+}  from './util'
 
-const allDevices = Object.keys(util.devices).map(key => util.devices[key])
+const allDevices = Object.keys(devices).map(key => devices[key])
 
 const severity = function (val) {
   switch (val) {
