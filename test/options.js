@@ -1,11 +1,7 @@
 import { expect } from 'chai'
+import React      from 'react'
 import ReactDOM   from 'react-dom'
 import defs       from '../src/options'
-
-// minimal valid options
-const valid = {
-  ReactDOM
-}
 
 // make sure deprecation warnings are shown
 const deprecated = function (name) {
@@ -18,9 +14,8 @@ const deprecated = function (name) {
     }
 
     // call defs
-    defs({
-      ...valid
-    , [name]: true
+    defs(React, ReactDOM, {
+      [name]: true
     })
 
     // expect at least one cal to console.warn to match the name
@@ -42,7 +37,7 @@ const requires = function (name) {
 // make sure the parsed options contain a specific key
 const contains = function (name) {
   it(`validated options has ${name}`, () => {
-    const opts = defs(valid)
+    const opts = defs(React, ReactDOM, {})
     expect(opts).to.have.property(name)
   })
 }
@@ -62,5 +57,4 @@ describe('options parsing', () => {
   contains('filterFn')
   contains('plugins')
   contains('rules')
-
 })
