@@ -102,8 +102,8 @@ can safely omit it when using `react-a11y` in node.
     - `DOMNode : object?` - the violating DOMNode as rendered to the browser
       DOM, this is only available on when `react-a11y` is running in the
       browser.
-    - `url : string` - The url to a webpage explaining the reason why to listen
-      to this rule.
+    - `url : string?` - The url to a webpage explaining why this rule
+      is important
     The default reporter displays all the information it can, but listens
     to the deprecated options `includeSrcNode`, `warningPrefix` and
     `throwErro and `throwError`.
@@ -114,7 +114,7 @@ can safely omit it when using `react-a11y` in node.
     instance or ReactElement, the id of the violating element, and the failure
     message.
 
-    Note: If a ReactElement, the name will be the node type (eg. `div`)
+    Note: If it is a ReactElement, the name will be the node type (eg. `div`)
 
     ```js
     // only show errors on CommentList
