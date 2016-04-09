@@ -110,7 +110,7 @@ export default class Suite {
             }
 
             if ( !(key in this.rules) ) {
-              throw new Error(`react-a11y: rule ${key} not found,`
+              throw new Error(`react-a11y: rule ${key} not found, `
                             + `maybe you're missing a plugin?`)
             }
 
