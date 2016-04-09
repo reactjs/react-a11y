@@ -10,6 +10,7 @@ import redundantAlt        from './redundant-alt'
 import onBlurNotOnChange   from './use-onblur-not-onchange'
 import validAriaRole       from './valid-aria-role'
 import hiddenUsesTabIndex  from './hidden-uses-tabindex'
+import tabIndexUsesButton  from './tabindex-uses-button'
 
 export default {
   'img-uses-alt': imgUsesAlt
@@ -24,4 +25,5 @@ export default {
 , 'use-onblur-not-onchange': onBlurNotOnChange
 , 'valid-aria-role': validAriaRole
 , 'hidden-uses-tabindex': hiddenUsesTabIndex
+, 'tabindex-uses-button': tabIndexUsesButton
 }

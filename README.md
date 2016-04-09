@@ -186,7 +186,7 @@ usable:
     - [x] `button-role-enter` (`BUTTON_ROLE_ENTER`)
     - [x] `hidden-uses-tabindex` (`TABINDEX_REQUIRED_WHEN_ARIA_HIDDEN`)
     - [x] ~~`hash-href-needs-button`~~
-    - [ ] `tabindex-needs-button`
+    - [x] `tabindex-needs-button`
 
 ## Plans
 
