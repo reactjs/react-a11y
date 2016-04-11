@@ -79,52 +79,73 @@ export default class Suite {
   test (tagName, props, children, done) {
     Object.keys(this.options.rules)
       .forEach(function (key) {
-          // find ruleopts
-          const opts = normalize(this.options.rules[key])
-          const [
-            sev
-          , ...options
-          ] = opts
 
-          if ( sev !== 'off' ) {
-            const ctx = {
-              report (info) {
-                const {
-                  devices = allDevices
-                } = info
+        const rule = this.rules[key]
 
-                // TODO: fix this and failureHandler to accept all info
-                // TODO: add ability to ignore by device class
-                done({
-                  ...info
-                , tagName
-                , props
-                , severity: sev
-                , rule: key
-                , devices
-                })
-              }
-            , options
-            , React:    this.React
-            , ReactDOM: this.ReactDOM
-            }
+        // ensure that the rule exists
+        if ( !rule ) {
+          throw new Error(`react-a11y: rule ${key} not found, `
+                        + 'maybe you\'re missing a plugin?')
+        }
 
-            if ( !(key in this.rules) ) {
-              throw new Error(`react-a11y: rule ${key} not found, `
-                            + 'maybe you\'re missing a plugin?')
-            }
+        // get options for rule
+        const [
+          sev
+        , ...options
+        ] = normalize(this.options.rules[key])
 
-            const tests  = this.rules[key](ctx)
-            const nprops = normalizeProps(props)
-
-            if ( typeof tests === 'function' ) {
-              tests(tagName, nprops, children)
-            } else if ( tagName in tests ) {
-              tests[tagName](nprops, children)
-            } else if ( '_any_' in tests ) {
-              tests._any_(tagName, nprops, children)
-            }
+        if ( sev !== 'off' ) {
+          const ctx = {
+            options
+          , React:    this.React
+          , ReactDOM: this.ReactDOM
           }
+
+          rule.reduce(function (prev, defn) {
+            // only fail once per rule
+            // so check if previous test failed
+            // already, if this is true, they havn't-
+            if ( !prev ) {
+              return prev
+            }
+
+            const {
+              tagName: tagNames
+            , msg
+            , url
+            , test
+            , affects = allDevices
+            } = defn
+
+            // filter by tagName
+            if ( Array.isArray(tagNames) ) {
+              if ( tagNames.indexOf(tagName) < 0 ) {
+                return prev
+              }
+            } else if ( tagNames ) {
+              if ( tagName !== tagNames ) {
+                return prev
+              }
+            }
+
+            // perform the test
+            const pass = test(tagName, props, children, ctx)
+
+            if ( !pass ) {
+              done({
+                tagName
+              , msg
+              , props
+              , children
+              , severity: sev
+              , rule: key
+              , affects
+              })
+            }
+
+            return prev && pass
+          }, true)
+        }
       }.bind(this))
   }
 }
