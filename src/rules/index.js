@@ -9,7 +9,7 @@ import imgUsesAlt          from './img-uses-alt'
 // import redundantAlt        from './redundant-alt'
 // import onBlurNotOnChange   from './use-onblur-not-onchange'
 // import validAriaRole       from './valid-aria-role'
-// import hiddenUsesTabIndex  from './hidden-uses-tabindex'
+import hiddenUsesTabIndex  from './hidden-uses-tabindex'
 // import tabIndexUsesButton  from './tabindex-uses-button'
 
 export default {
@@ -24,6 +24,6 @@ export default {
 // , 'redundant-alt': redundantAlt
 // , 'use-onblur-not-onchange': onBlurNotOnChange
 // , 'valid-aria-role': validAriaRole
-// , 'hidden-uses-tabindex': hiddenUsesTabIndex
+, 'hidden-uses-tabindex': hiddenUsesTabIndex
 // , 'tabindex-uses-button': tabIndexUsesButton
 }
