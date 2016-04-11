@@ -30,5 +30,5 @@ describe('reporter (node)', () => {
   recieves('tagName',     'string')
   recieves('severity',    'string')
   recieves('props',       'object')
-  // recieves('displayName', 'string')
+  recieves('affects',     'array')
 })
