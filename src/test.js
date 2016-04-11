@@ -129,7 +129,8 @@ export default class Suite {
             }
 
             // perform the test
-            const pass = test(tagName, props, children, ctx)
+            const nprops = normalizeProps(props)
+            const pass = test(tagName, nprops, children, ctx)
 
             if ( !pass ) {
               done({
