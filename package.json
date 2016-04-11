@@ -11,6 +11,7 @@
   "bugs": "https://github.com/reactjs/react-a11y/issues",
   "scripts": {
     "test": "npm run mocha && npm run karma",
+    "docs": "mkdir -p docs/rules && babel-node mkdocs.js",
     "karma": "karma start --single-run",
     "mocha": "mocha --compilers js:babel-register --recursive -f browser -i",
     "lint": "eslint src",
