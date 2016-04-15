@@ -4,7 +4,6 @@ import rules      from './src/rules'
 import fs         from 'fs'
 import path       from 'path'
 
-
 Object.keys(rules).forEach(function (rule) {
   const {
     'default': defn
@@ -66,6 +65,18 @@ Object.keys(rules).forEach(function (rule) {
       + ReactDOM.renderToStaticMarkup(bad.render(React))
   }).join('\n\n'))
   line('```')
+  line()
+  line('## See also')
+  line()
+  defn.forEach(function (def) {
+    if ( def.url ) {
+      line(` - [This document](${def.url}`)
+    }
+    if ( def.AX ) {
+      line(` - Google Audit defs [${def.AX}](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-defs#${def.AX.toLowerCase()})`)
+    }
+  })
+
   const file = path.resolve('.', 'docs', 'rules', `${rule}.md`)
 
   fs.writeFile(file, res, function (err) {
