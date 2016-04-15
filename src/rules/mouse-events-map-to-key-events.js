@@ -3,33 +3,53 @@ import {
 , listensTo
 } from '../util'
 
-const mouseOverMsg =
-  'onMouseOver must be accompanied by onFocus for accessibility.'
 
-const mouseOutMsg =
-  'onMouseOut must be accompanied by onBlur for accessibility.'
 
-const url = 'http://webaim.org/techniques/javascript/eventhandlers#onmouseover'
+const url     = 'http://webaim.org/techniques/javascript/eventhandlers#onmouseover'
+const affects = [
+  devices.keyboardOnly
+]
 
-export default ctx => function (tagName, props) {
-  if (  listensTo(props, 'onMouseOver')
-    && !listensTo(props, 'onFocus') ) {
-    ctx.report({
-      msg: mouseOverMsg
-    , url
-    , affects: [
-        devices.keyboardOnly
-      ]
-    })
-  } else if ( listensTo(props, 'onMouseOut')
-          && !listensTo(props, 'onBlur') ) {
-    ctx.report({
-      msg: mouseOutMsg
-    , url
-    , affects: [
-        devices.keyboardOnly
-      ]
-    })
+export default [{
+  msg: 'onMouseOver must be accompanied by onFocus for accessibility.'
+, url
+, affects
+, test (tagName, props) {
+    const mouseOver = listensTo(props, 'onMouseOver')
+    const focus     = listensTo(props, 'onFocus')
+
+    return mouseOver && !focus
   }
-}
+}, {
+  msg: 'onMouseOut must be accompanied by onBlur for accessibility.'
+, url
+, affects
+, test(tagName, props) {
+    const mouseOut = listensTo(props, 'onMouseOut')
+    const blur     = listensTo(props, 'onBlur')
 
+    return mouseOut && !blur
+  }
+}]
+
+
+const fn = () => {}
+
+export const fail = [{
+  when: 'there is `onMouseOver` but no `onFocus`'
+, render: React => <div onMouseOver={fn} />
+}, {
+  when: 'there is `onMouseOut` but no `onBlur`'
+, render: React => <div onMouseOut={fn} />
+}]
+
+export const pass = [{
+  when: 'there is no `onMouseOver` or `onMouseOut`'
+, render: React => <div />
+}, {
+  when: 'there is `onMouseOver` but and `onFocus`'
+, render: React => <div onMouseOver={fn} onFocus={fn} />
+}, {
+  when: 'there is `onMouseOut` but and `onBlur`'
+, render: React => <div onMouseOut={fn} onBlur={fn} />
+}]
