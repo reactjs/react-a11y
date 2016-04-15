@@ -1,11 +1,21 @@
-export default ctx => ({
-  a (props) {
-    if ( props.href && props.href === '#' ) {
-      ctx.report({
-        msg: 'Links must not point to `#`. '
-           + 'Use a more descriptive href or use a button instead.'
-      , url: 'http://webaim.org/techniques/hypertext/'
-      })
-    }
+
+export default [{
+  tagName: 'a'
+, msg: 'Links must not point to `#`. '
+     + 'Use a more descriptive href or use a button instead.'
+, url: 'http://webaim.org/techniques/hypertext/'
+, test (tagName, props) {
+    const hashRef = props.href && props.href === '#'
+    return !hashRef
   }
-})
+}]
+
+const pass = [{
+  when: 'the `href` is `#`'
+, render: React => <a href='#' />
+}]
+
+const fail = [{
+  when: 'the `href` is not `#`'
+, render: React => <a href='foo#bar' />
+}]
