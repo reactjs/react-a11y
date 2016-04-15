@@ -1,4 +1,10 @@
 
-export default function (props, prop) {
-  return props && prop && prop in props
+const hasProp = function (props, any) {
+  if ( Array.isArray(any) ) {
+    any.reduce((a, prop) => a || hasProp(props, prop), false)
+  } else {
+    return props && any && any in props
+  }
 }
+
+export default hasProp
