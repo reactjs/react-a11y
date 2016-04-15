@@ -2,25 +2,45 @@ import {
   hiddenFromAT
 , listensTo
 , devices
+, fn
 } from '../util'
 
-export default ctx => function (tagName, props) {
-  const hidden      = hiddenFromAT(props)
-  const button      = props.role === 'button'
-  const onKeyDown   = listensTo(props, 'onKeyDown')
 
-  // rule fails when the element is not hidden from aria,
-  // has role="button" and no onKeyDownHandler
-  const bad = !hidden && button && !onKeyDown
+export default [{
+  msg: 'You have `role="button"` but did not define an `onKeyDown` handler. '
+     + 'Add it, and have the "Space" key do the same thing as an `onClick` handler.'
+, url: 'https://www.w3.org/WAI/GL/wiki/Making_actions_keyboard_accessible_by_using_keyboard_event_handlers_with_WAI-ARIA_controls'
+, affects: [
+    devices.keyboardOnly
+  ]
+, test (tagName, props) {
+    const hidden      = hiddenFromAT(props)
+    const button      = props.role === 'button'
+    const onKeyDown   = listensTo(props, 'onKeyDown')
 
-  if ( bad ) {
-    ctx.report({
-      msg: 'You have `role="button"` but did not define an `onKeyDown` handler. '
-         + 'Add it, and have the "Space" key do the same thing as an `onClick` handler.'
-    , url: 'https://www.w3.org/WAI/GL/wiki/Making_actions_keyboard_accessible_by_using_keyboard_event_handlers_with_WAI-ARIA_controls'
-    , affects: [
-        devices.keyboardOnly
-      ]
-    })
+    // rule passes when element is hidden,
+    // has role='button' and has an onKeyDown prop
+    return hidden || (button && onKeyDown)
   }
-}
+}]
+
+import React from 'react'
+
+export const pass = [{
+  when: 'role="button" but there is an onKeyDown handler.'
+, render: () => <div role='button' onKeyDown={fn} />
+}, {
+  when: 'there is no role'
+, render: () => <div/>
+}, {
+  when: 'there the role is not button'
+, render: () => <div role='foo'/>
+}, {
+  when: 'the element is aria-hidden'
+, render: () => <div aria-hidden role='button' />
+}]
+
+export const fail = [{
+  when: 'role="button" and no `onKeyDown` is present'
+, render: () => <div role='button' />
+}]
