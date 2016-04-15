@@ -14,10 +14,13 @@ Object.keys(rules).forEach(function (rule) {
   } = require('./src/rules/' + rule)
 
   let res = `# ${rule}`
-  const line = str => res += '\n' + str
+  const line = str => res += '\n' + (str || "")
 
+  line()
   line(description || "**no description**")
+  line()
   line('## Passes')
+  line()
   line('These elements are passed by this rule')
   line('```js')
   line(pass.map(function (ok) {
@@ -26,7 +29,9 @@ Object.keys(rules).forEach(function (rule) {
   }).join('\n\n'))
   line('```')
 
+  line()
   line('## Fails')
+  line()
   line('These elements are *not* passed by this rule')
   line('```js')
   line(fail.map(function (bad) {
