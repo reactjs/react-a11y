@@ -42,3 +42,10 @@ export const fail = [{
   when: 'an interactive element is hidden but has a bad tabindex'
 , render: React => <input aria-hidden={true} tabIndex={2} />
 }]
+
+export const description = `
+Enforce that interactive elements that have been removed from
+the accessibility tree usign \`aria-hidden\` are also removed from
+the tab flow by setting \`tabIndex={-1}\`.  If not, this could result
+in a hidden tab stop for screen reader users.
+`

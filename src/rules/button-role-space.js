@@ -42,3 +42,10 @@ export const fail = [{
   when: 'role="button" and no `onKeyDown` is present'
 , render: React => <div role='button' />
 }]
+
+export const description = `
+Enforce that elements which have the \`role="button"\`
+also have an \`onKeyDown\` handler that handles Space or Enter
+(this is isn't actually checked) for poeple that are using a
+keyboard-only device.
+`

@@ -53,3 +53,11 @@ export const pass = [{
   when: 'there is `onMouseOut` but and `onBlur`'
 , render: React => <div onMouseOut={fn} onBlur={fn} />
 }]
+
+
+export const description = `
+Enforce \`onMouseOver\`/\`onMouseOut\` are accompanied by
+\`onFocus\`/\`onBlur\`. Coding for the keyboard is important for users with
+physical disabilities who cannot use a mouse, AT compatability, and screenreader
+users.
+`
