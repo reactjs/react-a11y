@@ -17,7 +17,7 @@ export default [{
 , affects: [
     devices.screenReaders
   ]
-, test (_, props) {
+, test (_, props, _c, ctx) {
     const hidden   = hiddenFromAT(props)
     const alt      = (props.alt || '').toLowerCase()
     const words    = ctx.options[0] || def
