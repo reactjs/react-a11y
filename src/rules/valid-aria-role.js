@@ -23,7 +23,7 @@ const roles = [
 export default [{
   msg: 'Elements with ARIA roles must use a valid, non-abstract ARIA role.'
 , url: 'https://www.w3.org/TR/wai-aria/roles'
-, audit: 'AX_ARIA_01'
+, AX: 'AX_ARIA_01'
 , test (tagName, props) {
     const role = hasProp(props, 'role')
     return !role || roles.indexOf(props.role) >= 0
