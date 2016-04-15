@@ -1,24 +1,9 @@
 import {
   hasProp
+, role
 } from '../util'
 
-const roles = [
-  'alert', 'alertdialog', 'application', 'article'
-, 'banner', 'button', 'checkbox', 'columnheader'
-, 'combobox', 'complementary'
-, 'contentinfo', 'definition', 'dialog', 'directory'
-, 'document', 'form', 'grid', 'gridcell'
-, 'group', 'heading', 'img', 'link', 'list', 'listbox'
-, 'listitem', 'log', 'main', 'marquee'
-, 'math', 'menu', 'menubar', 'menuitem'
-, 'menuitemcheckbox', 'menuitemradio', 'navigation', 'note'
-, 'option', 'presentation', 'progressbar', 'radio'
-, 'radiogroup', 'region', 'row', 'rowgroup', 'rowheader'
-, 'scrollbar', 'search', 'separator', 'slider'
-, 'spinbutton', 'status', 'tab', 'tablist', 'tabpanel'
-, 'textbox', 'timer', 'toolbar', 'tooltip'
-, 'tree', 'treegrid', 'treeitem'
-]
+const roles = Object.keys(role)
 
 export default [{
   msg: 'Elements with ARIA roles must use a valid, non-abstract ARIA role.'
@@ -29,7 +14,6 @@ export default [{
     return !role || roles.indexOf(props.role) >= 0
   }
 }]
-
 
 export const fail = [{
   when: 'there is an invalid `role`'
