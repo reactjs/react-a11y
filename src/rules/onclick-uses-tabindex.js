@@ -39,3 +39,8 @@ export const fail = [{
 , render: React => <span onClick={fn} />
 }]
 
+export const description = `
+Enforce that elements that have an \`onClick\` handler also have
+a \`tabIndex\` property.  If not, they will not be navigable by
+keyboard users.
+`

@@ -10,12 +10,17 @@ export default [{
   }
 }]
 
-const pass = [{
+export const pass = [{
   when: 'the `href` is `#`'
 , render: React => <a href='#' />
 }]
 
-const fail = [{
+export const fail = [{
   when: 'the `href` is not `#`'
 , render: React => <a href='foo#bar' />
 }]
+
+export const description = `
+Enforce an anchor element's href prop value is not just \`"#"\`. You should use
+something more descriptive, or use a button instead.
+`
