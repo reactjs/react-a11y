@@ -38,4 +38,4 @@ These elements are *not* passed by this rule
 
 ## See also
 
- - [This document](http://john.foliot.ca/aria-hidden
+ - [This document](http://john.foliot.ca/aria-hidden)

@@ -70,7 +70,7 @@ Object.keys(rules).forEach(function (rule) {
   line()
   defn.forEach(function (def) {
     if ( def.url ) {
-      line(` - [This document](${def.url}`)
+      line(` - [This document](${def.url})`)
     }
     if ( def.AX ) {
       line(` - Google Audit defs [${def.AX}](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-defs#${def.AX.toLowerCase()})`)
