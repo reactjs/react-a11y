@@ -34,7 +34,7 @@ describe('rules', () => {
           a11y.__forceSync(true)
 
           // create the el
-          ok.render()
+          ok.render(React)
 
           // restore and finish
           a11y.restoreAll()
@@ -62,7 +62,7 @@ describe('rules', () => {
           a11y.__forceSync(true)
 
           // create the el
-          bad.render()
+          bad.render(React)
 
           // make sure error was presented
           expect(called).to.be.true
