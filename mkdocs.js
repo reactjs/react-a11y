@@ -1,3 +1,4 @@
+import React      from 'react'
 import ReactDOM   from 'react-dom/server'
 import rules      from './src/rules'
 import fs         from 'fs'
@@ -15,22 +16,22 @@ Object.keys(rules).forEach(function (rule) {
   let res = `# ${rule}`
   const line = str => res += '\n' + str
 
-  line(description)
+  line(description || "**no description**")
   line('## Passes')
   line('These elements are passed by this rule')
   line('```js')
   line(pass.map(function (ok) {
     return `// no problem when ${ok.when}\n`
-      + ReactDOM.renderToStaticMarkup(ok.render())
+      + ReactDOM.renderToStaticMarkup(ok.render(React))
   }).join('\n\n'))
   line('```')
 
   line('## Fails')
   line('These elements are *not* passed by this rule')
   line('```js')
-  line(fail.map(function (ok) {
-    return `// warns when ${ok.when}\n`
-      + ReactDOM.renderToStaticMarkup(ok.render())
+  line(fail.map(function (bad) {
+    return `// warns when ${bad.when}\n`
+      + ReactDOM.renderToStaticMarkup(bad.render(React))
   }).join('\n\n'))
   line('```')
   const file = path.resolve('.', 'docs', 'rules', `${rule}.md`)
