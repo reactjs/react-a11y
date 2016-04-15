@@ -11,6 +11,7 @@ import redundantAlt        from './redundant-alt'
 import onBlurNotOnChange   from './use-onblur-not-onchange'
 import validAriaRole       from './valid-aria-role'
 import tabIndexUsesButton  from './tabindex-uses-button'
+import noUnsupportedEl     from './no-unsupported-elements-use-aria'
 
 export default {
   'button-role-space': buttonRoleSpace
@@ -26,4 +27,5 @@ export default {
 , 'use-onblur-not-onchange': onBlurNotOnChange
 , 'valid-aria-role': validAriaRole
 , 'tabindex-uses-button': tabIndexUsesButton
+, 'no-unsupported-elements-use-aria': noUnsupportedEl
 }
