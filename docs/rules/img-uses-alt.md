@@ -36,5 +36,5 @@ These elements are *not* passed by this rule
 
 ## See also
 
- - [This document](https://dev.w3.org/html5/alt-techniques
- - [This document](https://www.w3.org/TR/wai-aria/roles#presentation
+ - [This document](https://dev.w3.org/html5/alt-techniques)
+ - [This document](https://www.w3.org/TR/wai-aria/roles#presentation)

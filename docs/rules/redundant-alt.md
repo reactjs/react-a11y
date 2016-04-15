@@ -39,4 +39,4 @@ These elements are *not* passed by this rule
 
 ## See also
 
- - [This document](http://webaim.org/techniques/alttext
+ - [This document](http://webaim.org/techniques/alttext)

@@ -36,5 +36,5 @@ These elements are *not* passed by this rule
 
 ## See also
 
- - [This document](https://www.w3.org/TR/wai-aria/roles
+ - [This document](https://www.w3.org/TR/wai-aria/roles)
  - Google Audit defs [AX_ARIA_01](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-defs#ax_aria_01)

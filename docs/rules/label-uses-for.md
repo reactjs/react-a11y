@@ -34,4 +34,4 @@ These elements are *not* passed by this rule
 
 ## See also
 
- - [This document](https://www.w3.org/WAI/tutorials/forms/labels
+ - [This document](https://www.w3.org/WAI/tutorials/forms/labels)

@@ -27,4 +27,4 @@ These elements are *not* passed by this rule
 
 ## See also
 
- - [This document](http://webaim.org/techniques/hypertext/
+ - [This document](http://webaim.org/techniques/hypertext/)
