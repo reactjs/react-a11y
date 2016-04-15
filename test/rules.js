@@ -26,7 +26,10 @@ describe('rules', () => {
               expect(msgs.indexOf(msg) >= 0).to.be.true
             }
           , rules: {
-              [rule]: 'warn'
+              [rule]: [
+                'warn'
+              , ...(ok.opts || [])
+              ]
             }
           })
 
@@ -54,7 +57,10 @@ describe('rules', () => {
               expect(msgs.indexOf(msg) >= 0).to.be.true
             }
           , rules: {
-              [rule]: 'warn'
+              [rule]: [
+                'warn'
+              , ...(bad.opts || [])
+              ]
             }
           })
 
