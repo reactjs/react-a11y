@@ -8,3 +8,6 @@ export const devices = {
 , keyboardOnly:  Symbol('keyboardOnly')
 , mobile:        Symbol('mobile')
 }
+
+// simple callback
+export const fn = () => null
