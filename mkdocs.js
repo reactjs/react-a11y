@@ -10,15 +10,42 @@ Object.keys(rules).forEach(function (rule) {
     'default': defn
   , pass = []
   , fail = []
-  , description = ''
+  , description
+  , options = []
   } = require('./src/rules/' + rule)
 
   let res = `# ${rule}`
   const line = str => res += '\n' + (str || "")
 
+  if ( !description ) {
+    console.warn(`no description for rule \`${rule}\``)
+  }
+
+  if ( pass.length === 0 ) {
+    console.warn(`no passing test cases for rule \`${rule}\``)
+  }
+
+  if ( fail.length === 0 ) {
+    console.warn(`no failing test cases for rule \`${rule}\``)
+  }
+
   line()
-  line(description || "**no description**")
+  line(description || "*no description*")
   line()
+
+  line('## Options')
+  line()
+  if ( options.length === 0 ) {
+    line('*This rule takes no options*')
+  } else {
+    line('This rule takes the following options')
+    options.forEach(function (opt, i) {
+      line(`  ${i + 1}.  ${opt.description} (**${opt.type || "any"}**)`)
+      line(`      default: \`${JSON.stringify(opt.def)}\``)
+    })
+  }
+  line()
+
   line('## Passes')
   line()
   line('These elements are passed by this rule')
