@@ -11,13 +11,13 @@ export default [{
 }]
 
 export const pass = [{
-  when: 'the `href` is `#`'
-, render: React => <a href='#' />
+  when: 'the `href` is not `#`'
+, render: React => <a href='foo#bar' />
 }]
 
 export const fail = [{
-  when: 'the `href` is not `#`'
-, render: React => <a href='foo#bar' />
+  when: 'the `href` is `#`'
+, render: React => <a href='#' />
 }]
 
 export const description = `
