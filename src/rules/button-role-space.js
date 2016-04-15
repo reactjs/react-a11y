@@ -24,23 +24,21 @@ export default [{
   }
 }]
 
-import React from 'react'
-
 export const pass = [{
   when: 'role="button" but there is an onKeyDown handler.'
-, render: () => <div role='button' onKeyDown={fn} />
+, render: React => <div role='button' onKeyDown={fn} />
 }, {
   when: 'there is no role'
-, render: () => <div/>
+, render: React => <div/>
 }, {
   when: 'there the role is not button'
-, render: () => <div role='foo'/>
+, render: React => <div role='foo'/>
 }, {
   when: 'the element is aria-hidden'
-, render: () => <div aria-hidden role='button' />
+, render: React => <div aria-hidden role='button' />
 }]
 
 export const fail = [{
   when: 'role="button" and no `onKeyDown` is present'
-, render: () => <div role='button' />
+, render: React => <div role='button' />
 }]

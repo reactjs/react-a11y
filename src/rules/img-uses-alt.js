@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   devices
 , hiddenFromAT
@@ -42,26 +41,26 @@ export default [
 export const pass = [
   {
     when: 'the img has an `alt`'
-  , render() { return <img src='foo' alt='nice' /> }
+  , render: React => <img src='foo' alt='nice' />
   }
 , {
     when: 'the img has an empty `alt` and role="presentation"'
-  , render() { return <img src='foo' alt='' role='presentation'/> }
+  , render: React => <img src='foo' alt='' role='presentation'/>
   }
 , {
     when: 'the img is aria-hidden'
-  , render() { return <img src='foo' aria-hidden /> }
+  , render: React => <img src='foo' aria-hidden />
   }
 ]
 
 export const fail = [
   {
     when: 'the img doen\'t have an `alt`'
-  , render: () => <img src='foo' />
+  , render: React => <img src='foo' />
   }
 , {
     when: 'the img has alt="" but no role="presentation"'
-  , render: () => <img src='foo' alt='' />
+  , render: React => <img src='foo' alt='' />
   }
 ]
 

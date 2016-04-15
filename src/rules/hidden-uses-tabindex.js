@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   hiddenFromAT
 , devices
@@ -27,19 +26,19 @@ export default [{
 
 export const pass = [{
   when: 'an interactive element is aria-hidden and has tabindex="-1"'
-, render: () => <input aria-hidden={true} tabIndex={-1} />
+, render: React => <input aria-hidden={true} tabIndex={-1} />
 }, {
   when: 'the element is not interactive'
-, render: () => <div aria-hidden={true} />
+, render: React => <div aria-hidden={true} />
 }, {
   when: 'an interactive element is not aria-hidden'
-, render: () => <input />
+, render: React => <input />
 }]
 
 export const fail = [{
   when: 'an interactive element is hidden but has no tabindex'
-, render: () => <input aria-hidden={true} />
+, render: React => <input aria-hidden={true} />
 }, {
   when: 'an interactive element is hidden but has a bad tabindex'
-, render: () => <input aria-hidden={true} tabIndex={2} />
+, render: React => <input aria-hidden={true} tabIndex={2} />
 }]
