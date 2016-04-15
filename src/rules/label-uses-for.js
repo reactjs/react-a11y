@@ -2,20 +2,31 @@ import {
   hiddenFromAT
 } from '../util'
 
-const msg =
-    'Form controls using a label to identify them must be'
-  + 'programmatically associated with the control using htmlFor'
-
-export default ctx => ({
-  label (props) {
-    if ( hiddenFromAT(props) ) {
-      return
-    }
-    if ( typeof props.htmlFor !== 'string' ) {
-      ctx.report({
-        msg
-      , url: 'https://www.w3.org/WAI/tutorials/forms/labels'
-      })
-    }
+export default [{
+  tagName: 'label'
+, msg: 'Form controls using a label to identify them must be '
+     + 'programmatically associated with the control using htmlFor'
+, url: 'https://www.w3.org/WAI/tutorials/forms/labels'
+, test (tagName, props) {
+    const hidden = hiddenFromAT(props)
+    const hasfor = typeof props.htmlFor == 'string'
+    return hidden || hasfor
   }
-})
+}]
+
+
+export const pass = [{
+  when: 'the label is hidden'
+, render: React => <label aria-hidden />
+}, {
+  when: 'the label has a valid `htmlFor` prop'
+, render: React => <label htmlFor='foo' />
+}, {
+  when: 'it is not a label'
+, render: React => <div />
+}]
+
+export const fail = [{
+  when: 'a label is not hidden and has no `htmlFor`'
+, render: React => <label />
+}]
