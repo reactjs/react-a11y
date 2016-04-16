@@ -18,7 +18,7 @@ These elements are passed by this rule
 <span tabindex="0"></span>
 
 // no problem when the element is hidden from aria
-<span></span>
+<span aria-hidden="true"></span>
 
 // no problem when the element is interactive
 <button></button>

@@ -17,7 +17,7 @@ function of an element.
 These elements are passed by this rule
 ```js
 // no problem when the element is hidden from aria
-<span></span>
+<span aria-hidden="true"></span>
 
 // no problem when there is an `onClick` with a `role`
 <span role="button"></span>
