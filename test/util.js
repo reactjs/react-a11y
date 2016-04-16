@@ -4,6 +4,8 @@ import {
 , hiddenFromAT
 , listensTo
 , trueish
+, hasProp
+, fn
 } from '../src/util'
 
 describe('util', () => {
@@ -33,6 +35,32 @@ describe('util', () => {
       expect(trueish({ fooBar: 'false' }, 'fooBar')).to.be.false
       expect(trueish({ fooBar: 'derp' },  'fooBar')).to.be.false
       expect(trueish({ },                 'fooBar')).to.be.false
+    })
+  })
+
+  describe('hasProp', () => {
+    it('is false when a prop isn\'t there', () => {
+      expect(hasProp({ foo: 'bar' }, 'baz')).to.be.false
+      expect(hasProp({ foo: 'bar' }, [ 'baz' ])).to.be.false
+    })
+
+    it('is true when a prop is there', () => {
+      expect(hasProp({ foo: 'bar' }, 'foo')).to.be.true
+      expect(hasProp({ foo: 'bar' }, [ 'baz', 'foo' ])).to.be.true
+    })
+  })
+
+  describe('listensTo', () => {
+    it('is false when the handler is not a function', () => {
+      expect(listensTo({ onClick: 'derp' }, 'onClick')).to.be.false
+    })
+
+    it('is false when the handler is not there', () => {
+      expect(listensTo({  }, 'onClick')).to.be.false
+    })
+
+    it('is true when the handler is present and is a function', () => {
+      expect(listensTo({ onClick: fn }, 'onClick')).to.be.true
     })
   })
 })
