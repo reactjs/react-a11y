@@ -53,7 +53,7 @@ export default class Suite {
       .map(function (name) {
         try {
           const mod   = require(`react-a11y-plugin-${name}`)
-          const rules = 'default' in mod ? mod.default : mod
+          const rules = 'default' in mod ? mod.default.rules : mod.rules
           return Object.keys(rules).reduce((acc, key) => ({
               ...acc
             , [`${name}/${key}`]: rules[key]
