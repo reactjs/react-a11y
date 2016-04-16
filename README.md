@@ -125,6 +125,15 @@ beforeEach(() => a11y(React))
 afterEach(() => a11y.restoreAll())
 ```
 
-[react-a11y]: https://github.com/reactjs/react-a11y
-[eslint]:     http://eslint.org
-[flow]:       http://flowtype.org
+## Writing plugins
+
+The rules in this version of `react-a11y` are pluggable!
+You can write your own plugin to add more rules.  Have a look at 
+[writing plugins](https://github.com/romeovs/react-a11y/blob/master/docs/plugins.md<Paste>) in the
+docs to get started!
+
+[react-a11y]:    https://github.com/reactjs/react-a11y
+[eslint]:        http://eslint.org
+[flow]:          http://flowtype.org
+[eslint-plugin]: https://github.com/evcohen/eslint-plugin-jsx-a11y
+[AX]:            https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules
