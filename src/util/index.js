@@ -8,6 +8,7 @@ export DOM           from './DOM'
 export role          from './role'
 export browser       from './browser'
 export importRules   from './import-rules'
+export testRules     from './test-rules'
 
 export const devices = {
   screenReaders: Symbol('screenReaders')
