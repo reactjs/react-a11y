@@ -25,13 +25,13 @@ This is often because they are not visible, for example \`meta\`, \`html\`, \`sc
 
 export const fail = [{
   when: 'the element should not be given any ARIA attributes'
-, render: React => <meta charset="UTF-8" aria-hidden="false" />
+, render: React => <meta charSet='UTF-8' aria-hidden='false' />
 }]
 
 export const pass = [{
   when: 'the reserver element is not given an illegal prop'
-, render: React => <meta charset="UTF-8" />
+, render: React => <meta charSet='UTF-8' />
 }, {
   when: 'an illegal props is given to a non-reserved elemeent'
-, render: React => <div aria-hidden={true} />
+, render: React => <div aria-hidden />
 }]

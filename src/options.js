@@ -59,8 +59,8 @@ const mkReporter = function (opts) {
     const warning = [
       displayName || tagName
     , warningPrefix.concat(msg)
-    , ...(url ? [`See '${url}' for more info.`] : [])
-    , ...(AX ?  [`See '${AXURL(AX)}' for more info.`] : [])
+    , ...(url ? [ `See '${url}' for more info.` ] : [])
+    , ...(AX ?  [ `See '${AXURL(AX)}' for more info.` ] : [])
     , DOMNode || tagName
     ]
 

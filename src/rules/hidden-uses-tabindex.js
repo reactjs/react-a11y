@@ -14,7 +14,7 @@ export default [{
     devices.keyboardOnly
   , devices.screenReaders
   ]
-, test(tagName, props) {
+, test (tagName, props) {
     const hidden      = hiddenFromAT(props)
     const interactive = isInteractive(tagName, props)
     const tabIndex    = props.tabIndex === -1
@@ -26,10 +26,10 @@ export default [{
 
 export const pass = [{
   when: 'an interactive element is aria-hidden and has tabindex="-1"'
-, render: React => <input aria-hidden={true} tabIndex={-1} />
+, render: React => <input aria-hidden tabIndex={-1} />
 }, {
   when: 'the element is not interactive'
-, render: React => <div aria-hidden={true} />
+, render: React => <div aria-hidden />
 }, {
   when: 'an interactive element is not aria-hidden'
 , render: React => <input />
@@ -37,10 +37,10 @@ export const pass = [{
 
 export const fail = [{
   when: 'an interactive element is hidden but has no tabindex'
-, render: React => <input aria-hidden={true} />
+, render: React => <input aria-hidden />
 }, {
   when: 'an interactive element is hidden but has a bad tabindex'
-, render: React => <input aria-hidden={true} tabIndex={2} />
+, render: React => <input aria-hidden tabIndex={2} />
 }]
 
 export const description = `

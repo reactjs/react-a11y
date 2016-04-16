@@ -29,10 +29,10 @@ export const pass = [{
 , render: React => <div role='button' onKeyDown={fn} />
 }, {
   when: 'there is no role'
-, render: React => <div/>
+, render: React => <div />
 }, {
   when: 'there the role is not button'
-, render: React => <div role='foo'/>
+, render: React => <div role='foo' />
 }, {
   when: 'the element is aria-hidden'
 , render: React => <div aria-hidden role='button' />

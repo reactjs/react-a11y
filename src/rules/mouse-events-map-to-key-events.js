@@ -1,6 +1,7 @@
 import {
   devices
 , listensTo
+, fn
 } from '../util'
 
 
@@ -24,16 +25,13 @@ export default [{
   msg: 'onMouseOut must be accompanied by onBlur for accessibility.'
 , url
 , affects
-, test(tagName, props) {
+, test (tagName, props) {
     const mouseOut = listensTo(props, 'onMouseOut')
     const blur     = listensTo(props, 'onBlur')
 
     return mouseOut && !blur
   }
 }]
-
-
-const fn = () => {}
 
 export const fail = [{
   when: 'there is `onMouseOver` but no `onFocus`'
