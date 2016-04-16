@@ -35,7 +35,11 @@ import ReactDOM from 'react-dom'
 if (ENV === 'development') {
   const a11y = require('react-a11y').default
   a11y(React, ReactDOM, {
-    // options
+    rules: {
+      'img-uses-alt': 'warn'
+    , 'redundant-alt': [ 'warn', [ 'image', 'photo', 'foto', 'bild' ]]
+    // ...
+    }
   })
 }
 ```
