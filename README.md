@@ -207,6 +207,7 @@ usable:
     - [x] `tabindex-needs-button`
     - [ ] `use-label` (`NO_LABEL`)
     - [x] `no-unsupported-element-uses-aria`
+    - [x] `avoid-positive-tabindex`
   - [ ] make rule testing machinery available to plugins.
 
 
