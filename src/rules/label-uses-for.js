@@ -9,7 +9,7 @@ export default [{
 , url: 'https://www.w3.org/WAI/tutorials/forms/labels'
 , test (tagName, props) {
     const hidden = hiddenFromAT(props)
-    const hasfor = typeof props.htmlFor == 'string'
+    const hasfor = typeof props.htmlFor === 'string'
     return hidden || hasfor
   }
 }]

@@ -31,6 +31,10 @@ const normalize = function (opts = 'off') {
   }
 }
 
+const getTests = function (defns) {
+  return Array.isArray(defns) ? defns : [ defns ]
+}
+
 
 export default class Suite {
 
@@ -90,7 +94,7 @@ export default class Suite {
           , ReactDOM: this.ReactDOM
           }
 
-          rule.reduce(function (prev, defn) {
+          getTests(rule).reduce(function (prev, defn) {
             // only fail once per rule
             // so check if previous test failed
             // already, if this is true, they havn't-

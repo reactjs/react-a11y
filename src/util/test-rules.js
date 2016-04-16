@@ -1,3 +1,5 @@
+/* global describe, it */
+/* eslint-disable no-unused-expressions */
 import path       from 'path'
 import { expect } from 'chai'
 import A11y       from '../a11y'
@@ -7,7 +9,7 @@ export default function ({ React, ReactDOM, ruleDir, rules }) {
     Object.keys(rules).forEach(function (rule) {
       describe(rule, () => {
         const {
-          'default': defn
+          'default': defns
         , pass = []
         , fail = []
         , description
@@ -16,6 +18,8 @@ export default function ({ React, ReactDOM, ruleDir, rules }) {
         expect(description).to.be.a.string
         expect(pass).to.have.length.above(0)
         expect(fail).to.have.length.above(0)
+
+        const defn = Array.isArray(defns) ? defns : [ defns ]
 
         // get all messages
         const msgs = defn.reduce((acc, def) => acc.concat(def.msg), [])
