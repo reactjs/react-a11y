@@ -25,7 +25,7 @@ describe('util', () => {
     it('accepts strings or bools', () => {
       expect(trueish({ fooBar:  true }, 'fooBar')).to.be.true
       expect(trueish({ fooBar: 'true' }, 'fooBar')).to.be.true
-      expect(trueish({ fooBar: 'foo-bar' }, 'fooBar')).to.be.true
+      expect(trueish({ fooBar: 'fooBar' }, 'fooBar')).to.be.true
     })
 
     it('doesn\'t accept false, or wrong strings', () => {
@@ -34,10 +34,5 @@ describe('util', () => {
       expect(trueish({ fooBar: 'derp' },  'fooBar')).to.be.false
       expect(trueish({ },                 'fooBar')).to.be.false
     })
-
-    it('only accepts dash-case string', () => {
-      expect(trueish({ fooBar: 'fooBar' }, 'fooBar')).to.be.false
-    })
   })
-
 })
