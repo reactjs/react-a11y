@@ -155,6 +155,13 @@ and document differences here.
   - Fixed upstream issue [#102](https://github.com/reactjs/react-a11y/issues/102)
     by correctly inferring the component instance.
   - Removed depency on `object.assign`
+  - Added some more rules (and will continue to do so), based on the great work
+    in [`eslint-plugin-jsx-a11y`][eslint-plugin] and on the [Google Chrome Audit
+    rules][AX].
+  - Write a lot more tests.
+  - Tests now work both browser-side as client-side with the exception of tests
+    that rely on the specific environment.
+
 
 ## TO DO
 
@@ -171,7 +178,7 @@ usable:
     `aria-hidden` into `ariaHidden`, so every test can use the
     same method.~~ This makes no sense since React only renders `aria-hidden`.
   - [ ] implement all the rules that are in `facebook/react-a11y` and
-    in `eslint-plugin-jsx-a11y`.
+    in [`eslint-plugin-jsx-a11y`][eslint-plugin].
     - [x] `img-uses-alt` (`MISSING_ALT`)
     - [x] `label-uses-for`
     - [x] `mouse-events-map-to-key-events`
@@ -188,6 +195,7 @@ usable:
     - [x] ~~`hash-href-needs-button`~~
     - [x] `tabindex-needs-button`
     - [ ] `use-label` (`NO_LABEL`)
+    - [x] `no-unsupported-element-uses-aria`
 
 ## Plans
 
@@ -202,6 +210,8 @@ These are some plans I've dreamt up for `react-a11y`:
     that is what poeple like these days.
   - [ ] create filtering options based on rule outputs like `affects`
 
-[react-a11y]: https://github.com/reactjs/react-a11y
-[eslint]:     http://eslint.org
-[flow]:       http://flowtype.org
+[react-a11y]:    https://github.com/reactjs/react-a11y
+[eslint]:        http://eslint.org
+[flow]:          http://flowtype.org
+[eslint-plugin]: https://github.com/evcohen/eslint-plugin-jsx-a11y
+[AX]:            https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules
