@@ -209,7 +209,7 @@ usable:
     - [x] `no-unsupported-element-uses-aria`
     - [x] `avoid-positive-tabindex`
   - [ ] make rule testing machinery available to plugins.
-
+  - [ ] allow rule tests to return promises, so they can be asynchronous.
 
 ## Plans
 
