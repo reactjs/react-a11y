@@ -9,12 +9,8 @@ following format:
 ```js
 export default {
   rules: {
-    'rule-name': [
-      // rule definitions...
-    ]
-  , 'other-rule-name': [
-      // other rule definitions...
-    ]
+    'rule-name': // rule definition
+  , 'other-rule-name': // other rule definitions...
   }
 }
 ```
@@ -36,12 +32,12 @@ The rules will be accessible to for configuration by the end-user as:
 ```
 
 A rule definition is an array of tests, where each test looks like:
-```
+```js
 {
   msg: 'This is the error message explaining what is wrong'
 , affects: [
     // this is an array of affected devices, undefined means all devices
-    // eg. [ A11y.devices.screenReaders ]
+    // eg. A11y.devices.screenReaders
   ]
 
 , test (tagName, props, children, ctx) {
@@ -68,3 +64,5 @@ require('react-a11y/util').devices
 // }
 ```
 
+Look at [the rules included in
+`react-a11y`](https://github.com/romeovs/react-a11y/tree/master/src/rules) for examples.
