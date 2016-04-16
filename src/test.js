@@ -32,17 +32,6 @@ const normalize = function (opts = 'off') {
 }
 
 
-const normalizeProps = function (props) {
-  return Object.keys(props).reduce(function (acc, name) {
-    // turn name into camelCase
-    const camel = name.replace(/-([a-z])/g, $ => $[1].toUpperCase())
-    return {
-      ...acc
-    , [camel]: props[name]
-    }
-  }, {})
-}
-
 export default class Suite {
 
   constructor (React, ReactDOM, options) {
@@ -129,8 +118,7 @@ export default class Suite {
             }
 
             // perform the test
-            const nprops = normalizeProps(props)
-            const pass = test(tagName, nprops, children, ctx)
+            const pass = test(tagName, props, children, ctx)
 
             if ( !pass ) {
               done({
