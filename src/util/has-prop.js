@@ -1,7 +1,7 @@
 
 const hasProp = function (props, any) {
   if ( Array.isArray(any) ) {
-    any.reduce((a, prop) => a || hasProp(props, prop), false)
+    return any.reduce((a, prop) => a || hasProp(props, prop), false)
   } else {
     return props && any && any in props
   }
