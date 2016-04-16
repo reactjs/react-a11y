@@ -23,7 +23,7 @@ These elements are passed by this rule
 <img src="foo" alt="image"/>
 
 // no problem when the element is aria-hidden
-<img src="foo" alt="nice"/>
+<img src="foo" alt="nice" aria-hidden="true"/>
 ```
 
 ## Fails

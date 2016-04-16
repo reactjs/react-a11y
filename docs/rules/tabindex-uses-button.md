@@ -24,7 +24,7 @@ These elements are passed by this rule
 <a href="foo" tabindex="1"></a>
 
 // no problem when the anchor is hidden
-<a tabindex="1"></a>
+<a tabindex="1" aria-hidden="true"></a>
 ```
 
 ## Fails

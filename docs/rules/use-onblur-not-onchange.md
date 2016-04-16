@@ -18,13 +18,13 @@ These elements are passed by this rule
 <input/>
 
 // no problem when the element is aria-hidden
-<input/>
+<input aria-hidden="true"/>
 
 // no problem when the element is aria-disabled
-<input/>
+<input aria-disabled="true"/>
 
 // no problem when the element is aria-readonly
-<input/>
+<input aria-readonly="true"/>
 ```
 
 ## Fails
