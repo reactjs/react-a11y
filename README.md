@@ -167,9 +167,9 @@ usable:
     more easy.
   - [ ] put up a travis worker to make merging easier.
   - [ ] write docs about how to write plugins.
-  - [x] normalize props before passing to the rules, eg. change
+  - [x] ~~normalize props before passing to the rules, eg. change
     `aria-hidden` into `ariaHidden`, so every test can use the
-    same method.
+    same method.~~ This makes no sense since React only renders `aria-hidden`.
   - [ ] implement all the rules that are in `facebook/react-a11y` and
     in `eslint-plugin-jsx-a11y`.
     - [x] `img-uses-alt` (`MISSING_ALT`)
