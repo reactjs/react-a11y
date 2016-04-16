@@ -12,19 +12,19 @@ Eventually, I would like to see all code merged back into the original!
 To see what's changed, look at [Differences from
 `react-a11y`](#differences-from-upstream-react-a11y).
 
-## `next`
+## API on this fork
 
-This is the `next` branch, that moves away from the API in the upstream
-`reactjs/react-a11y`.  The API will be different, transition between API's is
-made  as smooth as possible by adding deprecation warnings and building the new
-defaults on top of the old API.
+On this fork, the API moves away from the API in the upstream
+`reactjs/react-a11y`.  Although the API will be different, transitioning between
+API's is made  as smooth as possible because of the deprecation warnings and
+building the new defaults on top of the old API.
 
 ## Installation
 
 Run:
 
 ```sh
-npm install romeovs/react-a11y@next
+npm install romeovs/react-a11y
 ```
 
 I want to prevent creating a new `npm` package for the fork, to reduce
@@ -43,7 +43,11 @@ import ReactDOM from 'react-dom'
 if (ENV === 'development') {
   const a11y = require('react-a11y').default
   a11y(React, ReactDOM, {
-    // options
+    rules: {
+      'img-uses-alt': 'warn'
+    , 'redundant-alt': [ 'warn', [ 'image', 'photo', 'foto', 'bild' ]]
+    // ...
+    }
   })
 }
 ```
