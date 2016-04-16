@@ -133,6 +133,13 @@ beforeEach(() => a11y(React))
 afterEach(() => a11y.restoreAll())
 ```
 
+## Writing plugins
+
+The rules in this version of `react-a11y` are pluggable!
+You can write your own plugin to add more rules.  Have a look at 
+[writing plugins](https://github.com/romeovs/react-a11y/blob/master/docs/plugins.md<Paste>) in the
+docs to get started!
+
 ## Differences from upstream [`react-a11y`][react-a11y]
 
 I will try to stay close to the upstream `react-a11y` API,
@@ -173,7 +180,7 @@ usable:
   - [x] add [`eslint`][eslint] config so poeple can collaborate
     more easy.
   - [ ] put up a travis worker to make merging easier.
-  - [ ] write docs about how to write plugins.
+  - [x] write docs about how to write plugins.
   - [x] ~~normalize props before passing to the rules, eg. change
     `aria-hidden` into `ariaHidden`, so every test can use the
     same method.~~ This makes no sense since React only renders `aria-hidden`.
@@ -196,6 +203,7 @@ usable:
     - [x] `tabindex-needs-button`
     - [ ] `use-label` (`NO_LABEL`)
     - [x] `no-unsupported-element-uses-aria`
+
 
 ## Plans
 
