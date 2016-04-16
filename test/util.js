@@ -9,14 +9,14 @@ import {
 describe('util', () => {
   describe('hiddenFromAT', () => {
     it('accepts strings or bools', () => {
-      expect(hiddenFromAT({ ariaHidden:  true })).to.be.true
-      expect(hiddenFromAT({ ariaHidden: 'true' })).to.be.true
-      expect(hiddenFromAT({ ariaHidden: 'aria-hidden' })).to.be.true
+      expect(hiddenFromAT({ 'aria-hidden':  true })).to.be.true
+      expect(hiddenFromAT({ 'aria-hidden': 'true' })).to.be.true
+      expect(hiddenFromAT({ 'aria-hidden': 'aria-hidden' })).to.be.true
     })
     it('doesn\'t accept false, or wrong strings', () => {
-      expect(hiddenFromAT({ ariaHidden:  false })).to.be.false
-      expect(hiddenFromAT({ ariaHidden: 'false' })).to.be.false
-      expect(hiddenFromAT({ ariaHidden: 'foo' })).to.be.false
+      expect(hiddenFromAT({ 'aria-hidden':  false })).to.be.false
+      expect(hiddenFromAT({ 'aria-hidden': 'false' })).to.be.false
+      expect(hiddenFromAT({ 'aria-hidden': 'foo' })).to.be.false
       expect(hiddenFromAT({  })).to.be.false
     })
   })
