@@ -6,6 +6,7 @@ export hasProp       from './has-prop'
 export aria          from './aria'
 export DOM           from './DOM'
 export role          from './role'
+export browser       from './browser'
 
 export const devices = {
   screenReaders: Symbol('screenReaders')
@@ -15,3 +16,8 @@ export const devices = {
 
 // simple callback
 export const fn = () => null
+
+// builds url for specific google AX Rule
+export const AXURL = function (ax) {
+  return `https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#${ax}`
+}
