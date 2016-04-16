@@ -1,4 +1,7 @@
-import browser from './util/browser'
+import {
+  browser
+, AXURL
+} from './util'
 
 /**
  * Throws an error based on the warning
@@ -49,6 +52,7 @@ const mkReporter = function (opts) {
     , url
     , tagName
     , severity
+    , AX
     } = info
 
     // build warning
@@ -56,6 +60,7 @@ const mkReporter = function (opts) {
       displayName || tagName
     , warningPrefix.concat(msg)
     , ...(url ? [`See '${url}' for more info.`] : [])
+    , ...(AX ?  [`See '${AXURL(AX)}' for more info.`] : [])
     , DOMNode || tagName
     ]
 
