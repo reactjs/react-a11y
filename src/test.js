@@ -102,6 +102,7 @@ export default class Suite {
               tagName: tagNames
             , msg
             , url
+            , AX
             , test
             , affects = allDevices
             } = defn
@@ -124,6 +125,8 @@ export default class Suite {
               done({
                 tagName
               , msg
+              , url
+              , AX
               , props
               , children
               , severity: sev
