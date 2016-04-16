@@ -11,7 +11,12 @@ describe('rules', () => {
         'default': defn
       , pass = []
       , fail = []
+      , description
       } = require('../src/rules/' + rule)
+
+      expect(description).to.be.a.string
+      expect(pass).to.have.length.above(0)
+      expect(fail).to.have.length.above(0)
 
       // get all messages
       const msgs = defn.reduce((acc, def) => acc.concat(def.msg), [])
