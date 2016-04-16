@@ -55,7 +55,7 @@ const mkReporter = function (opts) {
     const warning = [
       displayName || tagName
     , warningPrefix.concat(msg)
-    , `See '${url}' for more info.`
+    , ...(url ? [`See '${url}' for more info.`] : [])
     , DOMNode || tagName
     ]
 
