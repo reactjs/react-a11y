@@ -145,7 +145,7 @@ docs to get started!
 I will try to stay close to the upstream `react-a11y` API,
 and document differences here.
 
-  - The API is totally different on this branch.  It has a simple plugin system
+  - The API is totally different.  It has a simple plugin system
     so other poeple can write and publish their own rules.  The options have
     become much simpler also.
   - Started using `ReactDOM.finDOMNode` instead of `document.getElementById`, as
