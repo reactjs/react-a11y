@@ -13,7 +13,7 @@
     "test": "npm run mocha && npm run karma",
     "docs": "mkdir -p docs/rules && babel-node mkdocs.js",
     "karma": "karma start --single-run",
-    "mocha": "mocha --compilers js:babel-register --recursive -f browser -i",
+    "mocha": "mocha --compilers js:babel-register --recursive -f '(browser)' -i",
     "lint": "eslint src",
     "build": "babel src --out-dir lib",
     "prepublish": "npm run build",
