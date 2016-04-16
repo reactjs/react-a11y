@@ -27,5 +27,5 @@ export default {
 , 'use-onblur-not-onchange': onBlurNotOnChange
 , 'valid-aria-role': validAriaRole
 , 'tabindex-uses-button': tabIndexUsesButton
-// , 'no-unsupported-elements-use-aria': noUnsupportedEl
+, 'no-unsupported-elements-use-aria': noUnsupportedEl
 }
