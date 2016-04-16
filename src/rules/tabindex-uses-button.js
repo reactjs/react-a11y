@@ -33,7 +33,7 @@ export const pass = [{
 , render: React => <a href='foo' tabIndex={1} />
 }, {
   when: 'the anchor is hidden'
-, render: React => <a tabIndex={1} ariaHidden />
+, render: React => <a tabIndex={1} aria-hidden />
 }]
 
 export const description = `

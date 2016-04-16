@@ -30,7 +30,7 @@ export const fail = [{
 
 export const pass = [{
   when: 'the element is hidden from aria'
-, render: React => <span onClick={fn} ariaHidden />
+, render: React => <span onClick={fn} aria-hidden />
 }, {
   when: 'there is an `onClick` with a `role`'
 , render: React => <span onClick={fn} role='button' />

@@ -16,8 +16,8 @@ export default [{
   ]
 , test (tagName, props) {
     const hidden   = hiddenFromAT(props)
-    const disabled = trueish(props, 'ariaDisabled')
-    const readOnly = trueish(props, 'ariaReadonly')
+    const disabled = trueish(props, 'aria-disabled')
+    const readOnly = trueish(props, 'aria-readonly')
     const onChange = listensTo(props, 'onChange')
 
     return hidden || disabled || readOnly || !onChange
@@ -30,13 +30,13 @@ export const pass = [{
 , render: React => <input />
 }, {
   when: 'the element is aria-hidden'
-, render: React => <input onChange={fn} ariaHidden />
+, render: React => <input onChange={fn} aria-hidden />
 }, {
   when: 'the element is aria-disabled'
-, render: React => <input onChange={fn} ariaDisabled />
+, render: React => <input onChange={fn} aria-disabled />
 }, {
   when: 'the element is aria-readonly'
-, render: React => <input onChange={fn} ariaReadonly />
+, render: React => <input onChange={fn} aria-readonly />
 }]
 
 export const fail = [{

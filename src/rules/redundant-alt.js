@@ -46,7 +46,7 @@ export const pass = [{
 , render: React => <img src='foo' alt='image' />
 }, {
   when: 'the element is aria-hidden'
-, render: React => <img src='foo' alt='nice' ariaHidden />
+, render: React => <img src='foo' alt='nice' aria-hidden />
 }]
 
 export const description = `

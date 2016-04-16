@@ -28,7 +28,7 @@ export const pass = [{
 , render: React => <span onClick={fn} tabIndex={0} />
 }, {
   when: 'the element is hidden from aria'
-, render: React => <span onClick={fn} ariaHidden />
+, render: React => <span onClick={fn} aria-hidden />
 }, {
   when: 'the element is interactive'
 , render: React => <button onClick={fn} />
