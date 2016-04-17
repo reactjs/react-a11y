@@ -31,6 +31,10 @@ const normalize = function (opts = 'off') {
   }
 }
 
+const getTests = function (defns) {
+  return Array.isArray(defns) ? defns : [ defns ]
+}
+
 export default class Suite {
 
   constructor (React, ReactDOM, options) {
@@ -89,7 +93,7 @@ export default class Suite {
           , ReactDOM: this.ReactDOM
           }
 
-          rule.reduce(async function (pprev, defn) {
+          getTests(rule).reduce(async function (pprev, defn) {
             // only fail once per rule
             // so check if previous test failed
             // already, if this is true, they havn't-
@@ -102,6 +106,7 @@ export default class Suite {
               tagName: tagNames
             , msg
             , url
+            , AX
             , test
             , affects = allDevices
             } = defn
@@ -125,6 +130,8 @@ export default class Suite {
               done({
                 tagName
               , msg
+              , url
+              , AX
               , props
               , children
               , severity: sev

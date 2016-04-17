@@ -6,8 +6,8 @@ export default {
     type: 'boolean'
   }
 , 'aria-autocomplete': {
-    type: 'token',
-    values: [ 'inline', 'list', 'both', 'none' ]
+    type: 'token'
+  , values: [ 'inline', 'list', 'both', 'none' ]
   }
 , 'aria-busy': {
     type: 'boolean'
@@ -25,19 +25,19 @@ export default {
     type: 'boolean'
   }
 , 'aria-dropeffect': {
-    type: 'tokenlist',
-    values: [ 'copy', 'move', 'link', 'execute', 'popup', 'none' ]
+    type: 'tokenlist'
+  , values: [ 'copy', 'move', 'link', 'execute', 'popup', 'none' ]
   }
 , 'aria-expanded': {
-    type: 'boolean',
-    allowundefined: true
+    type: 'boolean'
+  , allowundefined: true
   }
 , 'aria-flowto': {
     type: 'string'
   }
 , 'aria-grabbed': {
-    type: 'boolean',
-    allowundefined: true
+    type: 'boolean'
+  , allowundefined: true
   }
 , 'aria-haspopup': {
     type: 'boolean'
@@ -46,8 +46,8 @@ export default {
     type: 'boolean'
   }
 , 'aria-invalid': {
-    type: 'token',
-    values: [ 'grammar', 'false', 'spelling', 'true' ]
+    type: 'token'
+  , values: [ 'grammar', 'false', 'spelling', 'true' ]
   }
 , 'aria-label': {
     type: 'string'
@@ -59,8 +59,8 @@ export default {
     type: 'integer'
   }
 , 'aria-live': {
-    type: 'token',
-    values: [ 'off', 'polite', 'assertive' ]
+    type: 'token'
+  , values: [ 'off', 'polite', 'assertive' ]
   }
 , 'aria-multiline': {
     type: 'boolean'
@@ -69,8 +69,8 @@ export default {
     type: 'boolean'
   }
 , 'aria-orientation': {
-    type: 'token',
-    values: [ 'vertical', 'horizontal' ]
+    type: 'token'
+  , values: [ 'vertical', 'horizontal' ]
   }
 , 'aria-owns': {
     type: 'string'
@@ -85,22 +85,22 @@ export default {
     type: 'boolean'
   }
 , 'aria-relevant': {
-    type: 'tokenlist',
-    values: [ 'additions', 'removals', 'text', 'all' ]
+    type: 'tokenlist'
+  , values: [ 'additions', 'removals', 'text', 'all' ]
   }
 , 'aria-required': {
     type: 'boolean'
   }
 , 'aria-selected': {
-    type: 'boolean',
-    allowundefined: true
+    type: 'boolean'
+  , allowundefined: true
   }
 , 'aria-setsize': {
     type: 'integer'
   }
 , 'aria-sort': {
-    type: 'token',
-    values: [ 'ascending', 'descending', 'none', 'other' ]
+    type: 'token'
+  , values: [ 'ascending', 'descending', 'none', 'other' ]
   }
 , 'aria-valuemax': {
     type: 'number'

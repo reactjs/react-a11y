@@ -10,8 +10,8 @@ export default [{
 , url: 'https://www.w3.org/TR/wai-aria/roles'
 , AX: 'AX_ARIA_01'
 , test (tagName, props) {
-    const role = hasProp(props, 'role')
-    return !role || roles.indexOf(props.role) >= 0
+    const hasRole = hasProp(props, 'role')
+    return !hasRole || roles.indexOf(props.role) >= 0
   }
 }]
 

@@ -352,6 +352,8 @@ rules:
   babel/array-bracket-spacing:                 # Handles destructuring arrays with flow type in function parameters
     - error
     - always
+    - objectsInArrays: false
+      arraysInArrays:  false
   babel/object-curly-spacing:                  # doesn't complain about export x from "mod"; or export * as x from "mod";
     - error
     - always

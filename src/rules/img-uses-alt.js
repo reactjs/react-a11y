@@ -5,35 +5,34 @@ import {
 
 // test will be run in order
 export default [{
-  tagName: 'img'
-, msg: 'The img does not have an `alt` prop, screen-readers will not know what it is'
-, url: 'https://dev.w3.org/html5/alt-techniques'
-, test (tagName, props) {
-    const hidden = hiddenFromAT(props)
-    const alt    = typeof props.alt !== 'string'
+    tagName: 'img'
+  , msg: 'The img does not have an `alt` prop, screen-readers will not know what it is'
+  , url: 'https://dev.w3.org/html5/alt-techniques'
+  , test (tagName, props) {
+      const hidden = hiddenFromAT(props)
+      const alt    = typeof props.alt !== 'string'
 
-    return !hidden && !alt
+      return !hidden && !alt
+    }
+  , affects: [
+      devices.screenReaders
+    ]
   }
-, affects: [
-    devices.screenReaders
-  ]
-},
+, {
+    tagName: 'img'
+  , msg: 'The `alt` prop cannot be empty string if role="presentation" is not set.'
+  , url: 'https://www.w3.org/TR/wai-aria/roles#presentation'
+  , test (tagName, props) {
+      const hidden = hiddenFromAT(props)
+      const alt    = typeof props.alt === 'string'
+      const empty  = alt && props.alt === ''
+      const pres   = props.role === 'presentation'
 
-{
-  tagName: 'img'
-, msg: 'The `alt` prop cannot be empty string if role="presentation" is not set.'
-, url: 'https://www.w3.org/TR/wai-aria/roles#presentation'
-, test (tagName, props) {
-    const hidden = hiddenFromAT(props)
-    const alt    = typeof props.alt === 'string'
-    const empty  = alt && props.alt === ''
-    const pres   = props.role === 'presentation'
-
-    return !hidden && alt && empty && pres
-  }
-, affects: [
-    devices.screenReaders
-  ]
+      return !hidden && alt && empty && pres
+    }
+  , affects: [
+      devices.screenReaders
+    ]
 }]
 
 export const pass = [
@@ -43,7 +42,7 @@ export const pass = [
   }
 , {
     when: 'the img has an empty `alt` and role="presentation"'
-  , render: React => <img src='foo' alt='' role='presentation'/>
+  , render: React => <img src='foo' alt='' role='presentation' />
   }
 , {
     when: 'the img is aria-hidden'
