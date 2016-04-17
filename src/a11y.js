@@ -21,10 +21,7 @@ export default class A11y {
     this.options  = options
     this.React    = React
     this.ReactDOM = ReactDOM
-
-    this.__sync = false
     this.suite  = new Suite(React, ReactDOM, this.options)
-
     this.patchReact()
   }
 
@@ -149,14 +146,5 @@ export default class A11y {
         reporter(info)
       }
     }.bind(this)
-  }
-
-  /**
-   * Force A11y in sync mode, DOMNodes might be omitted
-   * @arg {boolean} sync - wether or not to force sync mode
-   * @returns {undefined}
-   */
-  __forceSync (sync = true) {
-    this.__sync = Boolean(sync)
   }
 }
