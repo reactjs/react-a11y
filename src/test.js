@@ -98,7 +98,7 @@ export default class Suite {
             // only fail once per rule
             // so check if previous test failed
             // already, if this is true, they havn't-
-            const prev = await prev
+            const prev = await pprev
             if ( !prev ) {
               return prev
             }
