@@ -216,6 +216,9 @@ usable:
     - [x] `avoid-positive-tabindex`
   - [x] make rule testing machinery available to plugins.
   - [x] allow rule tests to return promises, so they can be asynchronous.
+  - [ ] think of a way to lose the `setTimeout` when testing for absence of
+        warnings, perhaps using some sort of counting to see how much tests
+        still need to run.
 
 ## Plans
 
