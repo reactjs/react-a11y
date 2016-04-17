@@ -19,8 +19,6 @@ const recieves = function (name, type) {
       }
     })
 
-    a11y.__forceSync()
-
     const el = <img src='haha' />
   })
 }
