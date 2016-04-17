@@ -84,12 +84,18 @@ can safely omit it when using `react-a11y` in node.
     ```js
     const rules = {
       'img-uses-alt': 'off'
-    , 'label-uses-for': [
-        'warn', // other options to pass to the rule
+    , 'redundant-alt': [
+        'warn'
+        // other options to pass to the rule:
+      , [
+          'foto'
+        ]
       ]
     }
 
     ```
+    Refer to the [rule docs](https://github.com/romeovs/react-a11y/tree/master/docs/rules) 
+    to see what options are defined for each rule.
 
   - `reporter : object => undefined`
     Use this to modify how the warnings are displayed.
