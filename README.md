@@ -33,8 +33,10 @@ enough interest, I will probably do it anyway.
 
 ## Usage
 
-In your main application file, require and call the module, you'll start
-getting warnings in the console as your app renders.
+In your main application file, require the module and call it, you'll start
+getting warnings in the console as your app renders.  Note that by default all
+rules are turned `off` s oyou need to turn them on first (by setting them to
+`"warn"` or `"error"`).
 
 ```js
 import React    from 'react'
