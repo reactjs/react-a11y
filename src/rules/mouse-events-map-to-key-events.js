@@ -19,7 +19,7 @@ export default [{
     const mouseOver = listensTo(props, 'onMouseOver')
     const focus     = listensTo(props, 'onFocus')
 
-    return mouseOver && !focus
+    return !mouseOver || focus
   }
 }, {
   msg: 'onMouseOut must be accompanied by onBlur for accessibility.'
@@ -29,7 +29,7 @@ export default [{
     const mouseOut = listensTo(props, 'onMouseOut')
     const blur     = listensTo(props, 'onBlur')
 
-    return mouseOut && !blur
+    return !mouseOut || blur
   }
 }]
 
