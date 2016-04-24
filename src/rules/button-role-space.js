@@ -5,8 +5,7 @@ import {
 , fn
 } from '../util'
 
-
-export default [{
+export default {
   msg: 'You have `role="button"` but did not define an `onKeyDown` handler. '
      + 'Add it, and have the "Space" key do the same thing as an `onClick` handler.'
 , url: 'https://www.w3.org/WAI/GL/wiki/Making_actions_keyboard_accessible_by_using_keyboard_event_handlers_with_WAI-ARIA_controls'
@@ -20,9 +19,9 @@ export default [{
 
     // rule passes when element is hidden,
     // has role='button' and has an onKeyDown prop
-    return hidden || (button && onKeyDown)
+    return hidden || !button || onKeyDown
   }
-}]
+}
 
 export const pass = [{
   when: 'role="button" but there is an onKeyDown handler.'
