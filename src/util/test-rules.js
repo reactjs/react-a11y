@@ -10,6 +10,7 @@ export default function ({ React, ReactDOM, ruleDir, rules }) {
       describe(rule, () => {
         const {
           'default': defns
+        , test
         , pass = []
         , fail = []
         , description
@@ -26,12 +27,16 @@ export default function ({ React, ReactDOM, ruleDir, rules }) {
 
         pass.forEach(function (ok) {
           it(`doesn't warn when ${ok.when}`, done => {
+            let cnt = 0
             const a11y = new A11y(React, ReactDOM, {
               reporter (info) {
                 const {
                   msg
                 } = info
-                expect(msgs.indexOf(msg) >= 0).to.be.true
+
+                if ( msgs.indexOf(msg) >= 0 ) {
+                  cnt++
+                }
               }
             , rules: {
                 [rule]: [
@@ -41,12 +46,12 @@ export default function ({ React, ReactDOM, ruleDir, rules }) {
               }
             })
 
-
             // create the el
             ok.render(React)
 
             // restore and finish
             setTimeout(function () {
+              expect(cnt === 0).to.be.true
               a11y.restoreAll()
               done()
             }, 20)
