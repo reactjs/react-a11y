@@ -1,6 +1,7 @@
 import {
   devices
 , hiddenFromAT
+, hasProp
 } from '../util'
 
 // test will be run in order
@@ -10,9 +11,9 @@ export default [{
   , url: 'https://dev.w3.org/html5/alt-techniques'
   , test (tagName, props) {
       const hidden = hiddenFromAT(props)
-      const alt    = typeof props.alt !== 'string'
+      const alt    = hasProp(props, 'alt')
 
-      return !hidden && !alt
+      return hidden || alt
     }
   , affects: [
       devices.screenReaders
@@ -24,11 +25,10 @@ export default [{
   , url: 'https://www.w3.org/TR/wai-aria/roles#presentation'
   , test (tagName, props) {
       const hidden = hiddenFromAT(props)
-      const alt    = typeof props.alt === 'string'
-      const empty  = alt && props.alt === ''
+      const empty  = props.alt === ''
       const pres   = props.role === 'presentation'
 
-      return !hidden && alt && empty && pres
+      return hidden || !empty || pres
     }
   , affects: [
       devices.screenReaders
