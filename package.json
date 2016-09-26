@@ -17,7 +17,6 @@
     "lint": "eslint src",
     "build": "babel src --out-dir lib",
     "prepublish": "npm run build",
-    "postinstall": "npm run build",
     "release": "release",
     "bundle": "webpack",
     "preview-release": "changelog -t previes -s"
