@@ -94,6 +94,7 @@ export default {
 , param: {
     reserved: true
   }
+, path: {}
 , picture: {
     reserved: true
   }
@@ -122,6 +123,7 @@ export default {
 , sub: {}
 , summary: {}
 , sup: {}
+, svg: {}
 , table: {}
 , tbody: {}
 , td: {}
