@@ -1,6 +1,6 @@
 {
   "name": "react-a11y-alt",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Warns about potential accessibility issues with your React elements.",
   "main": "./lib/index.js",
   "repository": {
@@ -16,8 +16,8 @@
     "mocha": "mocha --compilers js:babel-register --recursive -f '(browser)' -i",
     "lint": "eslint src",
     "build": "babel src --out-dir lib",
-    "prepublish": "npm run build",
-    "release": "release",
+    "prepublish": "npm run build && npm run bundle",
+    "release": "echo 'release command is not supported from this fork, manually increment the version and do `npm publish`'",
     "bundle": "webpack",
     "preview-release": "changelog -t previes -s"
   },
@@ -50,7 +50,6 @@
     "mocha": "^2.0.1",
     "react": "^0.14",
     "react-dom": "^0.14.7",
-    "rf-release": "0.4.0",
     "webpack": "^1.12.14"
   },
   "tags": [
