@@ -232,8 +232,12 @@ These are some plans I've dreamt up for `react-a11y`:
     maintenance for me, since poeple can build their own, and it 
     would make `react-a11y` a formidable validation tool.
   - [ ] **create a nice project page** with documentation, because
-    that is what poeple like these days.
+    that is what people like these days.
   - [ ] create filtering options based on rule outputs like `affects`
+  
+## Contributing
+
+Interested in contributing?  Great!  Look here for more info: [CONTRIBUTING.md](https://github.com/romeovs/react-a11y/blob/master/CONTRIBUTING.md).
 
 [react-a11y]:    https://github.com/reactjs/react-a11y
 [eslint]:        http://eslint.org
