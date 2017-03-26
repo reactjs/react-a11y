@@ -144,6 +144,10 @@ You can write your own plugin to add more rules.  Have a look at
 [writing plugins](https://github.com/romeovs/react-a11y/blob/master/docs/plugins.md<Paste>) in the
 docs to get started!
 
+## Contributing
+
+Interested in contributing?  Great!  Look here for more info: [CONTRIBUTING.md](https://github.com/romeovs/react-a11y/blob/master/CONTRIBUTING.md).
+
 [react-a11y]:    https://github.com/reactjs/react-a11y
 [eslint]:        http://eslint.org
 [flow]:          http://flowtype.org
