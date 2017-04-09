@@ -1,6 +1,6 @@
 import {
   hasProp
-} from '../util'
+} from '../util';
 
 
 export const description = `
@@ -16,26 +16,27 @@ because it is brittle (any focusable elements added to the page without an
 explicit \`tabIndex\` value greater than zero will come last in the tab order) and
 can easily result in a page which is extremely difficult to navigate, causing
 accessibility problems.
-`
+`;
 
 export default [{
-  msg: 'Avoid positive integer values for `tabIndex`.'
-, AX: 'AX_FOCUS_03'
-, test (_, props) {
-    const tabIndex = hasProp(props, 'tabIndex')
-    return !tabIndex || props.tabIndex <= 0
-  }
-}]
+    msg: 'Avoid positive integer values for `tabIndex`.',
+    AX: 'AX_FOCUS_03',
+    test(_, props) {
+        const tabIndex = hasProp(props, 'tabIndex');
+        return !tabIndex || props.tabIndex <= 0;
+    }
+}];
 
 export const pass = [{
-  when: 'the element has no tabIndex'
-, render: React => <div />
+    when: 'the element has no tabIndex',
+    render: React => <div />
 }, {
-  when: 'the element has a negative tabIndex'
-, render: React => <div tabIndex={-2} />
-}]
+    when: 'the element has a negative tabIndex',
+    render: React => <div tabIndex={-2} />
+}];
 
 export const fail = [{
-  when: 'the element has no a positive tabIndex'
-, render: React => <div tabIndex={2} />
-}]
+    when: 'the element has a positive tabIndex',
+    // eslint-disable-next-line jsx-a11y/tabindex-no-positive
+    render: React => <div tabIndex={2} />
+}];
