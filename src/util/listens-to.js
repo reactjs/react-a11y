@@ -1,4 +1,4 @@
 
 export default function (props = {}, name) {
-  return typeof props[name] === 'function'
+    return typeof props[name] === 'function';
 }
