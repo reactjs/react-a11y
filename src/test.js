@@ -120,7 +120,14 @@ export default class Suite {
                     }
 
                     // perform the test
-                    const pass = await test(tagName, props, children, ctx);
+                    let pass;
+                    // try/catch so that exceptions are not silently swallowed by await
+                    try {
+                        pass = await test(tagName, props, children, ctx);
+                    } catch (error) {
+                        console.log(error);
+                        pass = false;
+                    }
 
                     if (!pass) {
                         done({
