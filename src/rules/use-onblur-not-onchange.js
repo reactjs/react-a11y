@@ -19,8 +19,9 @@ export default [{
         const disabled = trueish(props, 'aria-disabled');
         const readOnly = trueish(props, 'aria-readonly');
         const onChange = listensTo(props, 'onChange');
+        const onBlur = listensTo(props, 'onBlur');
 
-        return hidden || disabled || readOnly || !onChange;
+        return hidden || disabled || readOnly || !onChange || (onChange && onBlur);
     }
 }];
 
@@ -37,10 +38,13 @@ export const pass = [{
 }, {
     when: 'the element is aria-readonly',
     render: React => <input onChange={fn} aria-readonly />
+}, {
+    when: 'the `onChange` prop is present along with an `onBlur` prop',
+    render: React => <input onChange={fn} onBlur={fn} />
 }];
 
 export const fail = [{
-    when: 'the `onChange` prop is present',
+    when: 'the `onChange` prop is present without an `onBlur` prop',
     render: React => <input onChange={fn} />
 }];
 
