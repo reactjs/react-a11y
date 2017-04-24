@@ -9,7 +9,7 @@ export default [{
     msg: 'This element does not support ARIA roles, states and properties.',
     AX: 'AX_ARIA_12',
     test(tagName, props) {
-        const reserved = DOM[tagName].reserved || false;
+        const reserved = (Object.prototype.hasOwnProperty.call(DOM, tagName) && DOM[tagName].reserved) || false;
         const prop = hasProp(props, Object.keys(aria).concat('role'));
 
         return !reserved || !prop;
@@ -30,9 +30,12 @@ export const fail = [{
 }];
 
 export const pass = [{
-    when: 'the reserver element is not given an illegal prop',
+    when: 'the reserved element is not given an illegal prop',
     render: React => <meta charSet="UTF-8" />
 }, {
-    when: 'an illegal props is given to a non-reserved elemeent',
+    when: 'an illegal prop is given to a non-reserved element',
     render: React => <div aria-hidden />
+}, {
+    when: 'an illegal prop is given to an unknown element',
+    render: React => <g aria-hidden />
 }];
