@@ -1,3 +1,11 @@
+v0.3.4 - Sun, 30 Apr 2017 20:48:28 GMT
+--------------------------------------
+
+- [e41ba68](../../commit/e41ba68) Fixed #11 from being too strict testing for use-onblur-not-onchange.  Now it should pass if onChange is used in addition to onBlur.
+- [3173a1d](../../commit/3173a1d) Fixed #10 where if a tagName is being checked for reserved in the DOM object but does not exist in the DOM object an exception was being thrown
+- [d0401be](../../commit/d0401be) 1. Updated eslint and plugin versions 2. Added the AirBnB eslint config to inherit 3. Fixed all linter findings
+
+
 v0.3.3 - Mon, 3 Apr 2017 23:01:39 GMT
 --------------------------------------
 
