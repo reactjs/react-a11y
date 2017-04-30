@@ -76,7 +76,11 @@ For publishing use the following workflow:
 
 1. Make sure all code changes for this new version have already been committed.
 
-2. Update the CHANGELOG.md with the changes for this version and save (don't commit).
+2. Update the CHANGELOG.md by using the following command, double check the content and save (don't commit):
+```bash
+npm run changelog -- -t <the upcoming version>
+```
+where `<the upcoming version>` refers to the version number that you are preparing to publish
 
 3. Update the version and publish.  This is done by running _one_ of the following scripts:
 
