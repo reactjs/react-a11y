@@ -1,3 +1,14 @@
+v0.3.3 - Mon, 3 Apr 2017 23:01:39 GMT
+--------------------------------------
+
+- [d85328e](../../commit/d85328e) Added some more scripts for helping with the version and publish process and added descriptions of the scripts in the CONTRIBUTING.md
+- [2ffa8ac](../../commit/2ffa8ac) Added a CONTRIBUTING page and linked to it from the README.
+- [c715c45](../../commit/c715c45) Updated urls to point to this repo instead of the forked from repo
+- [fa32346](../../commit/fa32346) Added the bundle script to the prepublish script so that the webpack bundle gets included in the npm package.  Also disabled the release script and removed the rf-release package as this does not seem to be tagging or publishing to npm properly.
+- [8bff3fe](../../commit/8bff3fe) Added/removed dirs and files from npmignore
+- [be6f51e](../../commit/be6f51e) Adding some tags! Added <svg> and <path>
+
+
 v0.3.3 - Fri, 15 Apr 2016 19:32:24 GMT
 --------------------------------------
 
