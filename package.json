@@ -17,6 +17,7 @@
     "lint": "eslint src",
     "build": "babel src --out-dir lib",
     "bundle": "webpack",
+    "changelog": "changelog -m '[Aa]dd|[Uu]pdate|[Cc]hange|[Ff]ix|[Rr]emove'",
     "check-changelog": "expr $(git status --porcelain 2>/dev/null| grep \"^\\s*M.*CHANGELOG.md\" | wc -l) >/dev/null || (echo 'Please edit CHANGELOG.md' && exit 1)",
     "check-only-changelog-changed": "(expr $(git status --porcelain 2>/dev/null| grep -v \"CHANGELOG.md\" | wc -l) >/dev/null && echo 'Only CHANGELOG.md may have uncommitted changes' && exit 1) || exit 0",
     "preversion": "npm run test && npm run check-changelog && npm run check-only-changelog-changed",
@@ -61,6 +62,7 @@
     "mocha": "^2.0.1",
     "react": "^0.14",
     "react-dom": "^0.14.7",
+    "rf-changelog": "^0.4.0",
     "webpack": "^1.12.14"
   },
   "tags": [
