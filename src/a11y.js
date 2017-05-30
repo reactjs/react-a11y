@@ -13,10 +13,10 @@ export default class A11y {
    */
     constructor(...args) {
         const {
-      React
-    , ReactDOM
-    , ...options
-    } = validate(...args);
+          React,
+          ReactDOM,
+          ...options
+        } = validate(...args);
 
         this.options = options;
         this.React = React;
@@ -34,7 +34,7 @@ export default class A11y {
         // save old createElement
         this._createElement = this.React.createElement;
 
-        const that = this;
+        const _this = this;
         this.React.createElement = function (klass, _props = {}, ...children) {
             // fix for props = null
             const props = _props || {};
@@ -56,16 +56,16 @@ export default class A11y {
 
             const newProps = typeof klass === 'string' ? { ...props, ref } : props;
 
-            const reactEl = that._createElement(klass, newProps, ...children);
+            const reactEl = _this._createElement(klass, newProps, ...children);
 
             // only test html elements
             if (typeof klass === 'string') {
-                const handler = that.failureHandler(reactEl, refs);
+                const handler = _this.failureHandler(reactEl, refs);
                 const childrenForTest = children.length === 0
                     ? props.children || []
                     : children;
 
-                that.suite.test(klass, props, childrenForTest, handler);
+                _this.suite.test(klass, props, childrenForTest, handler);
             }
 
             return reactEl;
@@ -122,14 +122,16 @@ export default class A11y {
             // TODO: reduce the number of case where ther is no instance
             // by forcing every component to have one.
             if (browser && !this.__sync && owner && owner._instance) {
+                const _this = this;
                 const instance = owner._instance;
+
                 // Cannot log a node reference until the component is in the DOM,
                 // so defer the call until componentDidMount or componentDidUpdate.
                 after.render(instance, () => {
                     // unpack the ref
                     let DOMNode = false;
                     if (typeof ref === 'string') {
-                        DOMNode = this.ReactDOM.findDOMNode(instance.refs[ref]); // TODO: replace use of findDOMNode
+                        DOMNode = _this.ReactDOM.findDOMNode(instance.refs[ref]); // TODO: replace use of findDOMNode
                     } else if ('node' in ref) {
                         DOMNode = ref.node;
                     } else {

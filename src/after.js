@@ -15,10 +15,10 @@ const after = (host, name, cb) => {
 
     // override host
     host[name] = (...args) => {
-    // perform original
-        original.apply(this, args);
-    // perform cb
-        cb.apply(this, args);
+        // perform original
+        original.apply(host, args);
+        // perform cb
+        cb(...args);
     };
 
     // save restoring function
