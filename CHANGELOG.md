@@ -1,3 +1,9 @@
+v0.3.5 - Tue, 30 May 2017 14:23:58 GMT
+-----------------------------------------
+
+- [a7eb16f](../../commit/a7eb16f) Fixed #16 inappropriately referencing this in a context where this is actually undefined.
+
+
 v0.3.4 - Sun, 30 Apr 2017 20:48:28 GMT
 --------------------------------------
 

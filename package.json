@@ -1,6 +1,6 @@
 {
   "name": "react-a11y-alt",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "Warns about potential accessibility issues with your React elements.",
   "main": "./lib/index.js",
   "repository": {
