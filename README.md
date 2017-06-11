@@ -75,7 +75,7 @@ a11y(React, { exclude: ['REDUNDANT_ALT'] });
 ReactDOM
 --------
 
-You can pass `ReactDOM` to `a11y` for `React 0.14` compatibility.
+You should pass `ReactDOM` to `a11y` for `React >= 0.14` compatibility.
 
 ```
 a11y(React, { ReactDOM: ReactDOM });
