@@ -25,7 +25,7 @@ getting warnings in the console as your app renders.
 
 ```js
 var a11y = require('react-a11y');
-if (ENV === 'development') a11y(React);
+if (ENV === 'development') a11y(React, { ReactDOM: ReactDOM });
 ```
 
 You probably don't want to call it if you're in production, and better
@@ -34,7 +34,7 @@ yet, alias the module to nothing with webpack in production.
 If you want it to throw errors instead of just warnings:
 
 ```
-a11y(React, { throw: true });
+a11y(React, { ReactDOM: ReactDOM, throw: true });
 ```
 
 You can filter failures by passing a function to the `filterFn` option. The
@@ -48,14 +48,14 @@ var commentListFailures = (name, id, msg) => {
   return name === "CommentList";
 };
 
-a11y(React, { filterFn: commentListFailures });
+a11y(React, { ReactDOM: ReactDOM, filterFn: commentListFailures });
 ```
 
 If you want to log DOM element references for easy lookups in the DOM inspector,
 use the `includeSrcNode` option.
 
 ```
-a11y(React, { throw: true, includeSrcNode: true });
+a11y(React, { ReactDOM: ReactDOM, throw: true, includeSrcNode: true });
 ```
 
 Some test are only relevant for certain device types. For example,
@@ -63,22 +63,13 @@ if you are building a mobile web app, you can filter out
 desktop-specific rules by specifying a specific device type:
 
 ```
-a11y(React, { device: ['mobile'] });
+a11y(React, { ReactDOM: ReactDOM, device: ['mobile'] });
 ```
 
 It's also possible exclude certain tests:
 
 ```
-a11y(React, { exclude: ['REDUNDANT_ALT'] });
-```
-
-ReactDOM
---------
-
-You should pass `ReactDOM` to `a11y` for `React >= 0.14` compatibility.
-
-```
-a11y(React, { ReactDOM: ReactDOM });
+a11y(React, { ReactDOM: ReactDOM, exclude: ['REDUNDANT_ALT'] });
 ```
 
 Cleaning Up In Tests
@@ -88,6 +79,6 @@ Use the `restoreAll()` method to clean up mutations made to `React`.
 Useful if you are using React-a11y in your test suite.
 
 ```js
-beforeEach(() => a11y(React));
+beforeEach(() => a11y(React, { ReactDOM: ReactDOM }));
 afterEach(() => a11y.restoreAll());
 ```
