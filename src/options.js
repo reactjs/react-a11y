@@ -134,7 +134,7 @@ export default function (...args) {
     }
 
     // make sure ReactDOM is passed in in browser code
-    if (browser && !(ReactDOM && ReactDOM.version)) {
+    if (browser && !(ReactDOM && ReactDOM.findDOMNode)) {
         throw new Error('react-a11y: missing argument `ReactDOM`');
     }
 
