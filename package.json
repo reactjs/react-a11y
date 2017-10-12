@@ -5,12 +5,10 @@
   "main": "./lib/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/romeovs/react-a11y.git"
+    "url": "https://github.com/reactjs/react-a11y.git"
   },
-  "homepage": "https://github.com/romeovs/react-a11y/blob/master/README.md",
-  "bugs": {
-    "url": "https://github.com/romeovs/react-a11y/issues"
-  },
+  "homepage": "https://github.com/reactjs/react-a11y/blob/latest/README.md",
+  "bugs": "https://github.com/reactjs/react-a11y/issues",
   "scripts": {
     "test": "npm run mocha # && npm run karma # commenting out karma until failing test is fixed",
     "docs": "mkdir -p docs/rules && babel-node mkdocs.js",
