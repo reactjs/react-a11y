@@ -115,7 +115,7 @@ export default function (...args) {
     // so destructure args based on number of args passed
     let props = [];
     if (args.length === 2) {
-        if (args[1].version === undefined) {
+        if (args[1].findDOMNode === undefined) {
             props = [args[0], null, args[1] || {}];
         } else {
             props = [args[0], args[1], {}];
