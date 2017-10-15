@@ -48,7 +48,6 @@ const mkReporter = (opts) => {
         const {
             msg,
             displayName,
-            DOMNode,
             url,
             tagName,
             severity,
@@ -61,7 +60,7 @@ const mkReporter = (opts) => {
             warningPrefix.concat(msg),
             ...(url ? [`See '${url}' for more info.`] : []),
             ...(AX ? [`See '${AXURL(AX)}' for more info.`] : []),
-            DOMNode || tagName
+            tagName
         ];
 
         if (doThrow || severity === 'error') {

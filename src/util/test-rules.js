@@ -14,7 +14,7 @@ export default function ({ React, ReactDOM, ruleDir, rules }) {
                     pass = [],
                     fail = [],
                     description
-                } = require(path.resolve(ruleDir, rule));
+                } = require(`../rules/${rule}`);
 
                 expect(description).to.be.a.string;
                 expect(pass).to.have.length.above(0);

@@ -104,7 +104,13 @@ export default class A11y {
 
             // if there is an owner, use its name
             // if not, use the tagname of the violating elemnent
-            const displayName = owner && owner.getName();
+            let displayName = '';
+            if (owner) {
+                displayName = owner.type ?
+                    owner.type.name : owner.getName();
+            } else {
+                displayName = `${errInfo.tagName}#${errInfo.props.id}`;
+            }
 
             // stop if we're not allowed to proceed
             if (!filterFn(displayName, errInfo.props.id, errInfo.msg)) {
@@ -116,33 +122,7 @@ export default class A11y {
                 ...errInfo,
                 displayName
             };
-
-            // if we need to include the rendered node, we need to wait until
-            // the owner has rendered
-            // TODO: reduce the number of case where ther is no instance
-            // by forcing every component to have one.
-            if (browser && !this.__sync && owner && owner._instance) {
-                const _this = this;
-                const instance = owner._instance;
-
-                // Cannot log a node reference until the component is in the DOM,
-                // so defer the call until componentDidMount or componentDidUpdate.
-                after.render(instance, () => {
-                    // unpack the ref
-                    let DOMNode = false;
-                    if (typeof ref === 'string') {
-                        DOMNode = _this.ReactDOM.findDOMNode(instance.refs[ref]); // TODO: replace use of findDOMNode
-                    } else if ('node' in ref) {
-                        DOMNode = ref.node;
-                    } else {
-                        throw new Error('could not resolve ref');
-                    }
-
-                    reporter({ ...info, DOMNode });
-                });
-            } else {
-                reporter(info);
-            }
-        }.bind(this);
+            reporter(info);
+        };
     }
 }

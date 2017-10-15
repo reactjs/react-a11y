@@ -10,7 +10,7 @@
   "homepage": "https://github.com/reactjs/react-a11y/blob/latest/README.md",
   "bugs": "https://github.com/reactjs/react-a11y/issues",
   "scripts": {
-    "test": "npm run mocha # && npm run karma # commenting out karma until failing test is fixed",
+    "test": "npm run mocha && npm run karma",
     "docs": "mkdir -p docs/rules && babel-node mkdocs.js",
     "karma": "karma start --single-run --display-error-details",
     "mocha": "mocha --require babel-polyfill --compilers js:babel-register --recursive -f '(browser)' -i",
