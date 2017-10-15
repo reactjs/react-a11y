@@ -122,7 +122,25 @@ export default class A11y {
                 ...errInfo,
                 displayName
             };
-            reporter(info);
-        };
+
+            let DOMNode = false;
+            if (browser && !this.__sync) {
+                // Make a best-effort attempt to grab the DOMNode
+                const instance = owner && owner._instance;
+                if (owner && owner.stateNode) {
+                    // Fiber
+                    DOMNode = this.ReactDOM.findDOMNode(owner.stateNode);
+                } else if (typeof ref === 'string' && instance) {
+                    DOMNode = this.ReactDOM.findDOMNode(instance.refs[ref]); // TODO: replace use of findDOMNode
+                } else if ('node' in ref) {
+                    DOMNode = ref.node;
+                }
+            }
+            if (DOMNode) {
+                reporter({ ...info, DOMNode });
+            } else {
+                reporter(info);
+            }
+        }.bind(this);
     }
 }

@@ -38,4 +38,5 @@ describe('reporter (browser)', () => {
   recieves('severity',    'string')
   recieves('props',       'object')
   recieves('displayName', 'string')
+  recieves('DOMNode',     'object')
 })
