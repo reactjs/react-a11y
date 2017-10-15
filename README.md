@@ -101,6 +101,9 @@ can safely omit it when using `react-a11y` in node.
       corresponding rule configuration (one of `'off'`, `'warn'`, or `'error'`)
     - `props : object` - the props as passed to the element
     - `displayName : string?` - the `displayName` of the owner, if any
+    `DOMNode : object?` - the violating DOMNode as rendered to the browser
+      DOM, this is only available on when `react-a11y` is running in the
+      browser.
     - `url : string?` - The url to a webpage explaining why this rule
       is important
     The default reporter displays all the information it can, but listens

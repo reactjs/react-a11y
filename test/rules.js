@@ -10,7 +10,6 @@ import testRules from '../src/util/test-rules';
 testRules({
     React,
     ReactDOM,
-    ruleDir: path.resolve(__dirname, '..', 'src', 'rules'),
     rules
 });
 

@@ -4,7 +4,7 @@ import path from 'path';
 import { expect } from 'chai';
 import A11y from '../a11y';
 
-export default function ({ React, ReactDOM, ruleDir, rules }) {
+export default function ({ React, ReactDOM, rules }) {
     describe('rules', () => {
         Object.keys(rules).forEach((rule) => {
             describe(rule, () => {
