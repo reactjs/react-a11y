@@ -141,7 +141,7 @@ afterEach(() => a11y.restoreAll())
 
 The rules in this version of `react-a11y` are pluggable!
 You can write your own plugin to add more rules.  Have a look at 
-[writing plugins](https://github.com/romeovs/react-a11y/blob/master/docs/plugins.md<Paste>) in the
+[writing plugins](https://github.com/romeovs/react-a11y/blob/master/docs/plugins.md) in the
 docs to get started!
 
 ## Contributing
