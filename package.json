@@ -30,10 +30,12 @@
     "release": "echo 'release command is not supported from this fork, see CONTRIBUTING.md for proper publishing workflow'",
     "preview-release": "echo 'preview-release command is not supported from this fork, see CONTRIBUTING.md for proper publishing workflow'"
   },
-  "authors": [
+  "contributors": [
     "Ryan Florence",
     "Todd Kloots",
-    "Angus Croll"
+    "Angus Croll",
+    "Romeo Van Snick <romeovs@gmail.com>",
+    "Erin Doyle"
   ],
   "license": "MIT",
   "devDependencies": {
