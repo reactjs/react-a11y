@@ -1,6 +1,4 @@
-CONTRIBUTING.md
-bower.json
-lib
+*.log
+test
 karma.conf.js
-scripts
 webpack.config.js

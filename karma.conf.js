@@ -1,43 +1,64 @@
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 
-module.exports = function (config) {
-  config.set({
+const resolve = path.resolve;
+const join = path.join;
+const root = resolve(__dirname);
+const src = join(root, 'src');
 
-    browserNoActivityTimeout: 30000,
+module.exports = (config) => {
+    config.set({
+        basePath: '',
 
-    browsers: [ process.env.CONTINUOUS_INTEGRATION ? 'Firefox' : 'Chrome' ],
+        browserNoActivityTimeout: 30000,
 
-    singleRun: process.env.CONTINUOUS_INTEGRATION === 'true',
+        browsers: ['Firefox', 'Chrome'],
 
-    frameworks: [ 'mocha' ],
+        singleRun: true,
 
-    files: [
-      'tests.webpack.js'
-    ],
+        frameworks: ['mocha'],
 
-    preprocessors: {
-      'tests.webpack.js': [ 'webpack', 'sourcemap' ]
-    },
+        plugins: [
+            'karma-mocha',
+            'karma-chrome-launcher',
+            'karma-firefox-launcher',
+            'karma-webpack',
+            'karma-sourcemap-loader'
+        ],
 
-    reporters: [ 'dots' ],
+        files: [
+            'test/browser/**/*.js',
+            'test/*.js'
+        ],
 
-    webpack: {
-      devtool: 'inline-source-map',
-      module: {
-        loaders: [
-          { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }
-        ]
-      },
-      plugins: [
-        new webpack.DefinePlugin({
-          'process.env.NODE_ENV': JSON.stringify('test')
-        })
-      ]
-    },
+        preprocessors: {
+            'test/**/*.js': ['webpack', 'sourcemap']
+        },
 
-    webpackServer: {
-      noInfo: true
-    }
+        // , reporters: [ 'dots' ]
 
-  });
+        webpack: {
+            devtool: 'inline-source-map',
+            module: {
+                loaders: [{
+                    test: /\.js$/,
+                    exclude: /node_modules/,
+                    loader: 'babel-loader'
+                }]
+            },
+            resolve: {
+                extensions: ['', '.js', '.jsx']
+            },
+            plugins: [
+                new webpack.DefinePlugin({
+                    'process.env.NODE_ENV': JSON.stringify('test')
+                })
+            ]
+        },
+
+        webpackMiddleware: {
+            debug: true,
+            noInfo: true
+        }
+    });
 };

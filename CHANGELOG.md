@@ -1,7 +1,32 @@
-v0.3.3 - Fri, 15 Apr 2016 19:32:24 GMT
+0.3.6 - Thu, 12 Oct 2017 12:50:02 GMT
+-------------------------------------
+
+- [b8f4e58](../../commit/b8f4e58) Update ReactDOM for react v16 compatibility
+
+
+v0.3.5 - Tue, 30 May 2017 14:23:58 GMT
+-----------------------------------------
+
+- [a7eb16f](../../commit/a7eb16f) Fixed #16 inappropriately referencing this in a context where this is actually undefined.
+
+
+v0.3.4 - Sun, 30 Apr 2017 20:48:28 GMT
 --------------------------------------
 
-- 
+- [e41ba68](../../commit/e41ba68) Fixed #11 from being too strict testing for use-onblur-not-onchange.  Now it should pass if onChange is used in addition to onBlur.
+- [3173a1d](../../commit/3173a1d) Fixed #10 where if a tagName is being checked for reserved in the DOM object but does not exist in the DOM object an exception was being thrown
+- [d0401be](../../commit/d0401be) 1. Updated eslint and plugin versions 2. Added the AirBnB eslint config to inherit 3. Fixed all linter findings
+
+
+v0.3.3 - Mon, 3 Apr 2017 23:01:39 GMT
+--------------------------------------
+
+- [d85328e](../../commit/d85328e) Added some more scripts for helping with the version and publish process and added descriptions of the scripts in the CONTRIBUTING.md
+- [2ffa8ac](../../commit/2ffa8ac) Added a CONTRIBUTING page and linked to it from the README.
+- [c715c45](../../commit/c715c45) Updated urls to point to this repo instead of the forked from repo
+- [fa32346](../../commit/fa32346) Added the bundle script to the prepublish script so that the webpack bundle gets included in the npm package.  Also disabled the release script and removed the rf-release package as this does not seem to be tagging or publishing to npm properly.
+- [8bff3fe](../../commit/8bff3fe) Added/removed dirs and files from npmignore
+- [be6f51e](../../commit/be6f51e) Adding some tags! Added <svg> and <path>
 
 
 v0.3.2 - Tue, 15 Mar 2016 00:16:50 GMT

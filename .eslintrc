@@ -1,0 +1,54 @@
+{
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true,
+        "mocha": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 2017,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true,
+            "modules": true
+        }
+    },
+    "extends": [
+        "airbnb"
+    ],
+    "plugins": [
+        "babel",
+        "mocha",
+        "react"
+    ],
+    "rules": {
+        "babel/new-cap": 1,
+        "comma-dangle": ["error", "never"],
+        "complexity": ["warn", { "max": 7 }],
+        "generator-star-spacing": 1,
+        "id-length": ["error", { "exceptions": ["_", "x", "y", "z", "i", "e", "t"] }],
+        "import/no-named-as-default": 0, // connected/test-only components
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}], // tests
+        "indent": ["error", 4, {"SwitchCase": 2}],
+        "max-len": [1, 120, 2, {"ignoreComments": true}],
+        "no-await-in-loop": 1,
+        "no-param-reassign": ["error", { "props": false }],
+        "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+        "no-underscore-dangle": "off",
+        "no-use-before-define": [2, "nofunc"],
+        "no-unused-vars": "warn",
+        "object-shorthand": 1,
+        "quotes": [2, "single"],
+        "react/forbid-prop-types": [1, { "forbid": ["any"] }], // used in conjunction with the transform-react-remove-prop-types babel plugin
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"]  }],
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-indent-props": ["error", 4],
+        "react/jsx-uses-react": 2,
+        "react/jsx-uses-vars": 2,
+        "react/no-find-dom-node": "warn", // TODO: change this to error and fix findings
+        "react/prop-types": 0, // not currently working for stateless components: https://github.com/yannickcr/eslint-plugin-react/issues/803
+        "react/react-in-jsx-scope": 2,
+        "strict": [2, "never"],
+        "vars-on-top": "error"
+    }
+}
