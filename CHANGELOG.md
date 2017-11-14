@@ -1,4 +1,4 @@
-0.3.6 - Thu, 12 Oct 2017 12:50:02 GMT
+v0.3.6 - Thu, 12 Oct 2017 12:50:02 GMT
 -------------------------------------
 
 - [b8f4e58](../../commit/b8f4e58) Update ReactDOM for react v16 compatibility
@@ -7,14 +7,14 @@
 v0.3.5 - Tue, 30 May 2017 14:23:58 GMT
 -----------------------------------------
 
-- [a7eb16f](../../commit/a7eb16f) Fixed #16 inappropriately referencing this in a context where this is actually undefined.
+- [a7eb16f](../../commit/a7eb16f) Fixed [#16](https://github.com/romeovs/react-a11y/issues/16) inappropriately referencing this in a context where this is actually undefined.
 
 
 v0.3.4 - Sun, 30 Apr 2017 20:48:28 GMT
 --------------------------------------
 
-- [e41ba68](../../commit/e41ba68) Fixed #11 from being too strict testing for use-onblur-not-onchange.  Now it should pass if onChange is used in addition to onBlur.
-- [3173a1d](../../commit/3173a1d) Fixed #10 where if a tagName is being checked for reserved in the DOM object but does not exist in the DOM object an exception was being thrown
+- [e41ba68](../../commit/e41ba68) Fixed [#11](https://github.com/romeovs/react-a11y/issues/11) from being too strict testing for use-onblur-not-onchange.  Now it should pass if onChange is used in addition to onBlur.
+- [3173a1d](../../commit/3173a1d) Fixed [#10](https://github.com/romeovs/react-a11y/issues/10) where if a tagName is being checked for reserved in the DOM object but does not exist in the DOM object an exception was being thrown
 - [d0401be](../../commit/d0401be) 1. Updated eslint and plugin versions 2. Added the AirBnB eslint config to inherit 3. Fixed all linter findings
 
 

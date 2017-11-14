@@ -64,5 +64,4 @@ require('react-a11y/util').devices
 // }
 ```
 
-Look at [the rules included in
-`react-a11y`](https://github.com/romeovs/react-a11y/tree/master/src/rules) for examples.
+Look at [the rules included in `react-a11y`](../src/rules) for examples.

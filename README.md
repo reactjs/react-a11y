@@ -19,10 +19,6 @@ Run:
 npm install react-a11y
 ```
 
-I want to prevent creating a new `npm` package for the fork, to reduce
-confusion and ease possible merging of the forks. However, if there is
-enough interest, I will probably do it anyway.
-
 ## Usage
 
 In your main application file, require the module and call it, you'll start
@@ -88,7 +84,7 @@ can safely omit it when using `react-a11y` in node.
     }
 
     ```
-    Refer to the [rule docs](https://github.com/romeovs/react-a11y/tree/master/docs/rules) 
+    Refer to the [rule docs](docs/rules) 
     to see what options are defined for each rule.
 
   - `reporter : object => undefined`
@@ -141,12 +137,12 @@ afterEach(() => a11y.restoreAll())
 
 The rules in this version of `react-a11y` are pluggable!
 You can write your own plugin to add more rules.  Have a look at 
-[writing plugins](https://github.com/romeovs/react-a11y/blob/master/docs/plugins.md) in the
+[writing plugins](docs/plugins.md) in the
 docs to get started!
 
 ## Contributing
 
-Interested in contributing?  Great!  Look here for more info: [CONTRIBUTING.md](https://github.com/romeovs/react-a11y/blob/master/CONTRIBUTING.md).
+Interested in contributing?  Great!  Look here for more info: [CONTRIBUTING.md](CONTRIBUTING.md).
 
 [react-a11y]:    https://github.com/reactjs/react-a11y
 [eslint]:        http://eslint.org
