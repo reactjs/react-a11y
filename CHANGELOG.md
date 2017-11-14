@@ -1,3 +1,20 @@
+v1.0.0 - Tue, 14 Nov 2017 12:19:00 GMT
+-----------------------------------------
+
+- [94573c1](../../commit/94573c1) Revamp the API and configuration to allow for more modular rules to be added. 
+
+**API Changes:**
+
+An options object can now be passed in to the `a11y()` function where you can specify a rules configuration, a 
+reporter function allowing modification of how warnings are displayed, a filter function for filtering all failures,
+and finally a plugins array listing the names of any plugin modules to be used.  
+See [Usage](../README.md#usage) for details.
+
+**Plugins!**
+
+react-a11y is now pluggable!  See [writing plugins](docs/plugins.md) to learn how to write your own plugin.
+
+
 v0.3.6 - Thu, 12 Oct 2017 12:50:02 GMT
 -------------------------------------
 
