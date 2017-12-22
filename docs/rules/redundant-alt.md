@@ -8,7 +8,7 @@ words such as *image*, *photo*, and/or *picture*.
 ## options
 
 This rule takes the following options:
-  1.  Words to look for when looking for redudant words. (**Array(String)**)
+  1.  Words to look for when looking for redundant words. (**Array(String)**)
       default: `["image","picture","photo"]`
 
 ## Passes
