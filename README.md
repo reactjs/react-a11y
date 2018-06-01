@@ -23,7 +23,7 @@ npm install react-a11y
 
 In your main application file, require the module and call it, you'll start
 getting warnings in the console as your app renders.  Note that by default all
-rules are turned `off` s oyou need to turn them on first (by setting them to
+rules are turned `off` so you need to turn them on first (by setting them to
 `"warn"` or `"error"`).
 
 ```js

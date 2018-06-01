@@ -2,7 +2,7 @@
 
 Enforce `onMouseOver`/`onMouseOut` are accompanied by
 `onFocus`/`onBlur`. Coding for the keyboard is important for users with
-physical disabilities who cannot use a mouse, AT compatability, and screenreader
+physical disabilities who cannot use a mouse, AT compatibility, and screenreader
 users.
 
 
