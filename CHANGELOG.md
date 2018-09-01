@@ -1,3 +1,12 @@
+v1.0.1 - Sat, 01 Sep 2018 15:53:33 GMT
+--------------------------------------
+
+- [d4b2256](../../commit/d4b2256) Changed the format of the reporter to use a default prefix of '[react-a11y]' to aid with identification and filtering in the console
+- [6471b17](../../commit/6471b17) Updated Travis config to solve for issue with headless Chrome tests failing
+- [5a08e10](../../commit/5a08e10) Add missing "o"
+- [ee6a99e](../../commit/ee6a99e) docs: fix typos
+
+
 v1.0.0 - Tue, 14 Nov 2017 12:19:00 GMT
 -----------------------------------------
 
