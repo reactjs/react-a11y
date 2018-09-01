@@ -1,7 +1,10 @@
+/* eslint-disable babel/new-cap,no-console */
 import {
     browser,
     AXURL
 } from './util';
+
+const LOG_PREFIX = '[react-a11y]:';
 
 /**
  * Throws an error based on the warning
@@ -41,7 +44,7 @@ const showWarning = (...args) => {
 const mkReporter = (opts) => {
     const {
         doThrow = false,
-        warningPrefix = ''
+        warningPrefix = LOG_PREFIX
     } = opts;
 
     return (info) => {
@@ -57,8 +60,8 @@ const mkReporter = (opts) => {
 
         // build warning
         const warning = [
-            displayName || tagName,
-            warningPrefix.concat(msg),
+            warningPrefix,
+            `${displayName || tagName} - ${msg}`,
             ...(url ? [`See '${url}' for more info.`] : []),
             ...(AX ? [`See '${AXURL(AX)}' for more info.`] : []),
             DOMNode || tagName
@@ -82,7 +85,7 @@ const mkReporter = (opts) => {
  */
 const deprecate = (opts, name, msg = '') => {
     if (name in opts) {
-        console.warn(`react-a11y: the \`${name}\` options is deprecated. ${msg}`);
+        console.warn(`${LOG_PREFIX} the \`${name}\` options is deprecated. ${msg}`);
     }
 };
 
@@ -95,7 +98,7 @@ const deprecate = (opts, name, msg = '') => {
  */
 const mandatory = (opts, name, msg = '') => {
     if (!(name in opts)) {
-        throw new Error(`react-a11y: the \`${name}\` option is mandatory. ${msg}`);
+        throw new Error(`${LOG_PREFIX} the \`${name}\` option is mandatory. ${msg}`);
     }
 };
 
@@ -130,12 +133,12 @@ export default function (...args) {
     ] = props;
 
     if (!React || !React.createElement) {
-        throw new Error('react-a11y: missing argument `React`');
+        throw new Error(`${LOG_PREFIX} missing argument 'React'`);
     }
 
     // make sure ReactDOM is passed in in browser code
     if (browser && !(ReactDOM && ReactDOM.findDOMNode)) {
-        throw new Error('react-a11y: missing argument `ReactDOM`');
+        throw new Error(`${LOG_PREFIX} missing argument 'ReactDOM'`);
     }
 
     deprecate(opts, 'includeSrcNode', msg);
