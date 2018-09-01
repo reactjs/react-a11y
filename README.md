@@ -7,15 +7,12 @@ Warns about potential accessibility issues with your React elements.
 
 ![screenshot](http://i.imgur.com/naQTETB.png)
 
-## WIP
-
-This is a WIP, feel free to explore, open issues, and suggest assertions :)
 
 ## Installation
 
 Run:
 
-```sh
+```bash
 npm install react-a11y
 ```
 
@@ -26,19 +23,19 @@ getting warnings in the console as your app renders.  Note that by default all
 rules are turned `off` so you need to turn them on first (by setting them to
 `"warn"` or `"error"`).
 
-```js
-import React    from 'react'
-import ReactDOM from 'react-dom'
+```javascript
+import React    from 'react';
+import ReactDOM from 'react-dom';
 
 if (ENV === 'development') {
-  const a11y = require('react-a11y').default
+  const a11y = require('react-a11y').default;
   a11y(React, ReactDOM, {
     rules: {
-      'img-uses-alt': 'warn'
-    , 'redundant-alt': [ 'warn', [ 'image', 'photo', 'foto', 'bild' ]]
+      'img-uses-alt': 'warn',
+      'redundant-alt': [ 'warn', [ 'image', 'photo', 'foto', 'bild' ]]
     // ...
     }
-  })
+  });
 }
 ```
 
@@ -50,8 +47,8 @@ React rendering functions and this might make this slower.
 These are the supported configuration options, annotated using [flow][] type
 annotations
 
-```js
-a11y(React : React, ReactDOM : ReactDOM, opts : object? )
+```flow js
+a11y(React : React, ReactDOM : ReactDOM, opts : object? );
 ```
 
 `React` is the React object you want to shim to allow the 
@@ -71,19 +68,20 @@ can safely omit it when using `react-a11y` in node.
   - `rules : object`
     The configuration options for each of the rules. This uses the same format
     as [eslint][] does: 
-    ```js
+    
+    ```javascript
     const rules = {
-      'img-uses-alt': 'off'
-    , 'redundant-alt': [
-        'warn'
+      'img-uses-alt': 'off',
+      'redundant-alt': [
+        'warn',
         // other options to pass to the rule:
-      , [
+        [
           'foto'
         ]
       ]
-    }
-
+    };
     ```
+    
     Refer to the [rule docs](docs/rules) 
     to see what options are defined for each rule.
 
@@ -102,9 +100,10 @@ can safely omit it when using `react-a11y` in node.
       browser.
     - `url : string?` - The url to a webpage explaining why this rule
       is important
+
     The default reporter displays all the information it can, but listens
     to the deprecated options `includeSrcNode`, `warningPrefix` and
-    `throwErro and `throwError`.
+    `throwErro` and `throwError`.
 
   - `filterFn : (string, string, string) => boolean`
     You can filter failures by passing a function to the `filterFn` option. The
@@ -114,11 +113,11 @@ can safely omit it when using `react-a11y` in node.
 
     Note: If it is a ReactElement, the name will be the node type (eg. `div`)
 
-    ```js
+    ```javascript
     // only show errors on CommentList
     const commentListFailures = function (name, id, msg) {
       return name === "CommentList";
-    }
+    };
 
     a11y(React, ReactDOM, { filterFn: commentListFailures });
     ```
@@ -128,9 +127,9 @@ can safely omit it when using `react-a11y` in node.
 Use the `restoreAll()` method to clean up mutations made to `React`.
 Useful if you are using `react-a11y` in your test suite:
 
-```js
-beforeEach(() => a11y(React))
-afterEach(() => a11y.restoreAll())
+```javascript
+beforeEach(() => a11y(React));
+afterEach(() => a11y.restoreAll());
 ```
 
 ## Writing plugins
