@@ -15,11 +15,12 @@ export default [{
     ],
     test(tagName, props) {
         const hidden = hiddenFromAT(props);
+        const negativeTabIndex = props["tabIndex"] == -1;
         const interactive = isInteractive(tagName, props);
         const onClick = listensTo(props, 'onClick');
         const role = 'role' in props;
 
-        return hidden || interactive || !onClick || role;
+        return hidden || interactive || !onClick || role || negativeTabIndex;
     }
 }];
 
@@ -39,6 +40,9 @@ export const pass = [{
 }, {
     when: 'the element is interactive',
     render: React => <button onClick={fn} />
+}, {
+    when: "the element have negative tabIndex",
+    render: React => <span onClick={fn} tabIndex="-1" />
 }];
 
 export const description = `
