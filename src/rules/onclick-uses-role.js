@@ -9,7 +9,7 @@ import {
 export default [{
     msg: 'You have a click handler on a non-interactive element but no `role` DOM property. '
      + 'It will be unclear what this element is supposed to do to a screen-reader user.',
-    url: 'http://www.w3.org/TR/wai-aria/roles#role_definitions',
+    url: 'https://www.w3.org/WAI/PF/aria/roles#role_definitions',
     affects: [
         devices.screenReaders
     ],

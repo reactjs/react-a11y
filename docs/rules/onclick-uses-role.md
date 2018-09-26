@@ -33,4 +33,4 @@ function of an element.
 
 ## See also
 
- - [This document](http://www.w3.org/TR/wai-aria/roles#role_definitions) from w3.org
+ - [This document](https://www.w3.org/WAI/PF/aria/roles#role_definitions) from w3.org
