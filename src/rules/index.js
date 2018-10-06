@@ -12,8 +12,8 @@ export default {
     'redundant-alt': require('./redundant-alt').default,
     'use-onblur-not-onchange': require('./use-onblur-not-onchange').default,
     'valid-aria-role': require('./valid-aria-role').default,
+    'tabindex-no-positive': require('./tabindex-no-positive').default,
     'tabindex-uses-button': require('./tabindex-uses-button').default,
-    'no-unsupported-elements-use-aria': require('./no-unsupported-elements-use-aria').default,
-    'avoid-positive-tabindex': require('./avoid-positive-tabindex').default
+    'no-unsupported-elements-use-aria': require('./no-unsupported-elements-use-aria').default
 };
 

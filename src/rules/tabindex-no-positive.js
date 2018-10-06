@@ -32,7 +32,10 @@ export const pass = [{
     render: React => <div />
 }, {
     when: 'the element has a negative tabIndex',
-    render: React => <div tabIndex={-2} />
+    render: React => <div tabIndex={-1} />
+}, {
+    when: 'the element has a tabIndex of zero',
+    render: React => <div tabIndex="0" />
 }];
 
 export const fail = [{

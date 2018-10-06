@@ -2,7 +2,7 @@
 
 When an anchor has a `tabIndex`, but no `href` and no `role` properties,
 it is likely you are using it to emulate a `button`.  Prefer using `role="button"`
-or just use the `<button` element.
+or just use the `<button>` element.
 
 
 ## options
@@ -28,7 +28,7 @@ or just use the `<button` element.
 ## Fails
 
 ```js
-// fails when anchor has tabIndexbut no button
+// fails when anchor has tabIndex but no button
 <a tabindex="1"></a>
 ```
 
