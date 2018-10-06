@@ -15,7 +15,5 @@ sudo: required
 addons:
   chrome: stable
 
-cache: yarn
-
 matrix:
   fast_finish: true
