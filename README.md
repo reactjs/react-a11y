@@ -27,7 +27,7 @@ rules are turned `off` so you need to turn them on first (by setting them to
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-if (ENV === 'development') {
+if (process.env.NODE_ENV === 'development') {
   const a11y = require('react-a11y').default;
   a11y(React, ReactDOM, {
     rules: {
