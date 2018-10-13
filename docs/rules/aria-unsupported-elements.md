@@ -1,4 +1,4 @@
-# no-unsupported-elements-use-aria
+# aria-unsupported-elements
 
 
 Certain reserved DOM elements do not support ARIA roles, states and properties.
@@ -14,8 +14,8 @@ This is often because they are not visible, for example `meta`, `html`, `script`
 ## Passes
 
 These elements are passed by this rule
-```js
-// no problem when the reserver element is not given an illegal prop
+```jsx harmony
+// no problem when the reserved element is not given an illegal prop
 <meta/>
 
 // no problem when an illegal props is given to a non-reserved elemeent
@@ -25,7 +25,7 @@ These elements are passed by this rule
 ## Fails
 
 These elements are *not* passed by this rule
-```js
+```jsx harmony
 // warns when the element should not be given any ARIA attributes
 <meta aria-hidden="false"/>
 ```

@@ -1,4 +1,4 @@
-# mouse-events-map-to-key-events
+# mouse-events-have-key-events
 
 Enforce `onMouseOver`/`onMouseOut` are accompanied by
 `onFocus`/`onBlur`. Coding for the keyboard is important for users with
@@ -12,25 +12,25 @@ users.
 
 ## Passes
 
-```js
+```jsx harmony
 // passes when there is no `onMouseOver` or `onMouseOut`
 <div></div>
 
-// passes when there is `onMouseOver` but and `onFocus`
-<div></div>
+// passes when there is `onMouseOver` and `onFocus`
+<div onMouseOver={someFunction} onFocus={someFunction}></div>
 
-// passes when there is `onMouseOut` but and `onBlur`
-<div></div>
+// passes when there is `onMouseOut` and `onBlur`
+<div onMouseOut={someFunction} onBlur={someFunction}></div>
 ```
 
 ## Fails
 
-```js
+```jsx harmony
 // fails when there is `onMouseOver` but no `onFocus`
-<div></div>
+<div onMouseOver={someFunction}></div>
 
 // fails when there is `onMouseOut` but no `onBlur`
-<div></div>
+<div onMouseOut={someFunction}></div>
 ```
 
 ## See also
