@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 export default {
-    'button-role-space': require('./button-role-space').default,
+    'click-events-have-key-events': require('./click-events-have-key-events').default,
     'hidden-uses-tabindex': require('./hidden-uses-tabindex').default,
     'img-uses-alt': require('./img-uses-alt').default,
     'label-has-for': require('./label-has-for').default,
