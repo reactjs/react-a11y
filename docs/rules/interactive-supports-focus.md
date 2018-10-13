@@ -1,4 +1,4 @@
-# onclick-uses-tabindex
+# interactive-supports-focus
 
 Enforce that elements that have an `onClick` handler also have
 a `tabIndex` property.  If not, they will not be navigable by
@@ -11,22 +11,22 @@ keyboard users.
 
 ## Passes
 
-```js
+```jsx harmony
 // passes when when there is an `onClick` with a `tabIndex`
-<span tabindex="0"></span>
+<span onClick={someFunction} tabindex="0"></span>
 
 // passes when the element is hidden from aria
-<span aria-hidden="true"></span>
+<span onClick={someFunction} aria-hidden="true"></span>
 
 // passes when the element is interactive
-<button></button>
+<button onClick={someFunction}></button>
 ```
 
 ## Fails
 
-```js
+```jsx harmony
 // fails when there is an `onClick` with no `tabIndex`
-<span></span>
+<span onClick={someFunction}></span>
 ```
 
 ## See also

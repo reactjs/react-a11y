@@ -1,4 +1,4 @@
-# label-uses-for
+# label-has-for
 
 Enforce label tags have `htmlFor` attribute. Form controls using a `label` to
 identify them must have only one label that is programmatically associated with
@@ -11,7 +11,7 @@ the control using: `<label htmlFor={/* ID or name of control*/}>...</label>`.
 
 ## Passes
 
-```js
+```jsx harmony
 // passes when the label is hidden
 <label aria-hidden="true"></label>
 
@@ -24,7 +24,7 @@ the control using: `<label htmlFor={/* ID or name of control*/}>...</label>`.
 
 ## Fails
 
-```js
+```jsx harmony
 // fails when a label is not hidden and has no `htmlFor`
 <label></label>
 ```

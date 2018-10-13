@@ -1,4 +1,4 @@
-# use-onblur-not-onchange
+# no-onchange
 
 Enforce usage of onBlur over onChange for accessibility. onBlur must be used
 instead of onChange, unless absolutely necessary and it causes no negative
@@ -11,25 +11,28 @@ consequences for keyboard only or screen reader users.
 
 ## Passes
 
-```js
+```jsx harmony
 // passes when there is no `onChange` prop
 <input/>
 
 // passes when the element is aria-hidden
-<input aria-hidden="true"/>
+<input onChange={fn} aria-hidden="true"/>
 
 // passes when the element is aria-disabled
-<input aria-disabled="true"/>
+<input onChange={fn} aria-disabled="true"/>
 
 // passes when the element is aria-readonly
-<input aria-readonly="true"/>
+<input onChange={fn} aria-readonly="true"/>
+
+// passes when there is an `onChange` prop and an `onBlur` prop
+<input onChange={fn} onBlur={fn}/>
 ```
 
 ## Fails
 
-```js
-// fails when the `onChange` prop is present
-<input/>
+```jsx harmony
+// fails when the `onChange` prop is present without an `onBlur` prop
+<input onChange={fn}/>
 ```
 
 ## See also

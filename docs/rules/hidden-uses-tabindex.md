@@ -12,7 +12,7 @@ in a hidden tab stop for screen reader users.
 
 ## Passes
 
-```js
+```jsx harmony
 // passes when an interactive element is aria-hidden and has tabindex="-1"
 <input aria-hidden="true" tabindex="-1"/>
 
@@ -25,7 +25,7 @@ in a hidden tab stop for screen reader users.
 
 ## Fails
 
-```js
+```jsx harmony
 // fails when an interactive element is hidden but has no tabindex
 <input aria-hidden="true"/>
 

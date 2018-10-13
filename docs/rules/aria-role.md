@@ -1,4 +1,4 @@
-# valid-aria-role
+# aria-role
 
 The ARIA roles model requires that elements with a role attribute use a valid,
 non-abstract ARIA role. Each non-abstract ARIA role is mapped on to a known set
@@ -16,7 +16,7 @@ on additional required attributes, on the
 
 ## Passes
 
-```js
+```jsx harmony
 // passes when there is a role and it is valid
 <div role="button"></div>
 
@@ -26,7 +26,7 @@ on additional required attributes, on the
 
 ## Fails
 
-```js
+```jsx harmony
 // fails when there is an invalid `role`
 <div role="foo"></div>
 ```
