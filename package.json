@@ -80,7 +80,6 @@
     "a11y"
   ],
   "dependencies": {
-    "babel-register": "^6.26.0"
   },
   "directories": {
     "doc": "docs",
