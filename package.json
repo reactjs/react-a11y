@@ -64,8 +64,8 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.3",
     "mocha": "^5.2.0",
-    "react": "^0.14",
-    "react-dom": "^0.14.7",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
     "rf-changelog": "^0.4.0",
     "webpack": "^1.12.14"
   },
@@ -79,8 +79,7 @@
     "react",
     "a11y"
   ],
-  "dependencies": {
-  },
+  "dependencies": {},
   "directories": {
     "doc": "docs",
     "test": "test"

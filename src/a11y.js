@@ -41,11 +41,10 @@ export default class A11y {
 
             // create a refs object to hold the ref.
             // this needs to be an object so that it can be passed
-            // by reference, and hold chaning state.
-            const refs = typeof props.ref === 'string' ? props.ref : {};
-            const ref = typeof props.ref === 'string'
-                ? props.ref
-                : (node) => {
+            // by reference, and hold changing state.
+            const refs = typeof props.ref === 'string' || typeof props.ref === 'object' ? props.ref : {};
+            const ref = typeof props.ref === 'string' || typeof props.ref === 'object' ? props.ref :
+                (node) => {
                     refs.node = node;
 
                     // maintain behaviour when ref prop was already set
