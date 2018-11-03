@@ -14,6 +14,16 @@ export default {
     'aria-role': require('./aria-role').default,
     'tabindex-no-positive': require('./tabindex-no-positive').default,
     'tabindex-uses-button': require('./tabindex-uses-button').default,
-    'aria-unsupported-elements': require('./aria-unsupported-elements').default
-};
+    'aria-unsupported-elements': require('./aria-unsupported-elements').default,
 
+    // DEPRECATED RULES
+    'avoid-positive-index': require('./avoid-positive-index').default,
+    'button-role-space': require('./button-role-space').default,
+    'label-uses-for': require('./label-uses-for').default,
+    'mouse-events-map-to-key-events': require('./mouse-events-map-to-key-events').default,
+    'onclick-uses-tabindex': require('./onclick-uses-tabindex').default,
+    'redundant-alt': require('./redundant-alt').default,
+    'use-onblur-not-onchange': require('./use-onblur-not-onchange').default,
+    'valid-aria-role': require('./valid-aria-role').default,
+    'no-unsupported-elements-use-aria': require('./no-unsupported-elements-use-aria').default
+};
