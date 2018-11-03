@@ -1,3 +1,18 @@
+v1.1.0 - Sat, 03 Nov 2018 14:08:56 GMT
+--------------------------------------
+
+- [c45ed13](../../commit/c45ed13) Fixed issue with ref props created with React.createRef()
+- [9acfd3f](../../commit/9acfd3f) Added back in all of the previous rules that had been renamed with deprecation warnings to allow for a smoother transition for consuming applications.
+- [72e593a](../../commit/72e593a) Remove babel-register from dependencies as this pulls in babel-core 6 which means that babel 7 can't be used cleanly
+- [ce7f037](../../commit/ce7f037) Renamed and modified button-role-space to click-events-have-key-events to be more consistent with the rule in the the eslint-plugin-jsx-a11y library
+- [3e9e4b5](../../commit/3e9e4b5) Renamed a number of rules that were equivalent to existing rules in the eslint-plugin-jsx-a11y library for consistency between the two libs
+- [58e525f](../../commit/58e525f) Changed documentation reference to ENV to process.env.NODE_ENV
+- [73c69e6](../../commit/73c69e6) Renamed rule avoid-positive-tabindex to tabindex-no-positive to be more inline with the rule naming in eslint-plugin-jsx-a11y
+- [4bcb769](../../commit/4bcb769) Removed yarn from Travis yaml so npm will be used with package-lock.json and use npm ci
+- [ba57e2e](../../commit/ba57e2e) Added package-lock.json and fixed npm audit findings
+- [26b2772](../../commit/26b2772) Fixed a dead link pointing to the W3's aria role definitions document
+
+
 v1.0.1 - Sat, 01 Sep 2018 15:53:33 GMT
 --------------------------------------
 
