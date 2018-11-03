@@ -26,7 +26,7 @@
     "version:major": "npm --no-git-tag-version version major",
     "postversion": "git commit package.json CHANGELOG.md -m \"Version $npm_package_version\" && npm run tag && git push && git push --tags && npm publish --registry=https://registry.npmjs.org/",
     "tag": "git tag v$npm_package_version",
-    "prepublish": "npm run build && npm run bundle",
+    "prepare": "npm run build && npm run bundle",
     "release": "echo 'release command is not supported from this fork, see CONTRIBUTING.md for proper publishing workflow'",
     "preview-release": "echo 'preview-release command is not supported from this fork, see CONTRIBUTING.md for proper publishing workflow'"
   },
