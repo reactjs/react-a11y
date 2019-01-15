@@ -33,4 +33,4 @@ on additional required attributes, on the
 
 ## See also
 
- - [This document](https://www.w3.org/WAI/PF/aria/roles) from w3.org - Google Audit defs [AX_ARIA_01](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-defs#ax_aria_01)
+ - [This document](https://www.w3.org/WAI/PF/aria/roles) from w3.org - Google Audit defs [AX_ARIA_01](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-rules#ax_aria_01)
