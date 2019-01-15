@@ -22,7 +22,7 @@ export default [{
 {
     tagName: 'img',
     msg: 'The `alt` prop cannot be empty string if role="presentation" is not set.',
-    url: 'https://www.w3.org/TR/wai-aria/roles#presentation',
+    url: 'https://www.w3.org/WAI/PF/aria/roles#presentation',
     test(tagName, props) {
         const hidden = hiddenFromAT(props);
         const empty = props.alt === '';

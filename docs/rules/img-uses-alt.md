@@ -34,4 +34,4 @@ an alternate text for an image, if the image cannot be displayed.
 ## See also
 
  - [This document](https://dev.w3.org/html5/alt-techniques) from dev.w3.org
- - [This document](https://www.w3.org/TR/wai-aria/roles#presentation) from w3.org
+ - [This document](https://www.w3.org/WAI/PF/aria/roles#presentation) from w3.org

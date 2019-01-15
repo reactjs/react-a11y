@@ -7,7 +7,7 @@ will result in the desired behavior not being available to the user.
 
 You can find a list of valid ARIA roles, along with descriptions and information
 on additional required attributes, on the
-[WAI-ARIA](http://www.w3.org/TR/wai-aria/roles#roles_categorization) site.
+[WAI-ARIA](http://www.w3.org/WAI/PF/aria/roles#roles_categorization) site.
 
 
 ## options
@@ -33,4 +33,4 @@ on additional required attributes, on the
 
 ## See also
 
- - [This document](https://www.w3.org/TR/wai-aria/roles) from w3.org - Google Audit defs [AX_ARIA_01](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-defs#ax_aria_01)
+ - [This document](https://www.w3.org/WAI/PF/aria/roles) from w3.org - Google Audit defs [AX_ARIA_01](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-defs#ax_aria_01)
