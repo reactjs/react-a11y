@@ -24,7 +24,7 @@ an alternate text for an image, if the image cannot be displayed.
 ## Fails
 
 ```js
-// fails when the img doen't have an `alt`
+// fails when the img doesn't have an `alt`
 <img src="foo"/>
 
 // fails when the img has alt="" but no role="presentation"

@@ -60,6 +60,6 @@ words such as *image*, *photo*, and/or *picture*.
 
 export const options = [{
     type: 'Array(String)',
-    description: 'Words to look for when looking for redudant words.',
+    description: 'Words to look for when looking for redundant words.',
     def
 }];

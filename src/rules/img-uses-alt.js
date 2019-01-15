@@ -53,7 +53,7 @@ export const pass = [
 
 export const fail = [
     {
-        when: 'the img doen\'t have an `alt`',
+        when: 'the img doesn\'t have an `alt`',
         // eslint-disable-next-line jsx-a11y/img-has-alt
         render: React => <img src="foo" />
     },

@@ -18,7 +18,7 @@ These elements are passed by this rule
 // no problem when the reserved element is not given an illegal prop
 <meta/>
 
-// no problem when an illegal props is given to a non-reserved elemeent
+// no problem when an illegal props is given to a non-reserved element
 <div aria-hidden="true"></div>
 ```
 

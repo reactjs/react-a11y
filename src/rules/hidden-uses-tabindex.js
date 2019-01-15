@@ -46,7 +46,7 @@ export const fail = [{
 
 export const description = `
 Enforce that interactive elements that have been removed from
-the accessibility tree usign \`aria-hidden\` are also removed from
+the accessibility tree using \`aria-hidden\` are also removed from
 the tab flow by setting \`tabIndex={-1}\`.  If not, this could result
 in a hidden tab stop for screen reader users.
 `;
