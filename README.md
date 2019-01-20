@@ -42,6 +42,22 @@ if (process.env.NODE_ENV === 'development') {
 You probably don't want to call it if you're in production, since it patches the 
 React rendering functions and this might make this slower.
 
+## Migrating to v1.1.0
+A number of the rule names have changed and the previous rule names have been deprecated.  These deprecated rules will
+be removed in v2.0.0.  The following is the mapping of old to new rules:
+
+| Old Rule      | New Rule    |
+| ------------- | ----------- |
+| avoid-positive-tabindex | tabindex-no-positive |
+| button-role-space | click-events-have-key-events |
+| label-uses-for | label-has-for |
+| mouse-events-map-to-key-events | mouse-events-have-key-events |
+| no-unsupported-elements-use-aria | aria-unsupported-elements |
+| onclick-uses-tabindex | interactive-supports-focus |
+| redundant-alt | img-redundant-alt |
+| use-onblur-not-onchange | no-onchange |
+| valid-aria-role | aria-role |
+
 ## Options
 
 These are the supported configuration options, annotated using [flow][] type
