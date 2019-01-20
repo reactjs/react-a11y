@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import {
     hiddenFromAT,
     listensTo,
@@ -47,7 +48,7 @@ export const pass = [{
 
 export const fail = [{
     when: 'there is an onClick handler but no `onKeyDown`, `onKeyUp` or `onKeyPress` is present',
-    render: React => <div onClick={fn} />
+    render: React => <div onClick={fn} /> // eslint-disable-line jsx-a11y/no-static-element-interactions
 }];
 
 export const description = `

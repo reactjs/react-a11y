@@ -1,0 +1,5 @@
+{
+  "rules": {
+    "no-unused-expressions": "off" // chai's expect tends to trigger this
+  }
+}

@@ -35,7 +35,8 @@ export default class A11y {
         this._createElement = this.React.createElement;
 
         const _this = this;
-        this.React.createElement = function (klass, _props = {}, ...children) {
+        // eslint-disable-next-line complexity
+        this.React.createElement = function patchedCreateElement(klass, _props = {}, ...children) {
             // fix for props = null
             const props = _props || {};
 
@@ -96,13 +97,14 @@ export default class A11y {
          * @arg {string} errInfo  - All the error info (see docs what this means)
          * @returns {undefined}
          */
-        return function (errInfo) {
+        // eslint-disable-next-line complexity
+        return (errInfo) => {
             // get the owning component (the one that has
             // the element in its render fn)
             const owner = reactEl._owner;
 
             // if there is an owner, use its name
-            // if not, use the tagname of the violating elemnent
+            // if not, use the tagname of the violating element
             let displayName = '';
             if (owner) {
                 displayName = owner.type ?
@@ -140,6 +142,6 @@ export default class A11y {
             } else {
                 reporter(info);
             }
-        }.bind(this);
+        };
     }
 }

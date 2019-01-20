@@ -1,8 +1,9 @@
 /* global describe, it */
 /* eslint-disable no-unused-expressions,global-require,import/no-dynamic-require */
-import path from 'path';
 import { expect } from 'chai';
+
 import A11y from '../a11y';
+
 
 export default function ({ React, ReactDOM, rules }) {
     describe('rules', () => {
@@ -10,7 +11,6 @@ export default function ({ React, ReactDOM, rules }) {
             describe(rule, () => {
                 const {
                     default: defns,
-                    test,
                     pass = [],
                     fail = [],
                     description
@@ -60,10 +60,8 @@ export default function ({ React, ReactDOM, rules }) {
 
                 fail.forEach((bad) => {
                     it(`warns when ${bad.when}`, (done) => {
-                        let called = false;
                         const a11y = new A11y(React, ReactDOM, {
                             reporter(info) {
-                                called = true;
                                 const {
                                     msg
                                 } = info;
