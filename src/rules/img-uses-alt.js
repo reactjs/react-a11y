@@ -8,7 +8,7 @@ import {
 export default [{
     tagName: 'img',
     msg: 'The img does not have an `alt` prop, screen-readers will not know what it is',
-    url: 'https://dev.w3.org/html5/alt-techniques',
+    url: 'https://dequeuniversity.com/rules/axe/2.1/image-alt',
     test(tagName, props) {
         const hidden = hiddenFromAT(props);
         const alt = hasProp(props, 'alt');

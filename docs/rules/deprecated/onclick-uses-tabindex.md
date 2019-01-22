@@ -31,4 +31,5 @@ keyboard users.
 
 ## See also
 
- - [This document](http://www.w3.org/TR/wai-aria-practices/#focus_tabindex) from w3.org
+ - [This document](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_focus_02) from github.com/GoogleChrome
+ - [This document](https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_generalnav) from w3.org
