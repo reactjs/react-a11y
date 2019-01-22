@@ -18,7 +18,7 @@ export default [{
 }];
 
 export const fail = [{
-    when: 'anchor has tabIndexbut no button',
+    when: 'anchor has tabIndex but no button',
     // eslint-disable-next-line jsx-a11y/anchor-has-content,jsx-a11y/tabindex-no-positive
     render: React => <a tabIndex={1} />
 }];

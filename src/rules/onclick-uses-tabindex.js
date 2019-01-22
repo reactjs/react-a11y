@@ -10,7 +10,7 @@ import {
 export default [{
     msg: 'You have a click handler on a non-interactive element but no `tabIndex` DOM property. '
      + 'The element will not be navigable or interactive by keyboard users.',
-    url: 'http://www.w3.org/TR/wai-aria-practices/#focus_tabindex',
+    url: 'https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_focus_02',
     affects: [
         devices.keyboardOnly
     ],

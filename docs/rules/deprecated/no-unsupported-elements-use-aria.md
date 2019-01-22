@@ -32,4 +32,4 @@ These elements are *not* passed by this rule
 
 ## See also
 
- - Google Audit defs [AX_ARIA_12](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-defs#ax_aria_12)
+ - Google Audit defs [AX_ARIA_12](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-rules#ax_aria_12)

@@ -8,7 +8,7 @@ import {
 export default [{
     tagName: 'img',
     msg: 'The img does not have an `alt` prop, screen-readers will not know what it is',
-    url: 'https://dev.w3.org/html5/alt-techniques',
+    url: 'https://dequeuniversity.com/rules/axe/2.1/image-alt',
     test(tagName, props) {
         const hidden = hiddenFromAT(props);
         const alt = hasProp(props, 'alt');
@@ -22,7 +22,7 @@ export default [{
 {
     tagName: 'img',
     msg: 'The `alt` prop cannot be empty string if role="presentation" is not set.',
-    url: 'https://www.w3.org/TR/wai-aria/roles#presentation',
+    url: 'https://www.w3.org/WAI/PF/aria/roles#presentation',
     test(tagName, props) {
         const hidden = hiddenFromAT(props);
         const empty = props.alt === '';
@@ -53,7 +53,7 @@ export const pass = [
 
 export const fail = [
     {
-        when: 'the img doen\'t have an `alt`',
+        when: 'the img doesn\'t have an `alt`',
         // eslint-disable-next-line jsx-a11y/img-has-alt
         render: React => <img src="foo" />
     },

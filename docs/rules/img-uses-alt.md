@@ -24,7 +24,7 @@ an alternate text for an image, if the image cannot be displayed.
 ## Fails
 
 ```js
-// fails when the img doen't have an `alt`
+// fails when the img doesn't have an `alt`
 <img src="foo"/>
 
 // fails when the img has alt="" but no role="presentation"
@@ -33,5 +33,5 @@ an alternate text for an image, if the image cannot be displayed.
 
 ## See also
 
- - [This document](https://dev.w3.org/html5/alt-techniques) from dev.w3.org
- - [This document](https://www.w3.org/TR/wai-aria/roles#presentation) from w3.org
+ - [This document](https://dequeuniversity.com/rules/axe/2.1/image-alt) from dequeuniversity.com
+ - [This document](https://www.w3.org/WAI/PF/aria/roles#presentation) from w3.org
