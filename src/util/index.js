@@ -19,10 +19,7 @@ export const devices = {
 export const fn = () => null;
 
 // builds url for specific google AX Rule
-export const AXURL = ax =>
-    `https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#${ax}`;
+export const AXURL = ax => `https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#${ax}`;
 
 export const warnRuleDeprecated = (currentRule, newRule) =>
-    console.warn(
-        `[react-a11y]: Warning: the rule ${currentRule} is deprecated.  Use the rule ${newRule} instead.`
-    );
+    console.warn(`[react-a11y]: Warning: the rule ${currentRule} is deprecated.  Use the rule ${newRule} instead.`);
