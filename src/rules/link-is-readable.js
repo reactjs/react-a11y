@@ -3,10 +3,12 @@ import { hasProp, isReadable } from '../util';
 export default [
     {
         tagName: 'a',
-        msg: 'Links should be readable.',
+        msg:
+            'Links should contain text, images with alt attributes, or have an ' +
+            "aria-label attribute so that users understand the link's purpose.",
         url:
             'https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-refs.html',
-        //AX: 'AX_ARIA_01', <- gotta look this up
+        AX: 'AX_TEXT_04',
         test(tagName, props, children, ctx) {
             const text = [];
 
@@ -53,6 +55,15 @@ export const fail = [
         when: 'a link is just a non-breaking space',
         // eslint-disable-next-line jsx-a11y/link-is-readable
         render: React => <a href="/home">&nbsp;</a>
+    },
+    {
+        when: 'a link has an image with empty alt',
+        // eslint-disable-next-line jsx-a11y/link-is-readable
+        render: React => (
+            <a href="/home">
+                <img src="home.png" alt="" />
+            </a>
+        )
     },
     {
         when: 'a link has an image with empty alt',
