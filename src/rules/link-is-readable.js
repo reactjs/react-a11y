@@ -50,6 +50,11 @@ export const fail = [
         render: React => <a href="/home" />
     },
     {
+        when: 'a link is just a non-breaking space',
+        // eslint-disable-next-line jsx-a11y/link-is-readable
+        render: React => <a href="/home">&nbsp;</a>
+    },
+    {
         when: 'a link has an image with empty alt',
         // eslint-disable-next-line jsx-a11y/link-is-readable
         render: React => (
