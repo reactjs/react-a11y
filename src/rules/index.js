@@ -15,6 +15,7 @@ export default {
     'tabindex-no-positive': require('./tabindex-no-positive').default,
     'tabindex-uses-button': require('./tabindex-uses-button').default,
     'aria-unsupported-elements': require('./aria-unsupported-elements').default,
+    'table-has-header-cell': require('./table-has-header-cell').default,
 
     // DEPRECATED RULES
     'avoid-positive-index': require('./avoid-positive-index').default,
