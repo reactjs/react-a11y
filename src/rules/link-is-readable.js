@@ -9,7 +9,7 @@ export default [
         url:
             'https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-refs.html',
         AX: 'AX_TEXT_04',
-        test(tagName, props, children, ctx) {
+        test(tagName, props, children) {
             const text = [];
 
             if (hasProp(props, 'aria-label')) {
