@@ -3,10 +3,19 @@ React A11y
 
 [![build status](https://img.shields.io/travis/reactjs/react-a11y/master.svg?style=flat-square)](https://travis-ci.org/reactjs/react-a11y)
 
-Warns about potential accessibility issues with your React elements.
+Identifies accessibility issues in your React.js elements
 
 ![screenshot](http://i.imgur.com/naQTETB.png)
 
+
+# ⛔️DEPRECATION NOTICE ⛔️
+This library is being deprecated in favor of [react-axe](https://github.com/dequelabs/react-axe).  
+Deque Systems are one of the top authorities on web accessibility.  Their auditing tools based on their axe-core 
+engine are unrivaled and have become the gold standard for auditing web accessibility issues.  Now that they have 
+developed a runtime React DOM auditing tool, that does what react-a11y attempts to do but better, it seems 
+counterproductive to continue to maintain react-a11y.  Let's pool our resources and energies into the best product and 
+I believe any accessibility tool backed by the experts at Deque Systems is bound to be one we can trust and depend on. 
+Please go check out and install [react-axe](https://github.com/dequelabs/react-axe) today!
 
 ## Installation
 
