@@ -1,20 +1,20 @@
-# react-a11y
+React A11y
+==========
 
 [![build status](https://img.shields.io/travis/reactjs/react-a11y/master.svg?style=flat-square)](https://travis-ci.org/reactjs/react-a11y)
 
-Identifies accessibility issues in your React.js elements.
+Identifies accessibility issues in your React.js elements
 
 ![screenshot](http://i.imgur.com/naQTETB.png)
 
-## ⛔️DEPRECATION NOTICE ⛔️
 
-**This library is being deprecated in favor of [react-axe](https://github.com/dequelabs/react-axe).**
-
-Deque Systems are one of the top authorities on web accessibility. Their auditing tools based on their `axe-core`
-engine are unrivaled and have become the gold standard for auditing web accessibility issues.  Now that they have
-developed a runtime React DOM auditing tool, that does what `react-a11y` attempts to do but better, it seems
-counterproductive to continue to maintain react-a11y. Let's pool our resources and energies into the best product and
-I believe any accessibility tool backed by the experts at Deque Systems is bound to be one we can trust and depend on.
+# ⛔️DEPRECATION NOTICE ⛔️
+This library is being deprecated in favor of [react-axe](https://github.com/dequelabs/react-axe).  
+Deque Systems are one of the top authorities on web accessibility.  Their auditing tools based on their axe-core 
+engine are unrivaled and have become the gold standard for auditing web accessibility issues.  Now that they have 
+developed a runtime React DOM auditing tool, that does what react-a11y attempts to do but better, it seems 
+counterproductive to continue to maintain react-a11y.  Let's pool our resources and energies into the best product and 
+I believe any accessibility tool backed by the experts at Deque Systems is bound to be one we can trust and depend on. 
 Please go check out and install [react-axe](https://github.com/dequelabs/react-axe) today!
 
 ## Installation
@@ -48,25 +48,24 @@ if (process.env.NODE_ENV === 'development') {
 }
 ```
 
-You probably don't want to call it if you're in production, since it patches the
+You probably don't want to call it if you're in production, since it patches the 
 React rendering functions and this might make this slower.
 
 ## Migrating to v1.1.0
-
 A number of the rule names have changed and the previous rule names have been deprecated.  These deprecated rules will
 be removed in v2.0.0.  The following is the mapping of old to new rules:
 
-| Old Rule                         | New Rule                     |
-| -------------------------------- | ---------------------------- |
-| avoid-positive-tabindex          | tabindex-no-positive         |
-| button-role-space                | click-events-have-key-events |
-| label-uses-for                   | label-has-for                |
-| mouse-events-map-to-key-events   | mouse-events-have-key-events |
-| no-unsupported-elements-use-aria | aria-unsupported-elements    |
-| onclick-uses-tabindex            | interactive-supports-focus   |
-| redundant-alt                    | img-redundant-alt            |
-| use-onblur-not-onchange          | no-onchange                  |
-| valid-aria-role                  | aria-role                    |
+| Old Rule      | New Rule    |
+| ------------- | ----------- |
+| avoid-positive-tabindex | tabindex-no-positive |
+| button-role-space | click-events-have-key-events |
+| label-uses-for | label-has-for |
+| mouse-events-map-to-key-events | mouse-events-have-key-events |
+| no-unsupported-elements-use-aria | aria-unsupported-elements |
+| onclick-uses-tabindex | interactive-supports-focus |
+| redundant-alt | img-redundant-alt |
+| use-onblur-not-onchange | no-onchange |
+| valid-aria-role | aria-role |
 
 ## Options
 
@@ -77,7 +76,7 @@ annotations
 a11y(React : React, ReactDOM : ReactDOM, opts : object? );
 ```
 
-`React` is the React object you want to shim to allow the
+`React` is the React object you want to shim to allow the 
 accessibility tests.
 
 `ReactDOM` is the ReactDOM object you're using to render the
@@ -85,69 +84,68 @@ React components. This is only used on the client side, so you
 can safely omit it when using `react-a11y` in node.
 
 ### `options`:
+  - `plugins : [string]`
+    An array of strings corresponding to names of plugins to be used.
+    Eg. if the array contains `'aria-wai'` it would include the rules 
+    in a (yet to be written) `react-a11y-plugin-aria-wai` module.  You
+    are responsible for installing this module.
 
-- `plugins : [string]`
-  An array of strings corresponding to names of plugins to be used.
-  Eg. if the array contains `'aria-wai'` it would include the rules
-  in a (yet to be written) `react-a11y-plugin-aria-wai` module.  You
-  are responsible for installing this module.
-
-- `rules : object`
-  The configuration options for each of the rules. This uses the same format
-  as [eslint][] does:
-
-  ```javascript
-  const rules = {
-    'img-uses-alt': 'off',
-    'redundant-alt': [
-      'warn',
-      // other options to pass to the rule:
-      [
-        'foto'
+  - `rules : object`
+    The configuration options for each of the rules. This uses the same format
+    as [eslint][] does: 
+    
+    ```javascript
+    const rules = {
+      'img-uses-alt': 'off',
+      'redundant-alt': [
+        'warn',
+        // other options to pass to the rule:
+        [
+          'foto'
+        ]
       ]
-    ]
-  };
-  ```
+    };
+    ```
+    
+    Refer to the [rule docs](docs/rules) 
+    to see what options are defined for each rule.
 
-  Refer to the [rule docs](docs/rules)
-  to see what options are defined for each rule.
+  - `reporter : object => undefined`
+    Use this to modify how the warnings are displayed.
+    The reporter is a function that accepts an object with
+    the following keys:
+    - `msg : string` - the error message
+    - `tagName : string` - the tagName of the violating element (eg. `'img'`)
+    - `severity : string` - the severity as configured by the user in the 
+      corresponding rule configuration (one of `'off'`, `'warn'`, or `'error'`)
+    - `props : object` - the props as passed to the element
+    - `displayName : string?` - the `displayName` of the owner, if any
+    - `DOMNode : object?` - the violating DOMNode as rendered to the browser
+      DOM, this is only available on when `react-a11y` is running in the
+      browser.
+    - `url : string?` - The url to a webpage explaining why this rule
+      is important
 
-- `reporter : object => undefined`
-  Use this to modify how the warnings are displayed.
-  The reporter is a function that accepts an object with
-  the following keys:
-  - `msg : string` - the error message
-  - `tagName : string` - the tagName of the violating element (eg. `'img'`)
-  - `severity : string` - the severity as configured by the user in the
-    corresponding rule configuration (one of `'off'`, `'warn'`, or `'error'`)
-  - `props : object` - the props as passed to the element
-  - `displayName : string?` - the `displayName` of the owner, if any
-  - `DOMNode : object?` - the violating DOMNode as rendered to the browser
-    DOM, this is only available on when `react-a11y` is running in the
-    browser.
-  - `url : string?` - The url to a webpage explaining why this rule
-    is important
+    The default reporter displays all the information it can, but listens
+    to the deprecated options `includeSrcNode`, `warningPrefix` and
+    `throwErro` and `throwError`.
 
-  The default reporter displays all the information it can, but listens
-  to the deprecated options `includeSrcNode`, `warningPrefix` and
-  `throwErro` and `throwError`.
+  - `filterFn : (string, string, string) => boolean`
+    You can filter failures by passing a function to the `filterFn` option. The
+    filter function will receive three arguments: the name of the Component
+    instance or ReactElement, the id of the violating element, and the failure
+    message.
 
-- `filterFn : (string, string, string) => boolean`
-  You can filter failures by passing a function to the `filterFn` option. The
-  filter function will receive three arguments: the name of the Component
-  instance or ReactElement, the id of the violating element, and the failure
-  message.
+    Note: If it is a ReactElement, the name will be the node type (eg. `div`)
 
-  Note: If it is a ReactElement, the name will be the node type (eg. `div`)
+    ```javascript
+    // only show errors on CommentList
+    const commentListFailures = function (name, id, msg) {
+      return name === "CommentList";
+    };
 
-  ```javascript
-  // only show errors on CommentList
-  const commentListFailures = function (name, id, msg) {
-    return name === "CommentList";
-  };
-
-  a11y(React, ReactDOM, { filterFn: commentListFailures });
-  ```
+    a11y(React, ReactDOM, { filterFn: commentListFailures });
+    ```
 
 ## Cleaning Up In Tests
 
@@ -162,7 +160,7 @@ afterEach(() => a11y.restoreAll());
 ## Writing plugins
 
 The rules in this version of `react-a11y` are pluggable!
-You can write your own plugin to add more rules.  Have a look at
+You can write your own plugin to add more rules.  Have a look at 
 [writing plugins](docs/plugins.md) in the
 docs to get started!
 
