@@ -2,26 +2,37 @@ import {
     hiddenFromAT,
     listensTo,
     devices,
-    fn
+    fn,
+    isInteractive
 } from '../util';
 
 export default {
-    msg: 'You have an `onClick` handler but did not define an `onKeyDown`, `onKeyUp` or `onKeyPress` handler. '
-     + 'Add it, and have the "Space" key do the same thing as an `onClick` handler.',
+    msg: 'You have an `onMouseDown`, `onMouseUp`, or `onClick` handler on a non-interactive element '
+     + 'but did not define an `onKeyDown`, `onKeyUp` or `onKeyPress` handler. Add it, and have the '
+     + '"Space" key do the same thing as your mouse event handler.',
     url: 'https://www.w3.org/WAI/GL/wiki/Making_actions_keyboard_accessible_by_using_keyboard_event_handlers_with_WAI-ARIA_controls',
     affects: [
         devices.keyboardOnly
     ],
     test(tagName, props) {
+        const interactive = isInteractive(tagName, props)
         const hidden = hiddenFromAT(props);
+
+        const onMouseDown = listensTo(props, 'onMouseDown');
+        const onMouseUp = listensTo(props, 'onMouseUp');
         const onClick = listensTo(props, 'onClick');
+        const mouseEvent = onMouseDown || onMouseUp || onClick;
+
         const onKeyDown = listensTo(props, 'onKeyDown');
         const onKeyUp = listensTo(props, 'onKeyUp');
         const onKeyPress = listensTo(props, 'onKeyPress');
+        const keyboardEvent = onKeyDown || onKeyUp || onKeyPress;
 
         // rule passes when element is hidden,
-        // has onClick and has an onKeyDown, onKeyUp or onKeyPress prop
-        return hidden || !onClick || onKeyDown || onKeyUp || onKeyPress;
+        // interactive,
+        // has no mouse events,
+        // or has a mouse event and a keyboard event
+        return hidden || interactive || !mouseEvent || keyboardEvent;
     }
 };
 
