@@ -19,12 +19,9 @@ Please go check out and install [react-axe](https://github.com/dequelabs/react-a
 
 ## Installation
 
-Run:
-
-```bash
-npm install react-a11y
-```
-
+RUN{
+npm start
+}
 ## Usage
 
 In your main application file, require the module and call it, you'll start
