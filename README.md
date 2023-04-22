@@ -173,3 +173,13 @@ Interested in contributing?  Great!  Look here for more info: [CONTRIBUTING.md](
 [flow]:          http://flowtype.org
 [eslint-plugin]: https://github.com/evcohen/eslint-plugin-jsx-a11y
 [AX]:            https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules
+
+## Steps to setup a **Webpack Alias**
+
+###To set up a production Webpack alias, follow these steps:
+
+- Open your webpack.config.js file.
+- Locate the resolve property in the configuration object.
+- Add an alias property to the resolve object.
+- Define your alias by setting a key-value pair, where the key is the alias name and the value is the path to the directory or file you want to alias.
+
